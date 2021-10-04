@@ -1,0 +1,298 @@
+.section4 {
+  .container {
+    width: 76%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 60px 0;
+
+    .Caption-box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .col-6 {
+        display: flex;
+        padding: 19px 0;
+
+        h3 {
+          width: max-content;
+          margin-right: 15px;
+          font-family: Gosha Sans;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 29px;
+          letter-spacing: 0em;
+          text-align: left;
+        }
+
+        .curriculum {
+          position: relative;
+
+          .selected {
+            width: 238px;
+            height: 50px;
+            user-select: none;
+            display: flex;
+            cursor: pointer;
+            padding: 16px 25px 15px 25px;
+            background: #f4f4f4;
+            border: 2px solid #eaeaea;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .textOption {
+              font-family: Proxima Nova;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 19px;
+              letter-spacing: 0em;
+              text-align: left;
+            }
+            .arrowDown {
+              font-size: 20px;
+              cursor: pointer;
+              margin-top: -4px;
+            }
+
+            .rotate{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .up{
+              transition: 0.3s;
+              margin-top: 3px;
+            }
+            .down{
+              transition: 0.3s;
+              transform-origin: 50% 50%;
+              transform: rotateX(180deg);
+              margin-bottom: 3px;
+            }
+          }
+
+          .options {
+            overflow: hidden;
+            width: 238px;
+            height: 0px;
+            position: absolute;
+            z-index: 3;
+            user-select: none;
+            margin-top: 15px;
+            background: #ffffff;
+            border: 2px solid #eaeaea;
+            box-sizing: border-box;
+            transition: all 0.4s;
+            z-index: 30;
+
+            &-opt {
+              padding: 30px;
+            }
+            .select {
+              display: flex;
+              cursor: pointer;
+            }
+
+            .select p {
+              width: 100px;
+              color: rgba(72, 72, 72, 1);
+              font-family: Proxima Nova;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 19px;
+              letter-spacing: 0em;
+              text-align: left;
+            }
+
+            .true p {
+              color: rgba(0, 0, 0, 1);
+            }
+
+            .select .radio {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 20px;
+              width: 20px;
+              margin-left: 58px;
+              border-radius: 1000vw;
+              border-radius: 1px solid black;
+
+              div {
+                position: relative;
+                z-index: 2;
+                width: 14px;
+                height: 14px;
+                border-radius: 1000vw;
+                outline: 1.5px solid black;
+                border: 2.5px solid white;
+              }
+
+              .circle {
+                position: relative;
+                z-index: 2;
+                width: 14px;
+                height: 14px;
+                border-radius: 1000vw;
+                outline: 1.5px solid black;
+                border: 2.5px solid white;
+
+                background-color: black;
+              }
+            }
+
+            .select:nth-child(n-2) {
+              margin-top: 30px;
+            }
+
+            .select:nth-child(1) {
+              margin: 0;
+            }
+          }
+          // .up{
+          //     height: 0px;
+          //     padding-top: 0;
+          //     padding-bottom: 0;
+          //     border: none;
+          // }
+          // .down{
+          //     height: 302px;
+          //     padding-top: 0;
+          //     padding-bottom: 0;
+          //     border: none;
+          // }
+        }
+      }
+    }
+
+    .accardion-box {
+      display: flex;
+      justify-content: space-between;
+      &-left,
+      &-right {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 15px;
+
+        .accardion-box-item {
+          width: 100%;
+          margin-bottom: 15px;
+          border: 2px solid #eaeaea;
+          background: #f4f4f4;
+
+          &-top {
+            width: 100%;
+            height: 100px;
+            padding: 15px;
+            cursor: pointer;
+
+            &-hover {
+              width: 100%;
+              height: 100%;
+              padding: 0 15px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              transition: background 0.4s;
+
+              &:hover {
+                background: rgba(233, 233, 233, 1);
+              }
+
+              .text {
+                span {
+                  font-family: "Proxima Nova Rg";
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 19px;
+                  letter-spacing: 0em;
+                  text-align: left;
+                  color: #484848;
+                  margin-bottom: 5px;
+                }
+
+                h4 {
+                  font-family: "Proxima Nova Lt";
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 24px;
+                  letter-spacing: 0em;
+                  text-align: left;
+                }
+              }
+              .icon {
+                font-size: 26px;
+                cursor: pointer;
+                transition: all 0.6s;
+              }
+              .icon.rotate {
+                transform: rotate(90deg);
+              }
+            }
+          }
+          &-bottom {
+            height: 0;
+            width: 100%;
+            padding: 0 30px;
+            position: relative;
+            transition: all 0.6s;
+            overflow: hidden;
+
+            ul {
+              list-style: none;
+              position: relative;
+              z-index: 25;
+              li {
+                font-family: "Proxima Nova Rg";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 19px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #484848;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+
+                span {
+                  color: #484848;
+                  display: inline-block;
+                  width: 15px;
+                  height: 1px;
+                  background-color: #484848;
+                  margin-right: 15px;
+                }
+              }
+            }
+            img {
+              position: absolute;
+              bottom: -155px;
+              right: -130px;
+              z-index: 0;
+            }
+          }
+        }
+      }
+      &-right {
+        margin-right: 0;
+      }
+    }
+  }
+}

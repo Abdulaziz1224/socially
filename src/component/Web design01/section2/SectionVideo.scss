@@ -1,0 +1,36 @@
+.sectionVideo {
+  width: 100%;
+  padding: 60px 0;
+
+  .video-box {
+    width: 76%;
+    margin: auto;
+
+    .text_icon {
+      display: flex;
+      align-items: center;
+
+      .text {
+        width: max-content;
+        font-family: Gosha Sans;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-right: 15px;
+
+        .icon {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .video_link {
+      max-width: 100%;
+      height: auto;
+      margin-top: 30px;
+    }
+  }
+}

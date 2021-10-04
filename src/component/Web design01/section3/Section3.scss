@@ -1,0 +1,95 @@
+.section3 {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  background-image: url("../../../backgroundImages/veryDots.svg");
+  padding-bottom: 60px;
+
+  .container {
+    width: 76%;
+    margin: auto;
+
+    .head {
+      width: max-content;
+      display: flex;
+      align-items: center;   
+      padding: 60px 0 30px 0;
+
+      h3 {
+        width: max-content;
+        margin-right: 15px;
+        font-family: Gosha Sans;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+    }
+
+    .categories {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 20px;
+      justify-content: space-between;
+
+      .card {
+        width: 49%;
+        padding: 30px 25px 30px 30px;
+        border: 2px solid #eaeaea;
+        background-color: #ffffff;
+        position: relative;
+        overflow: hidden;
+
+        .title {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          user-select: none;
+          margin: -25px 0 0 -28px;
+
+          .icon {
+            position: relative;
+            margin-left: -65px;
+            margin-top: -8px;
+          }
+
+          h3 {
+            text-align: left;
+            margin-left: 25px;
+            font-family: "Proxima Nova Lt";
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+          }
+        }
+
+        .text {
+          color: #484848;
+          font-family: "Proxima Nova Rg";
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 30px;
+          letter-spacing: 0em;
+          text-align: left;
+          position: relative;
+          z-index: 6555;
+        }
+
+        .backgroundShape {
+          position: absolute;
+          top: -15px;
+          right: -130px;
+          z-index: 0;
+        }
+      }
+    }
+  }
+}
