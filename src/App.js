@@ -1,20 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Design01 from "./component/Web design01/Design01/Design01";
-import AvailableCourses from "./component/Asosiy qism/available courses/AvailableCourses";
+
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+// import Design01 from "./component/Web design01/Design01/Design01";
 import "./app.scss";
-import Blog from "./component/Asosiy qism/blogs/Blog";
+import Basis from "./component/Asosiy qism/Basis/Basis";
 
 function App() {
   return (
     <div className="app">
-      {/* <Router>
-        <Design01 />
-      </Router> */}
-      <AvailableCourses />
-      <Blog />
+
+      <Router>
+        {/* <Switch> */}
+        <Basis />
+        {/* <Design01 /> */}
+        {/* <BasicPart /> */}
+        {/* </Switch> */}
+      </Router>
     </div>
   );
-} 
+}
 
 export default App;
