@@ -102,7 +102,8 @@
 
                 &-title {
                     width: 100%;
-                    text-align: center;
+                    text-align: left;
+                    margin-left: 30px;
                     margin-bottom: 39px;
                     
 
@@ -125,7 +126,7 @@
                     text-decoration: none;
                     text-align: center;
                     color: black;
-                    margin-left: 5%;
+                    margin-left: 30px;
                     margin-bottom: 30px;
                     // padding: 16px 15px 15px 30px;
                     background: #FFFFFF;
@@ -158,6 +159,26 @@
             }
         }
     }
+}
+
+@media (max-width:1050px){
+    .availableCourses{
+        .container{
+
+            .box{
+
+                .card{
+                    &-title{
+                        margin-left: 10px;
+                    }
+                    .full-info{
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 @media (max-width:991px) {
