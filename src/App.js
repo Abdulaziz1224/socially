@@ -2,8 +2,9 @@ import React from "react";
 
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 // import Design01 from "./component/Web design01/Design01/Design01";
+// import Basis from "./component/Asosiy qism/Basis/Basis";
+import Kurs from "./component/Kurs/Kurs";
 import "./app.scss";
-import Basis from "./component/Asosiy qism/Basis/Basis";
 
 function App() {
   return (
@@ -11,9 +12,9 @@ function App() {
 
       <Router>
         {/* <Switch> */}
-        <Basis />
         {/* <Design01 /> */}
-        {/* <BasicPart /> */}
+        {/* <Basis /> */}
+        <Kurs/>
         {/* </Switch> */}
       </Router>
     </div>

@@ -5,7 +5,8 @@
   padding: 28px 0 32px;
 
   .container {
-    width: 76%;
+    max-width: 1036px;
+    width: 80%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -59,6 +60,35 @@
           transform: scale(1.1);
           color: rgb(39, 42, 226);
         }
+      }
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .container {
+      max-width: 685px;
+      min-width: 685px;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 767px) {
+    .container {
+      max-width: 540px;
+      min-width: 540px;
+    }
+  }
+  @media (max-width: 575px) {
+    .container {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+
+      .connecting-text{
+        .link:last-child{
+          margin-right: 0;
+        }
+      }
+      .connecting-icon{
+        display: none;
       }
     }
   }

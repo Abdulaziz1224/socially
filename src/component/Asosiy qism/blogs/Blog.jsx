@@ -68,15 +68,11 @@ function Blog() {
             </a>
             <div className="underline"></div>
           </div>
-
-          {/* <a href="Blogs" className="allBlogs">
-            <img src="/images/Asosiy qism/available courses/arrow.svg" alt="arrow"/>
-          </a> */}
         </div>
 
         <div className="blogBox">
           {blog.map((obj) => {
-            return <BlogCard
+            return <BlogCard key = {Math.random()*100000}
               img={window.innerWidth > 500
               ? obj.img
               : resBlog.img}
