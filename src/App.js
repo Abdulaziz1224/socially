@@ -11,10 +11,11 @@ function App() {
 
       <Router>
         {/* <Switch> */}
-        <Basis />
+        {/* <Basis /> */}
         {/* <Design01 /> */}
         {/* <BasicPart /> */}
         {/* </Switch> */}
+        <Form />
       </Router>
     </div>
   );
