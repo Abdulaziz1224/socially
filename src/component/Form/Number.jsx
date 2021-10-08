@@ -7,32 +7,62 @@ function Number() {
 
   const [number,
     setnumber] = useState("")
-  const [num, setNum] = useState(0)
+  // const [num, setNum] = useState(0)
   const [space,
     setSpace] = useState(0)
 
   useEffect(() => {
     let num = number
 
-    if (isNaN(parseInt(num.slice(-1))) && num.slice(-1) !== " ") {
-      setnumber(num.slice(0, -1))
+    if (num.charAt(0) !== "+") {
+      num = "+" + num.slice(1)
+      setnumber(num)
+    }
+    if (num.charAt(1) !== "9") {
+      num = num.slice(0, 1) + "9" + num.slice(3)
+      setnumber(num)
+    }
+    if (num.charAt(2) !== "9") {
+      num = num.slice(0, 2) + "9" + num.slice(4)
+      setnumber(num)
+    }
+    if (num.charAt(3) !== "8") {
+      num = num.slice(0, 3) + "8" + num.slice(5)
+      setnumber(num)
+    }
+    if (num.charAt(4) !== " ") {
+      num = num.slice(0, 4) + " " + num.slice(6)
+      setnumber(num)
+    }
+    if (num.charAt(5) !== "(" && num.charAt(5) !== "") {
+      num = num.slice(0, 5) + "(" + num.slice(5)
+      setnumber(num)
+    }
+    if (num.charAt(8) !== ")" && num.charAt(7) !== "" && num.charAt(7) !== ")" && num.charAt(8) !== "") {
+      num = num.slice(0, 8) + ") " + num.slice(8)
+      setnumber(num)
+    }
+    if (num.charAt(9) !== " " && num.charAt(9) !== "") {
+      num = num.slice(0, 9) + " " + num.slice(9)
+      setnumber(num)
+    }
+    if (num.charAt(13) !== "-" && num.charAt(13) !== "") {
+      num = num.slice(0, 13) + "-" + num.slice(13)
+      setnumber(num)
+    }
+    if (num.charAt(16) !== "-" && num.charAt(16) !== "") {
+      num = num.slice(0, 16) + "-" + num.slice(16)
+      setnumber(num)
     }
 
-    if (number.length <= 4 && number.length !== 0) {
-      setnumber("+998 ")
-    }
-    if (number.length === 7 || number.length === 11 || number.length === 14) {
-      if (space < 3) {
-        setnumber(number + " ")
-        setSpace(space+1)
+    for (let i = 0; i < num.length; i++) {
+      let check = num.charAt(i)==="+" || num.charAt(i)==="(" || num.charAt(i)===")" || num.charAt(i)===" " || num.charAt(i)==="-"
+      if (isNaN(parseInt(num.charAt(i))) && !check) {
+        num = num.slice(0,i) + num.slice(i+1)
+        setnumber(num)
       }
+    }
 
-      if (num.slice(-1)===" ") {
-        setnumber(num.slice(0, -2))
-      }
-      console.log(space+": ",number.length)
-    }
-    
   }, [number])
 
   // function emty(){   if (number.length === 0) {     setnumber("+998 ")   } }
@@ -63,7 +93,7 @@ function Number() {
               setnumber("+998 ")
             }
           }}
-            maxLength="17"/>
+            maxLength="19"/>
           <Link to="authNumber" className="check">
             Tekshirish
             <img src="images/Form/arrow.svg" alt="arrow"/>
