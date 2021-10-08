@@ -1,23 +1,21 @@
-import React from 'react'
-import {useState} from "react"
-import "./form.scss"
+import React from "react";
+import { useState } from "react";
+import "./form.scss";
 
 function Form() {
-
-  const [formType,
-    setFormType] = useState("authNumber")
+  const [formType, setFormType] = useState("authNumber");
 
   function authNumber() {
-		let html = getHtml()
+    let html = getHtml();
 
-		return html
-	}
+    return html;
+  }
 
   function login() {
-		let html = getHtml()
+    let html = getHtml();
 
-		return html
-	}
+    return html;
+  }
   function signup() {}
 
   function getHtml() {
@@ -27,13 +25,16 @@ function Form() {
           <div className="box">
             <h1>Tizimga kirish</h1>
             <p>
-              Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga kirishingiz kerak
-              bo‘ladi
+              Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga
+              kirishingiz kerak bo‘ladi
             </p>
-            <input type="text"/>
-            <button >
+            <input type="text" />
+            <button>
               Tekshirish
-              <img src="images/Asosiy Qism/available courses/arrow.svg" alt="arrow"/>
+              <img
+                src="images/Asosiy Qism/available courses/arrow.svg"
+                alt="arrow"
+              />
             </button>
           </div>
         );
@@ -42,20 +43,19 @@ function Form() {
           <div className="box">
             <h1>Tizimga kirish</h1>
             <p>
-              Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga kirishingiz kerak
-              bo‘ladi
+              Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga
+              kirishingiz kerak bo‘ladi
             </p>
-            <input type="text"/>
-            <input type="password"/>
-            <button className="forgetPass">
-              Parolni unutdingizmi?
-            </button>
-            <button className="restorePass">
-              Parolni tiklash
-            </button>
+            <input type="text" />
+            <input type="password" />
+            <button className="forgetPass">Parolni unutdingizmi?</button>
+            <button className="restorePass">Parolni tiklash</button>
             <button className="">
               Tizimga kirish
-              <img src="images/Asosiy Qism/available courses/arrow.svg" alt="arrow"/>
+              <img
+                src="images/Asosiy Qism/available courses/arrow.svg"
+                alt="arrow"
+              />
             </button>
           </div>
         );
@@ -64,18 +64,21 @@ function Form() {
           <div className="box">
             <h1>Ro‘yxatdan o‘tish</h1>
             <p>
-              Saytning to‘liq imkoniyatlaridan foydalanish uchun ro‘yxatdan o‘tishingiz kerak
-              bo‘ladi
+              Saytning to‘liq imkoniyatlaridan foydalanish uchun ro‘yxatdan
+              o‘tishingiz kerak bo‘ladi
             </p>
-            <input type="text"/>
-            <input type="password"/>
-            <input type="password"/>
+            <input type="text" />
+            <input type="password" />
+            <input type="password" />
             <button className="">
               Ro’yxatdan o’tish
-              <img src="images/Asosiy Qism/available courses/arrow.svg" alt="arrow"/>
+              <img
+                src="images/Asosiy Qism/available courses/arrow.svg"
+                alt="arrow"
+              />
             </button>
           </div>
-        )
+        );
     }
   }
 
@@ -84,15 +87,13 @@ function Form() {
       <div className="background">
         <div className="authNumber">
           <button>
-            <img src="/images/form/x.svg" alt=""/>
+            <img src="/images/form/x.svg" alt="" />
           </button>
-					{
-						authNumber()
-					}
+          {authNumber()}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
