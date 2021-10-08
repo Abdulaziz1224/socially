@@ -1,23 +1,24 @@
 import React from "react";
 import Navbar from "../../Navbar/Navbar";
-import "./header.scss";
-function Header() {
+import "./mainSection.scss";
+
+function MainSection() {
   return (
-    <div className="header">
+    <div className="mainSection">
       <Navbar />
       <div className="header-bottom">
         <div className="header-bottom-text">
-          <h3>Web Design 01.</h3>
+          <h4>
+            O‘rganish uchun orzu <br /> emas harakat qiling!
+          </h4>
           <span>
-            UX/UI & Web Design bo‘yicha professional onlayn video kurs. Turli
-            yo‘nalishlarda real case web dizaynlar tayyorlash orqali o‘rganasiz.
+            UX/UI va Grafik Dizaynni o‘rganish <br /> uchun maxsus akademiya
           </span>
-
           <a href="#section1">
             <img
               src="images/Web Design01/header/arrowDown.svg"
               alt="arrowDown"
-            />{" "}
+            />
             Pastga suring
           </a>
         </div>
@@ -26,26 +27,26 @@ function Header() {
       <div className="gradient2"></div>
       <div className="images">
         <img
-          src="images/Web Design01/header/Ellipse 22.svg"
-          className="ellipse"
-          alt="ellipse"
+          src="images/Asosiy Qism/BasisHeader/Union.svg"
+          className="union"
+          alt="union"
         />
 
         <img
-          src="images/Web Design01/header/2img.svg"
-          alt="phon1"
-          className="phone1"
+          src="images/Asosiy Qism/BasisHeader/ellipse.svg"
+          alt="ellipse"
+          className="ellipse"
         />
         <div className="infiniteText">
           <img
-            src="images/Web Design01/header/illus.svg"
+            src="images/Asosiy Qism/BasisHeader/Yozuv.svg"
             alt="text"
-            className="vector"
+            className="circleText"
           />
           <img
             src="images/Web Design01/header/1005.svg"
             alt="text"
-            className="textDoira"
+            className="circleImg"
           />
         </div>
       </div>
@@ -53,4 +54,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default MainSection;
