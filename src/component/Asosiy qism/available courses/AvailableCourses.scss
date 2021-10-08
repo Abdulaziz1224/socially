@@ -1,0 +1,177 @@
+.availableCourses {
+  width: 100%;
+  margin: 0 auto;
+
+  .container {
+    width: 80%;
+    max-width: 1036px;
+    margin: 0 auto;
+    margin-top: 71px;
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+          font-family: Gosha Sans;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 29px;
+          letter-spacing: 0em;
+          text-align: left;
+          margin-right: 15px;
+        }
+
+        .img {
+          width: 66px;
+          height: 24px;
+          background-image: url("../../../backgroundImages/Group 130.png");
+        }
+      }
+
+      .allCourses {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 217px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+
+        background: #f4f4f4;
+        border: 1px solid #eaeaea;
+
+        font-family: Proxima Nova Lt;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        &::before {
+          content: "Barcha kurslarimiz";
+        }
+
+        &:hover {
+          background: rgba(255, 171, 0, 1);
+          border: 2px solid transparent;
+        }
+
+        img {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 991px) {
+  .availableCourses {
+    width: 685px;
+    .container {
+      max-width: 685px;
+      min-width: 685px;
+
+      .head {
+        .title {
+          h1 {
+            font-size: 18px;
+            line-height: 19px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .availableCourses {
+    width: auto;
+    .container {
+      width: 540px;
+      max-width: 540px;
+      min-width: auto;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .availableCourses {
+    width: 100%;
+
+    .container {
+      max-width: 90%;
+      min-width: 90%;
+      height: auto;
+
+      .head {
+        margin-top: 30px;
+
+        .title {
+          h1 {
+            min-width: 138px;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19.2px;
+            letter-spacing: 0em;
+            text-align: left;
+          }
+
+          .img {
+            width: 60px;
+            min-width: 24px;
+            background-image: url("../../../backgroundImages/short group 130.png");
+            background-repeat: no-repeat;
+          }
+        }
+
+        .btn {
+          margin-left: -15px;
+          .underline {
+            width: 54px;
+            height: 2px;
+            border-radius: 1px;
+            position: relative;
+            transition: width 0.3s;
+            background: rgba(72, 72, 72, 1);
+          }
+        }
+
+        .allCourses {
+          width: 79px;
+          height: 20px;
+          background: none;
+          border: none;
+          color: rgba(72, 72, 72, 1);
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 17px;
+          letter-spacing: 0em;
+          text-align: left;
+
+          &:hover {
+            background: none;
+          }
+
+          &::before {
+            content: "Barchasi";
+          }
+        }
+      }
+
+    }
+  }
+}

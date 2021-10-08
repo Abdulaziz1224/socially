@@ -1,0 +1,227 @@
+.availableBox {
+  display: flex;
+  width: 80%;
+  max-width: 1036px;
+  margin: 0 auto;
+
+  .card {
+    width: 332px;
+    height: max-content;
+    margin-right: 20px;
+    user-select: none;
+
+    background: #ffffff;
+    border: 2px solid #dad9d9;
+
+    &-img {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &-title {
+      width: 100%;
+      text-align: left;
+      margin-left: 30px;
+      margin-bottom: 39px;
+
+      font-family: Proxima Nova Rg;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+
+    .full-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 193px;
+      background: rgba(255, 171, 0, 1);
+      text-decoration: none;
+      text-align: center;
+      color: black;
+      margin-left: 30px;
+      margin-bottom: 30px;
+      // padding: 16px 15px 15px 30px;
+      background: #ffffff;
+      border: 2px solid #eaeaea;
+      transition: 200ms;
+
+      font-family: Proxima Nova Lt;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+
+      &:hover {
+        background: rgba(255, 171, 0, 1);
+        border: 2px solid transparent;
+      }
+
+      img {
+        margin-left: 5px;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .card:last-of-type {
+    margin-right: 0;
+  }
+}
+@media (max-width: 1050px) {
+  .availableBox {
+    .card {
+      &-title {
+        margin-left: 10px;
+      }
+      .full-info {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .availableBox {
+    max-width: 685px;
+    min-width: 685px;
+
+    .card {
+      width: 215px;
+      height: 341px;
+
+      &-img {
+        margin: 0;
+      }
+
+      &-title {
+        margin: 15px 15px 0 15px;
+
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      .full-info {
+        width: 160px;
+        height: 40px;
+        margin: 24px 40px 15px 15px;
+      }
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .availableBox {
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    max-width: 540px;
+    min-width: auto;
+
+    .card {
+      width: 250px;
+      height: 410px;
+      user-select: none;
+      margin: 0;
+
+      background: #ffffff;
+      border: 2px solid #dad9d9;
+
+      &-img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      &-title {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      .full-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 193px;
+        margin: 0;
+        margin-top: 15px;
+        background: rgba(255, 171, 0, 1);
+        text-decoration: none;
+        text-align: center;
+        color: black;
+        margin-left: 15px;
+        background: #ffffff;
+        border: 2px solid #eaeaea;
+        transition: 200ms;
+
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        &:hover {
+          background: rgba(255, 171, 0, 1);
+          border: 2px solid transparent;
+        }
+
+        img {
+          margin-left: 5px;
+          margin-top: 3px;
+        }
+      }
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .availableBox {
+    max-width: 90%;
+    min-width: 90%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    .card {
+      margin: 0 auto 15px auto;
+      height: auto;
+      width: 100%;
+
+      &-title {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      .full-info {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+      }
+    }
+
+    .card:last-of-type {
+      display: none;
+    }
+  }
+}
