@@ -104,7 +104,7 @@
                 right: 80px;
             }
 
-            a:-webkit-any-Link {
+            a {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -167,6 +167,49 @@
                         width: 109px;
                         border: 1px solid #000000;
                     }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:575px){
+    .authNumber{
+        background: transparent;
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .container{
+            position: static;
+            width: 343px;
+            height: 349px;
+            transform: none;
+
+            .xBtn{
+                display: none;
+            }
+
+            .box{
+                width: 100%;
+                height: 315px;
+                margin: 0;
+                padding: 30px;
+                padding-bottom: 17px;
+
+                h1{
+                    font-size: 24px;
+                    margin-bottom: 5px;
+                    line-height: 28px;
+                }
+
+                .check{
+                    padding: 16px 65px 15px 65px;
+                }
+
+                input{
+                    margin-bottom: 15px;
                 }
             }
         }
