@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../../Navbar/Navbar";
-import "./kursTop.scss";
-function KursTop() {
+import "./blogTop.scss";
+function BlogTop() {
   return (
-    <div className="kursTop">
+    <div className="blogTop">
       <Navbar />
       <div className="header-bottom">
         <div className="header-bottom-text">
-          <h4>Hozir o‘rganing</h4>
+          <h4>Foyda bering va oling!</h4>
           <span>
-            Hozir vaqtimizni nima qilish bilan o‘tkazsak, ertaga ham,
-            butun hayotimiz ham shu ishlar ustida o‘tadi.
+            Hozir vaqtimizni nima qilish bilan o‘tkazsak, ertaga ham, butun
+            hayotimiz ham shu ishlar ustida o‘tadi.
           </span>
           <a href="#section1">
             <img
@@ -39,4 +39,4 @@ function KursTop() {
   );
 }
 
-export default KursTop;
+export default BlogTop;

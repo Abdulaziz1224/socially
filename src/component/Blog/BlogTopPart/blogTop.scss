@@ -1,4 +1,4 @@
-.kursTop {
+.blogTop {
   width: 100%;
   height: 464px;
   background-image: url("../../../backgroundImages/Chiziqchalar kurs.svg");
@@ -16,7 +16,7 @@
     z-index: 20;
 
     &-text {
-      width: 60%;
+      width: 63%;
       display: flex;
       flex-direction: column;
 
@@ -24,11 +24,11 @@
         font-family: Gosha Sans;
         font-size: 48px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 58px;
         letter-spacing: 0em;
         text-align: left;
-        margin: 141px 0 15px 0;
+        margin: 141px 0 10px 0;
       }
       span {
         font-family: "Proxima Nova Rg";
@@ -39,7 +39,7 @@
         letter-spacing: 0em;
         text-align: left;
         color: #484848;
-        width: 75%;
+        width: 80%;
       }
       a {
         display: none;
@@ -137,7 +137,7 @@
 // MEDIA LG [WIDTH: (992:1200)] //
 
 @media (max-width: 991px) {
-  .kursTop {
+  .blogTop {
     height: 588px;
     background-image: url("../../../backgroundImages/Chiziqchalar TableKurs.svg");
     background-size: cover;
@@ -198,7 +198,7 @@
 // MEDIA SM [WIDTH: (576:768)] //
 
 @media (max-width: 767px) {
-  .kursTop {
+  .blogTop {
     background-image: url("../../../backgroundImages/Chiziqchalar TableKurs.svg");
     background-size: cover;
     background-position: center center;
@@ -246,7 +246,7 @@
 // MEDIA SM [WIDTH: (0:575)] //
 
 @media (max-width: 575px) {
-  .kursTop {
+  .blogTop {
     background-image: url("../../../backgroundImages/Chiziqchalar kursPhone.svg");
     background-size: cover;
     background-position: center center;

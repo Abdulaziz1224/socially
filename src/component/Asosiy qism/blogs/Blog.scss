@@ -82,14 +82,17 @@
       .card {
         display: flex;
         max-height: 169px;
+        background: rgb(255, 255, 255);
+        border: 2px solid rgb(234, 234, 234);
+        transition: border .4s ease-in-out;
 
-        background: #ffffff;
-        border: 2px solid #dad9d9;
+        &:hover {
+          border: 2px solid rgb(218, 217, 217);
+        }
 
         .textAndDate {
           .text {
             margin: 46px 30px 0px 30px;
-
             font-family: Proxima Nova Lt;
             font-size: 20px;
             font-style: normal;

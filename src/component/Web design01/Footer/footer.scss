@@ -2,12 +2,16 @@
   width: 100%;
   background-color: #f4f4f4;
   background-image: url("../../../backgroundImages/veryDots.svg");
-  padding: 28px 0 32px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
 
   .container {
     max-width: 1036px;
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,10 +60,6 @@
           transition: all 0.4s;
           transform: scale(1);
         }
-        .icon:hover {
-          transform: scale(1.1);
-          color: rgb(39, 42, 226);
-        }
       }
     }
   }
@@ -82,12 +82,12 @@
       display: flex;
       justify-content: center;
 
-      .connecting-text{
-        .link:last-child{
+      .connecting-text {
+        .link:last-child {
           margin-right: 0;
         }
       }
-      .connecting-icon{
+      .connecting-icon {
         display: none;
       }
     }
