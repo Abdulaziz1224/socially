@@ -7,6 +7,9 @@ function Number() {
 
   const [number,
     setnumber] = useState("")
+  const [num, setNum] = useState(0)
+  const [space,
+    setSpace] = useState(0)
 
   useEffect(() => {
     let num = number
@@ -18,13 +21,21 @@ function Number() {
     if (number.length <= 4 && number.length !== 0) {
       setnumber("+998 ")
     }
+    if (number.length === 7 || number.length === 11 || number.length === 14) {
+      if (space < 3) {
+        setnumber(number + " ")
+        setSpace(space+1)
+      }
+
+      if (num.slice(-1)===" ") {
+        setnumber(num.slice(0, -2))
+      }
+      console.log(space+": ",number.length)
+    }
+    
   }, [number])
 
-  // function emty(){
-  //   if (number.length === 0) {
-  //     setnumber("+998 ")
-  //   }
-  // }
+  // function emty(){   if (number.length === 0) {     setnumber("+998 ")   } }
 
   return (
     <div className="number">
@@ -41,17 +52,18 @@ function Number() {
             bo‘ladi
           </p>
           <input
-            type="text"
+            type="tel"
             placeholder="Telefon raqamingiz"
             value={number}
             onChange={(e) => {
-            setnumber(e.target.value)}}
-            onFocus={()=>{
-              if (number.length === 0) {
-                  setnumber("+998 ")
-                }
-            }}
-            />
+            setnumber(e.target.value)
+          }}
+            onFocus={() => {
+            if (number.length === 0) {
+              setnumber("+998 ")
+            }
+          }}
+            maxLength="17"/>
           <Link to="authNumber" className="check">
             Tekshirish
             <img src="images/Form/arrow.svg" alt="arrow"/>

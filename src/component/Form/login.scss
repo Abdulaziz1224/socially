@@ -1,4 +1,4 @@
-.number {
+.login {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
 
     .container {
         width: 442px;
-        height: 388px;
+        height: 483px;
         background: #FFFFFF;
         border: 2px solid #EAEAEA;
         position: absolute;
@@ -61,7 +61,7 @@
                 outline: none;
                 padding: 15px 20px;
 
-                margin-bottom: 40px;
+                margin-bottom: 16px;
                 border: 2px solid #EAEAEA;
                 // color: rgba(72, 72, 72, 1);
 
@@ -74,12 +74,42 @@
                 text-align: left;
             }
 
-            a:-webkit-any-Link {
+            // .errorMsg {
+            //     width: 164px;
+            //     height: 47px;
+            //     position: absolute;
+            //     top: 150px;
+            //     right: 23px;
+            //     text-align: center;
+            //     padding-top: 13px;
+            //     padding-left: 15px;
+            //     color: rgba(243, 73, 74, 1);
+
+            //     background: #FFFFFF;
+            //     border: 2px solid rgba(72, 72, 72, 0.15);
+
+            //     font-family: Proxima Nova Lt;
+            //     font-size: 14px;
+            //     font-style: normal;
+            //     font-weight: 600;
+            //     line-height: 17px;
+            //     letter-spacing: 0em;
+            //     text-align: left;
+
+            // }
+
+            // .errorImg {
+            //     position: absolute;
+            //     top: 203px;
+            //     right: 80px;
+            // }
+
+            .regLink:-webkit-any-Link {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 block-size: auto;
-                padding: 16px 112px 15px 113px;
+                padding: 16px 89px 15px 90px;
                 text-decoration: none;
                 background: #FFAB00;
                 color: black;
@@ -96,49 +126,48 @@
                     margin-left: 5px;
                 }
             }
-        }
-    }
-}
 
-@media (max-width:575px){
-    .number{
-        background: transparent;
-        position: static;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .container{
-            position: static;
-            width: 343px;
-            height: 315px;
-            transform: none;
+            .password {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
 
-            .xBtn{
-                display: none;
-            }
+                .forget {
+                    margin-bottom: 31px;
+                    color: rgba(72, 72, 72, 1);
 
-            .box{
-                width: 100%;
-                height: 315px;
-                margin: 0;
-                padding: 30px;
-                padding-bottom: 17px;
+                    font-family: Proxima Nova Rg;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 19px;
+                    letter-spacing: 0em;
+                    text-align: left;
 
-                h1{
-                    font-size: 24px;
-                    margin-bottom: 5px;
-                    line-height: 28px;
                 }
 
-                a{
-                    padding: 16px 65px 15px 65px;
-                }
+                .reset {
+                    text-decoration: none;
+                    background: transparent;
+                    color: #000000;
 
-                input{
-                    margin-bottom: 30px;
-                }
+                    font-family: Proxima Nova Lt;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 19px;
+                    letter-spacing: 0em;
+                    text-align: right;
 
-                a{
+                    button {
+                        border: none;
+                        outline: none;
+                    }
+
+                    .underline {
+                        width: 101px;
+                        border: 1px solid #000000;
+                    }
                 }
             }
         }

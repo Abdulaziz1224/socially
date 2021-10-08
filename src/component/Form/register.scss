@@ -1,4 +1,4 @@
-.number {
+.register {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
 
     .container {
         width: 442px;
-        height: 388px;
+        height: 516px;
         background: #FFFFFF;
         border: 2px solid #EAEAEA;
         position: absolute;
@@ -61,7 +61,7 @@
                 outline: none;
                 padding: 15px 20px;
 
-                margin-bottom: 40px;
+                margin-bottom: 16px;
                 border: 2px solid #EAEAEA;
                 // color: rgba(72, 72, 72, 1);
 
@@ -74,12 +74,42 @@
                 text-align: left;
             }
 
-            a:-webkit-any-Link {
+            .errorMsg {
+                width: 164px;
+                height: 47px;
+                position: absolute;
+                top: 150px;
+                right: 23px;
+                text-align: center;
+                padding-top: 13px;
+                padding-left: 15px;
+                color: rgba(243, 73, 74, 1);
+
+                background: #FFFFFF;
+                border: 2px solid rgba(72, 72, 72, 0.15);
+
+                font-family: Proxima Nova Lt;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 17px;
+                letter-spacing: 0em;
+                text-align: left;
+
+            }
+
+            .errorImg {
+                position: absolute;
+                top: 203px;
+                right: 80px;
+            }
+
+            a {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 block-size: auto;
-                padding: 16px 112px 15px 113px;
+                padding: 16px 87px 15px 88px;
                 text-decoration: none;
                 background: #FFAB00;
                 color: black;
@@ -96,12 +126,55 @@
                     margin-left: 5px;
                 }
             }
+
+            .counterAndResend {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                .counter {
+                    margin-bottom: 31px;
+                    color: rgba(72, 72, 72, 1);
+
+                    font-family: Proxima Nova Rg;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 19px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                }
+
+                .resend {
+
+                    button {
+                        background: transparent;
+                        border: none;
+                        outline: none;
+
+                        font-family: Proxima Nova Lt;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 19px;
+                        letter-spacing: 0em;
+                        text-align: right;
+
+                    }
+
+                    .underline {
+                        width: 109px;
+                        border: 1px solid #000000;
+                    }
+                }
+            }
         }
     }
 }
 
 @media (max-width:575px){
-    .number{
+    .register{
         background: transparent;
         position: static;
         display: flex;
@@ -110,7 +183,7 @@
         .container{
             position: static;
             width: 343px;
-            height: 315px;
+            height: 453px;
             transform: none;
 
             .xBtn{
@@ -122,7 +195,6 @@
                 height: 315px;
                 margin: 0;
                 padding: 30px;
-                padding-bottom: 17px;
 
                 h1{
                     font-size: 24px;
@@ -132,13 +204,6 @@
 
                 a{
                     padding: 16px 65px 15px 65px;
-                }
-
-                input{
-                    margin-bottom: 30px;
-                }
-
-                a{
                 }
             }
         }

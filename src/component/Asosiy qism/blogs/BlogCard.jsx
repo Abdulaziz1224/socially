@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function BlogCard({img,text,date}) {
-    return (
-        <div className="card">
-            <img src={img} alt="blog image" />
-            <div className="textAndDate">
-                <h2 className="text">{text}</h2>
-                <p className="date">{date}</p>
-            </div>
-        </div>
-    )
+function BlogCard(props) {
+  return (
+    <div className="card">
+      <img src={props.img} alt="blogImage" />
+      <div className="textAndDate">
+        <h2 className="text">{props.text}</h2>
+        <p className="date">{props.date}</p>
+      </div>
+    </div>
+  );
 }
 
-export default BlogCard
+export default BlogCard;

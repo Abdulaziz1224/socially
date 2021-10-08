@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState, useEffect} from "react"
 import {BrowserRouter as Route, Link} from "react-router-dom"
+import "./login.scss"
+
 
 function AuthNumber() {
 
@@ -15,7 +17,7 @@ function AuthNumber() {
   }, [number])
 
   return (
-    <div className="authNumber">
+    <div className="login">
       <div className="container">
 
         <Link to="/" className="xBtn">
@@ -28,10 +30,30 @@ function AuthNumber() {
             Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga kirishingiz kerak
             bo‘ladi
           </p>
-          <input type="text"/>
-          <Link to="/register">
+          <input
+            type="tel"
+            placeholder="Telefon raqamingiz"
+            value={number}
+            onChange={(e) => {
+            setnumber(e.target.value)
+          }}
+            onFocus={() => {
+            if (number.length === 0) {
+              setnumber("+998 ")
+            }
+          }}
+            maxLength="17"/>
+          <input type="password" required placeholder="Password"/>
+          <div className="password">
+            <p className="forget">Parolni unutdingizmi?</p>
+            <Link className="reset" to="number">
+              Parolni tiklash
+              <div className="underline"></div>
+            </Link>
+          </div>
+          <Link to="/register" className="regLink">
             Tizimga kirish
-            <img src="images/Form/ok.svg" alt="accept"/>
+            <img src="images/Form/arrow.svg" alt="arrow"/>
           </Link>
         </div>
 
