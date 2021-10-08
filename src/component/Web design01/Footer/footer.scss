@@ -9,10 +9,15 @@
   padding-top: 10px;
 
   .container {
+<<<<<<< HEAD
     max-width: 1036px;
     width: 80%;
 
     margin: 0 auto;
+=======
+    width: 76%;
+    margin: auto;
+>>>>>>> parent of c0a7fe5 (change)
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,6 +69,7 @@
       }
     }
   }
+<<<<<<< HEAD
 
   @media (min-width: 768px) and (max-width: 991px) {
     .container {
@@ -93,4 +99,6 @@
       }
     }
   }
+=======
+>>>>>>> parent of c0a7fe5 (change)
 }

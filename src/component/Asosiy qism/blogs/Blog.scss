@@ -1,4 +1,5 @@
 .blogs {
+<<<<<<< HEAD
   width: 100%;
   margin: 0 auto;
 
@@ -28,52 +29,102 @@
           text-align: left;
           margin-right: 15px;
         }
+=======
+    width: 100%;
+    margin: 0 auto;
+>>>>>>> parent of c0a7fe5 (change)
 
-        .img {
-          width: 24px;
-          min-width: 24px;
-          height: 24px;
+    .container {
+        width: 80%;
+        max-width: 1036px;
+        margin: 60px auto 60px auto;
 
-          background-image: url("../../../backgroundImages/short group 130.svg");
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .theme {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h1 {
+                    font-family: Gosha Sans;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 29px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    margin-right: 15px;
+
+                }
+
+                .img {
+                    width: 24px;
+                    min-width: 24px;
+                    height: 24px;
+
+                    background-image: url("../../../backgroundImages/short group 130.svg");
+                }
+            }
+
+            .allBlogs {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                width: 217px;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+
+                background: #F4F4F4;
+                border: 1px solid #EAEAEA;
+
+                font-family: Proxima Nova LT;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 19px;
+                letter-spacing: 0em;
+                text-align: left;
+
+                &:hover {
+                    background: rgba(255, 171, 0, 1);
+                    border: 2px solid transparent;
+                }
+
+                &::before {
+                    content: "Barcha maqolalarimiz";
+                }
+
+                img {
+                    margin-left: 5px;
+                }
+            }
         }
-      }
 
-      .allBlogs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50px;
-        width: 217px;
-        text-align: center;
-        text-decoration: none;
-        color: black;
+        .blogBox {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 20px;
 
-        background: #f4f4f4;
-        border: 1px solid #eaeaea;
+            .card {
+                display: flex;
+                max-height: 169px;
 
-        font-family: Proxima Nova LT;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
+                background: #FFFFFF;
+                border: 2px solid #DAD9D9;
 
-        &:hover {
-          background: rgba(255, 171, 0, 1);
-          border: 2px solid transparent;
-        }
+                .textAndDate {
 
-        &::before {
-          content: "Barcha maqolalarimiz";
-        }
+                    .text {
+                        margin: 46px 30px 0px 30px;
 
-        img {
-          margin-left: 5px;
-        }
-      }
-    }
-
+<<<<<<< HEAD
 
   }
 }
@@ -82,32 +133,129 @@
   .blogs {
     .container {
       max-width: 910px;
+=======
+                        font-family: Proxima Nova Lt;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 24px;
+                        letter-spacing: 0em;
+                        text-align: left;
+
+                    }
+
+                    .date {
+                        margin: 5px 0 0 30px;
+                        color: rgba(72, 72, 72, 1);
+
+                        font-family: Proxima Nova Rg;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: normal;
+                        line-height: 24px;
+                        letter-spacing: 0em;
+                        text-align: left;
+
+                    }
+                }
+            }
+        }
     }
-  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .blogs {
+        .container {
+            max-width: 910px;
+
+            .blogBox {
+
+                .card {
+
+                    .textAndDate {
+
+                        .text {
+                            max-height: 96px;
+                            // margin: 30px 30px 0px 30px;
+                            overflow: scroll;
+                            color: rgba(0, 0, 0, 1);
+
+                            font-family: Proxima Nova Lt;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 19px;
+                            letter-spacing: 0em;
+                            text-align: left;
+
+                        }
+                    }
+                }
+            }
+        }
+>>>>>>> parent of c0a7fe5 (change)
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .blogs {
-    width: 100%;
+    .blogs {
+        width: 100%;
 
+<<<<<<< HEAD
     .container {
       max-width: 685px;
       min-width: 685px;
+=======
+        .container {
+            max-width: 720px;
+            min-width: 720px;
+
+            .blogBox {
+
+                .card {
+                    width: 350px;
+                    height: 119px;
+
+                    .textAndDate {
+                        .text {
+                            margin: 26px 15px 0 15px;
+
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 19px;
+                            letter-spacing: 0em;
+                            text-align: left;
+
+                        }
+
+                        .date {
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+>>>>>>> parent of c0a7fe5 (change)
     }
-  }
 }
 
-@media (max-width: 767px) {
-  .blogs {
-    .container {
-      width: 540px;
-      max-width: 540px;
-      min-width: auto;
+@media (max-width: 768px) {
+    .blogs {
+        .container {
+            max-width: 540px;
 
+<<<<<<< HEAD
+=======
+            .blogBox {
+                grid-template-columns: auto;
+            }
+        }
+>>>>>>> parent of c0a7fe5 (change)
     }
-  }
 }
 
+<<<<<<< HEAD
 @media (max-width: 576px) {
   .blogs {
     width: 100%;
@@ -173,6 +321,130 @@
       }
 
 
+=======
+@media (max-width:576px) {
+    .blogs {
+        // margin: 0 auto;
+        width: 375px;
+        max-width: 500px;
+        min-width: 375px;
+
+        .container {
+            width: 343px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+
+            .head {
+                margin-top: 30px;
+
+                .theme {
+
+                    h1 {
+                        width: max-content;
+
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 19px;
+                        letter-spacing: 0em;
+                        text-align: left;
+
+                    }
+
+                    .img {
+                        width: 24px;
+                        min-width: 24px;
+                        height: 24px;
+
+                        background-image: url("../../../backgroundImages/short group 130.svg");
+                    }
+                }
+
+                .allBlogs {
+                    width: 79px;
+                    height: 20px;
+                    background: none;
+                    border: none;
+                    color: rgba(72, 72, 72, 1);
+
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 17px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+
+                    &:hover {
+                        background: none;
+                    }
+
+                    &::before {
+                        content: "Barchasi";
+                    }
+                }
+
+                .btn {
+                    .underline {
+                        width: 54px;
+                        height: 2px;
+                        border-radius: 1px;
+                        position: relative;
+                        transition: width 0.3s;
+                        background: rgba(72, 72, 72, 1);
+                    }
+                }
+            }
+
+            .blogBox {
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+                grid-gap: 15px;
+
+                .card {
+                    width: 343px;
+                    height: 102px;
+
+                    .textAndDate {
+
+                        .text {
+                            margin: 22px 15px 0 15px;
+
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 19px;
+                            letter-spacing: 0em;
+                            text-align: left;
+
+                        }
+
+                        .date {
+                            margin: 0 0 0 15px;
+
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 21px;
+                            letter-spacing: 0em;
+                            text-align: left;
+
+                        }
+                    }
+
+                    img {
+                        width: 98px;
+                        height: 98px;
+                    }
+
+                    &:nth-last-child(6),
+                    &:nth-last-child(7),
+                    &:nth-last-child(8) {
+                        display: none;
+                    }
+                }
+            }
+        }
+>>>>>>> parent of c0a7fe5 (change)
     }
-  }
 }
