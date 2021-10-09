@@ -1,0 +1,134 @@
+.mainMiddle {
+  width: 100%;
+  background-color: rgba(244, 244, 244, 1);
+  background-image: url("../../backgroundImages/MainMiddle.svg");
+  background-repeat: no-repeat;
+  height: 3458px;
+  padding: 60px 0;
+
+  .container {
+    max-width: 1036px;
+    width: 80%;
+    margin: auto;
+
+    .box {
+      width: 100%;
+      margin-bottom: 20px;
+      img {
+        height: 100%;
+      }
+
+      &1 {
+        display: flex;
+        margin-bottom: 20px;
+        border: 2px solid rgba(234, 234, 234, 1);
+        .box-left {
+          img {
+            height: 100%;
+          }
+        }
+        .box-right {
+          width: 100%;
+          background-color: #fff;
+          padding: 30px 0 30px 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-left: 2px solid rgba(234, 234, 234, 1);
+
+          .caption-text {
+            &-top {
+              display: flex;
+              align-items: center;
+              img {
+                object-fit: contain;
+              }
+              span {
+                font-family: "Proxima Nova Rg";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+                letter-spacing: 0.03em;
+                text-align: left;
+                color: rgba(72, 72, 72, 1);
+                margin-left: 15px;
+              }
+            }
+            &-bottom {
+              p {
+                font-family: "Proxima Nova Rg";
+                font-size: 34px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 41px;
+                letter-spacing: 0.03em;
+                text-align: left;
+                margin-top: 15px;
+              }
+            }
+          }
+
+          .connecting {
+            display: flex;
+            .link {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 50px;
+              height: 50px;
+              border: 2px solid rgba(234, 234, 234, 1);
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 1);
+              margin-right: 15px;
+              cursor: pointer;
+              transition: all 0.4s;
+
+              a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              &:hover {
+                background: cyan;
+                border: 2px solid transparent;
+              }
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+      &2 {
+        p {
+          margin: 20px 0;
+          font-family: "Proxima Nova Rg";
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 30px;
+          letter-spacing: 0em;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+      max-width: 910px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 2381px;
+    .container {
+      max-width: 685px;
+      min-width: 685px;
+
+      
+    }
+  }
+}

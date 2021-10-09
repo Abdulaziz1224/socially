@@ -107,8 +107,8 @@
 
       .circleText {
         position: absolute;
-        bottom: 33%;
-        right: 28%;
+        bottom: 34%;
+        right: 27.9%;
         z-index: 1;
         animation: img 6s linear infinite;
         user-select: none;
@@ -151,6 +151,7 @@
         width: 100%;
 
         h4 {
+          width: 50%;
           font-size: 48px;
           font-style: normal;
           font-weight: 500;
@@ -212,6 +213,7 @@
         width: 100%;
 
         h4 {
+          width: 60%;
           margin: 225px 0 20px 0;
         }
         span {
@@ -261,15 +263,14 @@
       &-text {
         width: 100%;
         h4 {
-          font-family: Gosha Sans;
+          width: 75%;
           font-size: 34px;
-          font-style: normal;
           font-weight: 500;
-          line-height: 41px;
-          margin: 142px 0 15px 0;
+          line-height: 40px;
+          margin: 138px 0 5px 0;
         }
         span {
-          width: 70%;
+          width: 90%;
           font-size: 16px;
           line-height: 16px;
         }

@@ -24,14 +24,14 @@ function BlogTop() {
       <div className="gradient1"></div>
       <div className="gradient2"></div>
       <div className="images">
-        <img src="images/Kurs/Frame kurs.svg" className="union" alt="Frame" />
+        <img
+          src="images/Blog/Frame blogPart.svg"
+          className="union"
+          alt="Frame"
+        />
 
         <div className="infiniteText">
-          <img
-            src="images/Kurs/circleText.svg"
-            alt="text"
-            className="circleText"
-          />
+          <img src="images/Blog/1.svg" alt="text" className="circleText" />
           <img src="images/Kurs/101.svg" alt="text" className="circleImg" />
         </div>
       </div>

@@ -9,7 +9,7 @@ function Blog() {
       <div className="container">
         <div className="head">
           <div className="theme">
-            <h1>So'ngi maqolalarimiz</h1>
+            <h1>Maqolalarimiz</h1>
             <div className="img"></div>
           </div>
           <div className="btn">
