@@ -16,14 +16,41 @@ function Footer() {
           </Link>
         </div>
         <div className="connecting-icon">
-          <Link to="/instagram">
-            <FaInstagram className="icon" />
+          <Link
+            target="_blank"
+            to={{
+              pathname: "https://www.instagram.com/sociallyuz/",
+            }}
+          >
+            <img
+              src="/images/Web Design01/footer/instagram.png"
+              alt="instagram"
+              className="icon"
+            />
           </Link>
-          <Link to="/telegram">
-            <FaTelegramPlane className="icon" />
+          <Link
+            target="_blank"
+            to={{
+              pathname: "https://t.me/sociallyuz",
+            }}
+          >
+            <img
+              src="/images/Web Design01/footer/telegram.png"
+              alt="telegram"
+              className="icon"
+            />
           </Link>
-          <Link to="/facebook">
-            <FiFacebook className="icon" />
+          <Link
+            target="_blank"
+            to={{
+              pathname: "https://www.instagram.com/sociallyuz/",
+            }}
+          >
+            <img
+              src="/images/Web Design01/footer/facebook.png"
+              alt="facebook"
+              className="icon"
+            />
           </Link>
         </div>
       </div>

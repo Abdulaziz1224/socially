@@ -45,6 +45,7 @@
         &:last-child {
           margin: 0;
         }
+
         .title {
           margin-bottom: 15px;
           font-family: "Proxima Nova Lt";
@@ -66,14 +67,148 @@
           letter-spacing: 0em;
           text-align: left;
         }
+
         img {
           position: absolute;
-          bottom: -21%;
           left: 50%;
           right: 50%;
+          bottom: -80px;
           transform: translateX(-50%);
-          max-height: 165px;
-          max-width: 255px;
+          // max-height: 165px;
+          // max-width: 255px;
+          width: 90%;
+          height: 170px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:992px) {
+  .section5 {
+    width: 100%;
+
+    .container {
+      width: max-content;
+
+      .box {
+
+        .card {
+          width: 215px;
+          height: 271px;
+          padding: 15px 15px 50px 15px;
+
+          .title {
+            width: 185px;
+            font-size: 20px;
+            line-height: 24px;
+          }
+
+          p {
+            height: 96px;
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          img {
+            bottom: -50px;
+            width: 90%;
+            height: 116px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:740px) {
+  .section5 {
+    width: 100%;
+
+    .container {
+      // width: 80%;
+
+      .box {
+        // overflow-x: scroll;
+
+        .card {
+          width: 175px;
+          height: 235px;
+          padding: 15px 15px 50px 15px;
+
+          .title {
+            width: 140px;
+            font-size: 16px;
+            line-height: 20px;
+          }
+
+          p {
+            height: 96px;
+            font-size: 12px;
+            line-height: 19px;
+          }
+
+          img {
+            bottom: -50px;
+            width: 90%;
+            height: 116px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:576px) {
+  .section5 {
+    width: 100%;
+
+    .container {
+      width: 90%;
+
+      .box {
+        flex-direction: column;
+        grid-gap: 0;
+
+        .card {
+          width: 343px;
+          height: 246px;
+          margin-bottom: 100px;
+          padding: 30px;
+          margin: 0 auto 100px auto;
+
+
+          .title {
+            width: 100%;
+            font-size: 20px;
+            line-height: 24px;
+            margin-bottom: 5px;
+          }
+
+          p {
+            height: 72px;
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          img {
+            bottom: -80px;
+            width: 283px;
+            height: 170px;
+          }
+        }
+
+        .card:last-of-type {
+          height: 270px;
+          margin: 0 auto 100px auto;
+        }
+
+        .card:nth-child(2) {
+          height: 246px;
+        }
+
+        .card:nth-child(1) {
+          height: 232px;
         }
       }
     }

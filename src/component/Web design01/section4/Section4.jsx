@@ -56,8 +56,7 @@ function Section4() {
               <div className="selected" onClick={toggle}>
                 <p className="textOption">{check.text}</p>
                 <div className={heights === 0 ? "rotate up" : "rotate down"}>
-                  <IoIosArrowDown
-                  className="arrowDown" />
+                  <IoIosArrowDown className="arrowDown" />
                 </div>
               </div>
               <div

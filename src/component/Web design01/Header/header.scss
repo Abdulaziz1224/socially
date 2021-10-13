@@ -7,20 +7,26 @@
   background-position: center center;
   position: relative;
   overflow: hidden;
+  max-width: 1366px;
+  margin: 0 auto;
+
 
   .header-bottom {
     height: 90%;
     max-width: 1036px;
     width: 80%;
     margin: auto;
+    margin-left: 150px;
     display: flex;
     position: relative;
-    z-index: 20;
+    z-index: 24;
+    margin: 0 auto;
 
     &-text {
-      width: 60%;
+      width: 541px;
       display: flex;
       flex-direction: column;
+      margin-top: -10px;
 
       h3 {
         font-family: Gosha Sans;
@@ -32,9 +38,10 @@
         text-align: left;
         margin: 150px 0 50px 0;
       }
+
       span {
         font-family: Proxima Nova;
-        font-size: 18px;
+        font-size: 20px;
         font-style: normal;
         font-weight: 400;
         line-height: 30px;
@@ -45,7 +52,7 @@
 
       a {
         position: absolute;
-        bottom: 69px;
+        bottom: 3.6em;
         display: flex;
         align-items: center;
         font-family: Proxima Nova;
@@ -68,24 +75,21 @@
   .gradient1 {
     width: 80%;
     height: 100%;
-    background-image: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(255, 171, 0, 0.2) 0%,
-      rgba(255, 171, 0, 0) 100%
-    );
+    background-image: radial-gradient(50% 50% at 50% 50%,
+        rgba(255, 171, 0, 0.2) 0%,
+        rgba(255, 171, 0, 0) 100%);
     position: absolute;
     top: -30%;
     left: -30%;
     z-index: 0;
   }
+
   .gradient2 {
     width: 80%;
     height: 100%;
-    background-image: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(255, 171, 0, 0.2) 0%,
-      rgba(255, 171, 0, 0) 100%
-    );
+    background-image: radial-gradient(50% 50% at 50% 50%,
+        rgba(255, 171, 0, 0.2) 0%,
+        rgba(255, 171, 0, 0) 100%);
     position: absolute;
     bottom: -30%;
     right: -30%;
@@ -98,19 +102,21 @@
       z-index: 15;
       width: 72%;
       height: 72%;
-      bottom: 0%;
-      right: -10%;
+      bottom: 0;
+      right: -16%;
     }
+
     .phone1 {
       position: absolute;
       z-index: 20;
       right: -2%;
       bottom: -4%;
     }
+
     .infiniteText {
       position: absolute;
-      top: 32%;
-      right: 33%;
+      top: 44%;
+      right: 26%;
       z-index: 23;
       display: flex;
       flex-direction: column;
@@ -122,21 +128,150 @@
         z-index: 25;
         animation: img 6s linear infinite;
       }
+
       @keyframes img {
         0% {
           transform: rotate(0deg);
         }
+
         25% {
           transform: rotate(90deg);
         }
+
         50% {
           transform: rotate(180deg);
         }
+
         75% {
           transform: rotate(270deg);
         }
+
         100% {
           transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width:992px) {
+  .header {
+    height: 1194px;
+    background-image: url("../../../backgroundImages/Chiziqchalar Planshet.svg");
+
+    .navbar {
+      width: 80%;
+      max-width: auto;
+      min-width: auto;
+    }
+
+    .header-bottom {
+
+      &-text {
+        margin-top: 17vw;
+
+        h3 {
+          font-size: 60px;
+          margin-bottom: 49px;
+        }
+
+        span {
+          width: 441px;
+          height: 90px;
+        }
+
+        a {
+          bottom: 16px;
+          margin-left: 15px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .images {
+
+      .ellipse {
+        width: 665px;
+        height: 700px;
+        bottom: 0px;
+        right: -105px;
+      }
+
+      .infiniteText {
+        top: 700px;
+        right: 340px;
+      }
+    }
+  }
+}
+
+@media (max-width:767px) {
+  .navbar {
+    max-width: auto;
+  }
+
+  .header {
+
+    .header-bottom {
+
+      max-width: 540px;
+
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    height: 755px;
+    background-image: url("../../../backgroundImages/ChiziqchalarMobile.svg");
+    background-size: cover;
+    .header-bottom {
+
+      &-text {
+        margin-top: -10px;
+        margin-left: -2vw;
+
+        h3 {
+          font-size: 34px;
+          line-height: 40px;
+          margin-bottom: 15px;
+        }
+
+        span {
+          width: 343px;
+          height: 72px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        a {
+          bottom: 50px;
+          margin-left: -8px;
+        }
+      }
+    }
+
+    .images {
+
+      .ellipse {
+        width: 450px;
+        height: 617.5px;
+        bottom: -55px;
+        right: -120px;
+      }
+
+      .infiniteText {
+        width: 140px;
+        height: 140px;
+        top: 400px;
+        right: 170px;
+
+        .vector {
+          width: 72px;
+          height: 72px;
+          top: 20.2%;
+          right: 24.5%;
         }
       }
     }

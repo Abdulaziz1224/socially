@@ -1,3 +1,21 @@
+[class*="section"]{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  .container{
+    max-width: 1036px;
+
+    @media (max-width:992px) {
+      width: 80%;
+    }   
+  }
+  .video-box{
+    max-width: 1036px;
+  }
+}
 .section1 {
   background-color: #f4f4f4;
   width: 100%;

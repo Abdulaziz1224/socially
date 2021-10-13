@@ -1,9 +1,11 @@
 import React from 'react'
-import {useState, useEffect} from "react"
+import {useState, useEffect,useContext} from "react"
 import {BrowserRouter as Route, Link} from "react-router-dom"
 import "./register.scss"
+import {FormContext} from "../Navbar/Navbar"
 
-function Register() {
+
+function Register({active}) {
 
   const [name,
     setname] = useState("")
@@ -12,11 +14,14 @@ function Register() {
   const [checkPass,
     setCheckPass] = useState("")
 
-  return (
-    <div className="register">
-      <div className="container">
+  const {form, setForm} = useContext(FormContext)
+  
 
-        <Link to="/" className="xBtn">
+  return (
+    <div className="register" style={{display:form=="register"?"block":"none"}}>
+      <div className="container" className={form=="register"?"container active":"container active"}>
+
+        <Link to="/" className="xBtn" onClick={()=>setForm("")}>
           <img src="images/Form/x.svg" alt="x"/>
         </Link>
 
@@ -47,7 +52,7 @@ function Register() {
             setCheckPass(e.target.value)
           }}
             placeholder="Parolni kiriting"/>
-          <Link to="/number">
+          <Link to="/number" onClick={()=>setForm("number")}>
             Ro’yxatdan o’tish
             <img src="images/Form/arrow.svg" alt="accept"/>
           </Link>

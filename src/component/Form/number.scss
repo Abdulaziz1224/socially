@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     z-index: 99;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background: rgba(0, 0, 0, 0.15);
 
@@ -74,7 +74,7 @@
                 text-align: left;
             }
 
-            a:-webkit-any-Link {
+            a {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -94,6 +94,7 @@
 
                 img {
                     margin-left: 5px;
+                    margin-bottom: 2px;
                 }
             }
         }

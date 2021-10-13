@@ -8,7 +8,7 @@ function SectionVideo() {
       <div className="video-box">
         <div className="text_icon">
           <h3 className="text">Kurs haqida video</h3>
-            <img src="/images/Web design01/section-3/Group 130.svg" alt="svg" />
+          <img src="/images/Web design01/section-3/Group 130.svg" alt="svg" />
         </div>
 
         <div className="video_link">

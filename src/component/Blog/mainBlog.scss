@@ -1,9 +1,13 @@
-.mainBlog{
-     width: 100%;
+.mainBlog {
+  width: 100%;
 
-     .mainNavbar{
-          background-image: url(../../backgroundImages/mainNavbar.svg);
-          background-color: #ffffff;
-          width: 100%;
-     }
+  .mainNavbar {
+    background-image: url(../../backgroundImages/mainNavbar.svg);
+    background-color: #ffffff;
+    width: 100%;
+
+    @media (max-width: 992px) {
+      padding-bottom: 20px;
+    }
+  }
 }

@@ -26,15 +26,9 @@ function Header() {
       <div className="gradient2"></div>
       <div className="images">
         <img
-          src="images/Web Design01/header/Ellipse 22.svg"
+          src="images/Web Design01/header/headerBgImgDesc.svg"
           className="ellipse"
           alt="ellipse"
-        />
-
-        <img
-          src="images/Web Design01/header/2img.svg"
-          alt="phon1"
-          className="phone1"
         />
         <div className="infiniteText">
           <img

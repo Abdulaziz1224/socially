@@ -1,14 +1,18 @@
 import React from 'react'
-import {useState, useEffect} from "react"
+import {useState, useEffect,useContext} from "react"
 import {BrowserRouter as Route, Link} from "react-router-dom"
 import "./authNumber.scss"
+import {FormContext} from "../Navbar/Navbar"
 
-function AuthNumber() {
+
+function AuthNumber({active}) {
 
   const [number,
     setnumber] = useState("")
   const [timer,
     setTimer] = useState(60)
+
+  const {form, setForm} = useContext(FormContext)
 
   useEffect(() => {
     let num = number
@@ -35,10 +39,10 @@ function AuthNumber() {
   }, [timer])
 
   return (
-    <div className="authNumber">
-      <div className="container">
+    <div className="authNumber" style={{display:form=="authNumber"?"block":"none"}}>
+      <div className="container" className={form=="authNumber"?"container active":"container active"}>
 
-        <Link to="/" className="xBtn">
+        <Link to="/" className="xBtn" onClick={()=>setForm("")}>
           <img src="images/Form/x.svg" alt="x"/>
         </Link>
 
@@ -72,7 +76,7 @@ function AuthNumber() {
                 </div>
               : ""}
           </div>
-          <Link to="login" className="check">
+          <Link to="/" className="check" onClick={()=>setForm("login")}>
             Kodni tasdiqlash
             <img src="images/Form/ok.svg" alt="accept"/>
           </Link>
