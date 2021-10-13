@@ -6,9 +6,8 @@ import Basis from "./component/Asosiy qism/Basis/Basis";
 import Kurs from "./component/Kurs/Kurs";
 import BlogPart from "./component/Blog/BlogPart";
 import MainBlog from "./component/Blog/MainBlog";
-import Profil from "./component/Profil/Profil"
+import Profil from "./component/Profil/Profil";
 import "./app.scss";
-import Modal from "./component/Profil/Modal";
 
 function App() {
   return (
@@ -20,8 +19,7 @@ function App() {
           <Route path="/bloglar" exact strict component={BlogPart} />
           <Route path="/design" exact strict component={Design01} /> */}
           {/* <MainBlog/> */}
-          <Profil/>
-          <Modal/>
+          <Profil />
         </Switch>
       </Router>
     </div>

@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./mainSection.scss";
 import Modal from "./Modal";
+import Profil from "./Profil";
+
+export const Context = React.createContext();
 
 function MainSection() {
-  const [data, setData] = useState([]);
+  const [bool, setBool] = useState(false);
+  // const [data, setData] = useState([]);
+
+  const openModal = () => {
+    setBool(!bool);
+  };
+
   return (
     <div className="profilSection">
       <div className="container">
@@ -28,7 +37,7 @@ function MainSection() {
             </div>
           </div>
           <div className="tizim">
-            <button className="settings">
+            <button className="settings" onClick={openModal}>
               Profil sozlamalari
               <img src="images/Web Design01/footer/pen.png" alt="img" />
             </button>
@@ -100,7 +109,10 @@ function MainSection() {
           </div>
         </div>
       </div>
-      <Modal />
+      <Context.Provider value={{ bool, setBool }}>
+        <Modal />
+        <Profil/>
+      </Context.Provider>
     </div>
   );
 }
