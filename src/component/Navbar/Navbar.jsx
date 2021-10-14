@@ -9,11 +9,15 @@ import Register from "../form/Register";
 export const FormContext = React.createContext();
 
 function Navbar() {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(false);
   const [form, setForm] = useState("");
 
+  const navbarFunc = () => {
+    setStatus((prev) => !prev);
+  };
+
   return (
-    <div className="navbar">
+    <div className={status ? "phoneNavbar" : "navbar "}>
       <FormContext.Provider value={{ form, setForm }}>
         <Number />
         <AuthNumber />
@@ -61,8 +65,8 @@ function Navbar() {
           <img src="images/Web Design01/navbar/Person-icon.svg" alt="person" />
         </button>
         <div
-          className={`btn-burger ${status}`}
-          onClick={() => setStatus(status === "open" ? "" : "open")}
+          className={status ? "btn-burger open" : "btn-burger"}
+          onClick={navbarFunc}
         >
           <div className="burger"></div>
           <div className="burger1"></div>
