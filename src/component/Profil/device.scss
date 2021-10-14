@@ -1,3 +1,129 @@
-.device{
-     width: 100%;
+.device {
+  width: 100%;
+  .container {
+    padding-bottom: 60px;
+    max-width: 1036px;
+    width: 80%;
+    margin: auto;
+
+    .device-top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      h2 {
+        font-family: Gosha Sans;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 29px;
+        margin-right: 15px;
+      }
+    }
+    .device-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+}
+@media (max-width: 1175px) and (min-width: 993px) {
+  .container {
+    .device-bottom {
+      .sistema {
+        .systemDelete {
+          .qurilma {
+            .row {
+              padding: 15px 28px;
+
+              p {
+                .span1 {
+                  display: none;
+                }
+                .span2 {
+                  text-transform: capitalize;
+                  font-family: "Proxima Nova Lt";
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 17px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .device {
+    width: 100%;
+
+    .container {
+      max-width: 685px;
+      min-width: 685px;
+      .device-bottom {
+        .sistema {
+          .systemDelete {
+            .qurilma {
+              .row {
+                padding: 15px 28px;
+
+                p {
+                  .span1 {
+                    display: none;
+                  }
+                  .span2 {
+                    text-transform: capitalize;
+                    font-family: "Proxima Nova Lt";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 17px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .device {
+    width: 100%;
+
+    .container {
+      max-width: 540px;
+      min-width: 540px;
+
+      .device-bottom {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .device {
+    width: 100%;
+
+    .container {
+      max-width: 90%;
+      min-width: 90%;
+
+      .device-bottom {
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+      }
+
+      .device-bottom::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 }

@@ -1,0 +1,79 @@
+.sistema {
+  border: 2px solid rgba(234, 234, 234, 1);
+  padding: 30px 30px 37px 30px;
+
+  .title {
+    h3 {
+      font-family: "Proxima Nova Rg";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    span {
+      font-family: "Proxima Nova Rg";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+    }
+  }
+  .systemDelete {
+    display: flex;
+    flex-direction: column;
+    .activeBox {
+      display: none;
+      .row {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+
+        .green {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(37, 177, 104, 1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          position: relative;
+        }
+
+        p {
+          font-family: "Proxima Nova Lt";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 19px;
+          margin-left: 15px;
+        }
+      }
+    }
+    .qurilma {
+      //  display: none;
+      margin-top: 30px;
+      user-select: none;
+      .row {
+        display: flex;
+        border: 2px solid rgba(234, 234, 234, 1);
+        padding: 15px 30px;
+        cursor: pointer;
+        transition: all 0.4s;
+
+        span {
+          font-family: "Proxima Nova Lt";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 19px;
+        }
+        img {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

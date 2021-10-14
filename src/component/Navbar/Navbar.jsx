@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./navbar.scss";
 import Number from "../form/Number";
 import AuthNumber from "../form/AuthNumber";
@@ -11,7 +11,6 @@ export const FormContext = React.createContext();
 function Navbar() {
   const [status, setStatus] = useState("");
   const [form, setForm] = useState("");
-  // const [xBtn, setXBtn] = useState({display:"none"})
 
   return (
     <div className="navbar">
@@ -29,23 +28,30 @@ function Navbar() {
       <div className="col-9">
         <ul>
           <li>
-            <Link to="kurslar">Kurslar</Link>
+            <NavLink to="kurslar" activeClassName="navLink">
+              Kurslar
+            </NavLink>
           </li>
           <li>
-            <Link to="bloglar">Bloglar</Link>
+            <NavLink to="bloglar" activeClassName="navLink">
+              Bloglar
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
+              activeClassName="navLink"
               target="_blank"
               to={{
                 pathname: "https://www.instagram.com/sociallyuz/",
               }}
             >
               Natijalar
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="design">Web design 01</Link>
+            <NavLink to="design" activeClassName="navLink">
+              Web design 01
+            </NavLink>
           </li>
         </ul>
       </div>

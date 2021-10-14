@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
+import { Context } from "./Profil";
 import "./mainSection.scss";
-import Modal from "./Modal";
-import Profil from "./Profil";
-
-export const Context = React.createContext();
 
 function MainSection() {
-  const [bool, setBool] = useState(false);
+  const { bool, setBool } = useContext(Context);
   // const [data, setData] = useState([]);
 
   const openModal = () => {
     setBool(!bool);
   };
-
   return (
     <div className="profilSection">
       <div className="container">
@@ -109,10 +105,6 @@ function MainSection() {
           </div>
         </div>
       </div>
-      <Context.Provider value={{ bool, setBool }}>
-        <Modal />
-        <Profil/>
-      </Context.Provider>
     </div>
   );
 }

@@ -14,11 +14,10 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
-          {/* <Route path="/" exact strict component={Basis} />
+          <Route path="/" exact strict component={Basis} />
           <Route path="/kurslar" exact strict component={Kurs} />
           <Route path="/bloglar" exact strict component={BlogPart} />
-          <Route path="/design" exact strict component={Design01} /> */}
-          {/* <MainBlog/> */}
+          <Route path="/design" exact strict component={Design01} />
           <Profil />
         </Switch>
       </Router>

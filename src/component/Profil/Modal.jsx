@@ -1,7 +1,6 @@
 import React, { useContext} from "react";
-// import MainSection from "./MainSection";
+import { Context } from "./Profil";
 import "./modal.scss";
-import { Context } from "./MainSection";
 
 function Modal() {
   const { bool, setBool } = useContext(Context);

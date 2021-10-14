@@ -10,7 +10,6 @@
   max-width: 1366px;
   margin: 0 auto;
 
-
   .header-bottom {
     height: 90%;
     max-width: 1036px;
@@ -75,9 +74,11 @@
   .gradient1 {
     width: 80%;
     height: 100%;
-    background-image: radial-gradient(50% 50% at 50% 50%,
-        rgba(255, 171, 0, 0.2) 0%,
-        rgba(255, 171, 0, 0) 100%);
+    background-image: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 171, 0, 0.2) 0%,
+      rgba(255, 171, 0, 0) 100%
+    );
     position: absolute;
     top: -30%;
     left: -30%;
@@ -87,9 +88,11 @@
   .gradient2 {
     width: 80%;
     height: 100%;
-    background-image: radial-gradient(50% 50% at 50% 50%,
-        rgba(255, 171, 0, 0.2) 0%,
-        rgba(255, 171, 0, 0) 100%);
+    background-image: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 171, 0, 0.2) 0%,
+      rgba(255, 171, 0, 0) 100%
+    );
     position: absolute;
     bottom: -30%;
     right: -30%;
@@ -154,20 +157,18 @@
   }
 }
 
-
-@media (max-width:992px) {
+@media (max-width: 992px) {
   .header {
     height: 1194px;
     background-image: url("../../../backgroundImages/Chiziqchalar Planshet.svg");
 
     .navbar {
       width: 80%;
-      max-width: auto;
-      min-width: auto;
+      max-width: 685px;
+      min-width: 685px;
     }
 
     .header-bottom {
-
       &-text {
         margin-top: 17vw;
 
@@ -190,7 +191,6 @@
     }
 
     .images {
-
       .ellipse {
         width: 665px;
         height: 700px;
@@ -206,27 +206,30 @@
   }
 }
 
-@media (max-width:767px) {
-  .navbar {
-    max-width: auto;
-  }
-
+@media (max-width: 767px) {
   .header {
-
-    .header-bottom {
-
+    .navbar {
       max-width: 540px;
-
+      min-width: 540px;
+    }
+    .header-bottom {
+      max-width: 540px;
     }
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .header {
     height: 755px;
     background-image: url("../../../backgroundImages/ChiziqchalarMobile.svg");
     background-size: cover;
+    .navbar {
+      max-width: 90%;
+      min-width: 90%;
+    }
     .header-bottom {
+      max-width: 90%;
+      min-width: 90%;
 
       &-text {
         margin-top: -10px;
@@ -253,7 +256,6 @@
     }
 
     .images {
-
       .ellipse {
         width: 450px;
         height: 617.5px;
