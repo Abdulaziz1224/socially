@@ -1,5 +1,7 @@
 .mainSection {
   width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
   height: 768px;
   background-image: url("../../../backgroundImages/Chiziqchalar2.svg");
   background-size: cover;
@@ -64,17 +66,17 @@
   }
 
   .gradient1 {
+    position: absolute;
     width: 1208px;
     height: 1208px;
-    border-radius: 50%;
+    left: -604px;
+    top: -604px;
+
     background: radial-gradient(
       50% 50% at 50% 50%,
       rgba(255, 171, 0, 0.25) 0%,
       rgba(255, 171, 0, 0) 100%
     );
-    position: absolute;
-    left: -604px;
-    top: -604px;
     z-index: 0;
   }
   .gradient2 {
@@ -177,6 +179,17 @@
       }
     }
 
+    .gradient1 {
+      width: 1004px;
+      height: 1004px;
+      left: -604px;
+      top: -604px;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(255, 171, 0, 0.25) 0%,
+        rgba(255, 171, 0, 0) 100%
+      );
+    }
     .gradient2 {
       left: 57px;
       top: 449px;

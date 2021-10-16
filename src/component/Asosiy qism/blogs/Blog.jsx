@@ -13,7 +13,7 @@ function Blog() {
             <div className="img"></div>
           </div>
           <div className="btn">
-            <Link to="Blogs" className="allBlogs">
+            <Link to="bloglar" className="allBlogs">
               <img
                 src="/images/Asosiy Qism/available courses/arrow.svg"
                 alt="arrow"

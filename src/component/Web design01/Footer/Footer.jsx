@@ -23,7 +23,7 @@ function Footer() {
             }}
           >
             <img
-              src="/images/Web Design01/footer/instagram.png"
+              src="/images/Web Design01/footer/instagram.svg"
               alt="instagram"
               className="icon"
             />
@@ -35,7 +35,7 @@ function Footer() {
             }}
           >
             <img
-              src="/images/Web Design01/footer/telegram.png"
+              src="/images/Web Design01/footer/telegram.svg"
               alt="telegram"
               className="icon"
             />
@@ -47,7 +47,7 @@ function Footer() {
             }}
           >
             <img
-              src="/images/Web Design01/footer/facebook.png"
+              src="/images/Web Design01/footer/facebook.svg"
               alt="facebook"
               className="icon"
             />

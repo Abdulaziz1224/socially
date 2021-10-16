@@ -24,15 +24,26 @@ function MainMiddle() {
             </div>
             <div className="connecting">
               <div className="link">
-                <Link to="/instagram">
+                <Link
+                  to={{
+                    pathname: "https://www.instagram.com/sociallyuz/",
+                  }}
+                  target="_blank"
+                >
                   <img
                     src="/images/Web Design01/footer/instagram.svg"
                     alt="instagram"
                   />
                 </Link>
               </div>
+
               <div className="link">
-                <Link to="/telegram">
+                <Link
+                  to={{
+                    pathname: " https://t.me/sociallyuz",
+                  }}
+                  target="_blank"
+                >
                   <img
                     src="/images/Web Design01/footer/telegram.svg"
                     alt="instagram"
@@ -40,15 +51,25 @@ function MainMiddle() {
                 </Link>
               </div>
               <div className="link">
-                <Link to="/facebook">
+                <Link
+                  to={{
+                    pathname: " https://t.me/sociallyuz",
+                  }}
+                  target="_blank"
+                >
                   <img
-                    src="/images/Web Design01/footer/faceebook.svg"
+                    src="/images/Web Design01/footer/facebook.svg"
                     alt="instagram"
                   />
                 </Link>
               </div>
               <div className="link">
-                <Link to="/frame">
+                <Link
+                  to={{
+                    pathname: " https://t.me/sociallyuz",
+                  }}
+                  target="_blank"
+                >
                   <img
                     src="/images/Web Design01/footer/Frame.svg"
                     alt="instagram"

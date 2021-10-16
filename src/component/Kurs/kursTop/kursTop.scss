@@ -1,6 +1,8 @@
 .kursTop {
   width: 100%;
   height: 494px;
+  max-width: 1366px;
+  margin: 0 auto;
   background-image: url("../../../backgroundImages/Chiziqchalar kurs.svg");
   background-size: cover;
   background-position: center center;
@@ -68,6 +70,7 @@
     height: 1208px;
     left: -604px;
     top: -604px;
+
     background: radial-gradient(
       50% 50% at 50% 50%,
       rgba(255, 171, 0, 0.25) 0%,
@@ -176,6 +179,11 @@
       height: 1004px;
       left: -604px;
       top: -604px;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(255, 171, 0, 0.25) 0%,
+        rgba(255, 171, 0, 0) 100%
+      );
     }
     .gradient2 {
       width: 700px;

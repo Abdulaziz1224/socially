@@ -95,10 +95,11 @@
     align-items: center;
 
     button {
+      display: none;
       padding: 15px 30px;
       border: none;
       outline: none;
-      display: flex;
+      // display: flex;
       align-items: center;
       background: rgba(255, 255, 255, 1);
       border: 2px solid rgba(234, 234, 234, 1);
@@ -123,13 +124,9 @@
     }
 
     .NavProfil {
+      width: max-content;
       display: flex;
       align-items: center;
-      justify-content: start;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid rgb(234, 234, 234);
       cursor: pointer;
 
       a {
@@ -139,13 +136,23 @@
         display: flex;
         align-items: center;
         justify-content: start;
-        width: 100%;
-        height: 100%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgb(234, 234, 234);
+
         img {
           width: 100%;
           height: 100%;
           border-radius: 50%;
         }
+      }
+      h2 {
+        font-family: "Proxima Nova Rg";
+        font-size: 20px;
+        margin-left: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
       }
     }
     .btn-burger {
@@ -167,17 +174,19 @@
     }
 
     .col-9 {
+      margin-left: 30px;
       ul {
         li {
           a {
             font-family: "Proxima Nova Rg";
-            font-size: 18px;
+            font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 16px;
 
             &.navLink {
-              font-size: 18px;
+              font-size: 16px;
+              line-height: 19.2px;
             }
           }
         }
@@ -208,6 +217,12 @@
     .col-2 {
       display: flex;
       align-items: center;
+
+      .NavProfil {
+        h2 {
+          display: none;
+        }
+      }
 
       .btn-burger {
         width: 20px;
@@ -347,10 +362,11 @@
       display: flex;
       align-items: center;
       button {
+        display: none;
         padding: 15px 30px;
         border: none;
         outline: none;
-        display: flex;
+        // display: flex;
         align-items: center;
         background: rgba(255, 255, 255, 1);
         border: 2px solid rgba(234, 234, 234, 1);
@@ -371,6 +387,38 @@
           letter-spacing: 0em;
           text-align: left;
           margin-right: 5px;
+        }
+      }
+      .NavProfil {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        a {
+          border-radius: 50%;
+          color: transparent;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          width: 50px;
+          height: 50px;
+          border: 2px solid rgb(234, 234, 234);
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+          }
+        }
+        h2 {
+          font-family: "Proxima Nova Rg";
+          font-size: 20px;
+          margin-left: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
         }
       }
       .btn-burger {
@@ -521,10 +569,11 @@
       align-items: center;
 
       button {
+        display: none;
         padding: 15px 30px;
         border: none;
         outline: none;
-        display: flex;
+        // display: flex;
         align-items: center;
         background: rgba(255, 255, 255, 1);
         border: 2px solid rgba(234, 234, 234, 1);
@@ -548,6 +597,38 @@
         }
       }
 
+      .NavProfil {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        a {
+          border-radius: 50%;
+          color: transparent;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          width: 50px;
+          height: 50px;
+          border: 2px solid rgb(234, 234, 234);
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+          }
+        }
+        h2 {
+          font-family: "Proxima Nova Rg";
+          font-size: 20px;
+          margin-left: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      }
       .btn-burger {
         width: 20px;
         height: 18px;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./availableBox.scss";
-import {BrowserRouter as Route, Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 function AvailableBox() {
   return (

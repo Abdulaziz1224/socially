@@ -1,6 +1,11 @@
 .mainSection1 {
   background-color: #f4f4f4;
   width: 100%;
+  max-width: 1366px;  
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 60px 0;
   background-image: url("../../../backgroundImages/veryDots.svg");
 
@@ -8,7 +13,6 @@
     max-width: 1036px;
     width: 80%;
     margin: auto;
-
     .Caption-text {
       width: max-content;
       display: flex;

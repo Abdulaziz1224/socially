@@ -6,7 +6,8 @@
   user-select: none;
 
   .container {
-    width: 77.5%;
+    max-width: 1036px;
+    width: 80%;
     margin: auto;
 
     .col {
@@ -23,9 +24,11 @@
         &-text {
           width: max-content;
           margin-right: 15px;
-          font-family: "Gosha Sans";
-          font-style: normal;
+          font-family: Gosha Sans;
           font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 29px;
         }
       }
 

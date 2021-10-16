@@ -8,6 +8,7 @@ import BlogPart from "./component/Blog/BlogPart";
 import MobileForm from "./component/Form/MobileForm";
 import Profil from "./component/Profil/Profil";
 import Video from "./component/Video/Video"
+import MainBlog from "./component/Blog/MainBlog"
 import "./app.scss";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/mobileForm" exact strict component={MobileForm} />
           <Route path="/profil" exact strict component={Profil} /> 
           <Route path="/video" exact strict component={Video} /> 
+          <Route path="/ablog" exact strict component={MainBlog} /> 
         </Switch>
       </Router>
     </div>

@@ -51,15 +51,18 @@
       a {
         margin-right: 30px;
         cursor: pointer;
+        color: transparent;
+
+        &:active{
+          color: transparent;
+        }
 
         &:last-child {
           margin-right: 0;
         }
 
         .icon {
-          color: #000;
-          transition: all 0.4s;
-          transform: scale(1);
+          z-index: 25;
         }
       }
     }
