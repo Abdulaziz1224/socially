@@ -12,7 +12,7 @@ function MainMiddle() {
           <div className="box-right">
             <div className="caption-text">
               <div className="caption-text-top">
-                <img src="/images/Blog/MainBox/Ismoil Safarov.png" alt="img" />
+                <img src="/images/Blog/MainBox/Ismoil Safarov.svg" alt="img" />
                 <span>Ismoil Safarov · 27.08.2021</span>
               </div>
               <div className="caption-text-bottom">

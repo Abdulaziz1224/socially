@@ -1,5 +1,6 @@
 .profilSection {
   width: 100%;
+  background-image: url("../../backgroundImages/mainNavbar.svg");
   margin: auto;
   padding: 60px 0;
   position: relative;
@@ -173,7 +174,6 @@
     transition: all cubic-bezier(0.6, -0.28, 0.735, 0.045);
   }
 }
-
 
 @media (max-width: 1130px) and (min-width: 993px) {
   .profilSection {

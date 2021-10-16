@@ -59,7 +59,7 @@ function MainSection() {
           </div>
           <div className="connect">
             <div className="link">
-              <img src="images/Web Design01/footer/telegram.png" alt="link" />
+              <img src="images/Web Design01/footer/telegram.svg" alt="link" />
               <Link
                 target="_blank"
                 to={{
@@ -70,7 +70,7 @@ function MainSection() {
               </Link>
             </div>
             <div className="link">
-              <img src="images/Web Design01/footer/telegram.png" alt="link" />
+              <img src="images/Web Design01/footer/telegram.svg" alt="link" />
               <Link
                 target="_blank"
                 to={{
@@ -81,7 +81,7 @@ function MainSection() {
               </Link>
             </div>
             <div className="link">
-              <img src="images/Web Design01/footer/telegram.png" alt="link" />
+              <img src="images/Web Design01/footer/telegram.svg" alt="link" />
               <Link
                 target="_blank"
                 to={{
@@ -92,7 +92,7 @@ function MainSection() {
               </Link>
             </div>
             <div className="link">
-              <img src="images/Web Design01/footer/phone.png" alt="link" />
+              <img src="images/Web Design01/footer/phone.svg" alt="link" />
               <Link
                 target="_blank"
                 to={{
