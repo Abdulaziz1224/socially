@@ -2,12 +2,14 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./login.scss";
-import { FormContext } from "../Navbar/Navbar";
+import { MFormContext } from "./MobileForm";
 
-function Login({ active }) {
+function MobileLogin({ active }) {
   const [number, setnumber] = useState("+998");
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm } = useContext(MFormContext);
+  const { mForm, setMForm } = useContext(MFormContext);
+
 
   useEffect(() => {
     let num = number;
@@ -114,13 +116,13 @@ function Login({ active }) {
   return (
     <div
       className="login"
-      style={{ display: form === "login" ? "block" : "none" }}
+      style={{ display: mForm === "login" ? "block" : "none" }}
     >
       <div
         // className="container"
-        className={form === "login" ? "container active" : "container active"}
+        className={mForm === "login" ? "container active" : "container active"}  
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
+        <Link to="/" className="xBtn" onClick={() => setMForm("")}>
           <img src="images/Form/x.svg" alt="x" />
         </Link>
 
@@ -152,7 +154,7 @@ function Login({ active }) {
               <div className="underline"></div>
             </Link>
           </div>
-          <Link to="/" className="regLink" onClick={() => setForm("register")}>
+          <Link to="/mobileForm" className="regLink" onClick={() => setMForm("register")}>
             Tizimga kirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </Link>
@@ -162,4 +164,4 @@ function Login({ active }) {
   );
 }
 
-export default Login;
+export default MobileLogin;

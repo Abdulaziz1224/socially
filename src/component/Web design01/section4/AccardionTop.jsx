@@ -38,7 +38,7 @@ function AccardionTop(props) {
       <div
         className="accardion-box-item-bottom"
         ref={content}
-        style={{ height: `${height}`}}
+        style={{ height: `${height}` }}
       >
         <ul>
           <li>
@@ -51,7 +51,7 @@ function AccardionTop(props) {
             <span></span> 03. Kirish oynasi
           </li>
         </ul>
-        <img src="./images/section-3/shakllar.svg" alt="svg" />
+        <img src="/images/Web Design01/section-3/shakllar.svg" alt="svg" />
       </div>
     </div>
   );

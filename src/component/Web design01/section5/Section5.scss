@@ -9,8 +9,9 @@
   padding-bottom: 145px;
 
   .container {
-    width: 76%;
-    margin: auto;
+    width: 80%;
+    max-width: 1036px;
+    margin: 0 auto;
 
     .head {
       width: max-content;
@@ -74,8 +75,6 @@
           right: 50%;
           bottom: -80px;
           transform: translateX(-50%);
-          // max-height: 165px;
-          // max-width: 255px;
           width: 90%;
           height: 170px;
         }
@@ -84,15 +83,22 @@
   }
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
   .section5 {
     width: 100%;
 
     .container {
-      width: max-content;
+      max-width: 685px;
+      min-width: 685px;
+
+      .head {
+        .Caption {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
 
       .box {
-
         .card {
           width: 215px;
           height: 271px;
@@ -121,16 +127,23 @@
   }
 }
 
-@media (max-width:740px) {
+@media (max-width: 767px) {
   .section5 {
     width: 100%;
 
     .container {
-      // width: 80%;
+      width: 540px;
+      max-width: 540px;
+      min-width: auto;
+
+      .head {
+        .Caption {
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
 
       .box {
-        // overflow-x: scroll;
-
         .card {
           width: 175px;
           height: 235px;
@@ -159,24 +172,29 @@
   }
 }
 
-@media (max-width:576px) {
+@media (max-width: 575px) {
   .section5 {
     width: 100%;
 
     .container {
       width: 90%;
 
+      .head {
+        .Caption {
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
       .box {
         flex-direction: column;
         grid-gap: 0;
 
         .card {
-          width: 343px;
-          height: 246px;
+          width: 100%;
+          height: 250px;
           margin-bottom: 100px;
           padding: 30px;
           margin: 0 auto 100px auto;
-
 
           .title {
             width: 100%;
@@ -187,20 +205,23 @@
 
           p {
             height: 72px;
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 15px;
+            line-height: 22px;
           }
 
           img {
-            bottom: -80px;
-            width: 283px;
-            height: 170px;
+            bottom: -90px;
+            max-width: 520px;
+            min-width: 250px;
+            width: 70%;
+            max-height: 400px;
+            min-height: 170px;
+            height: 70%;
           }
         }
 
         .card:last-of-type {
           height: 270px;
-          margin: 0 auto 100px auto;
         }
 
         .card:nth-child(2) {

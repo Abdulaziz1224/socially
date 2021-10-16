@@ -1,0 +1,160 @@
+.mobileForm {
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    background-image: url(../../backgroundImages/veryDots.svg);
+    min-height: 500px;
+
+    .navbar {
+        // max-width: none;
+        // min-width: auto;
+        height: 90px;
+        width: 100%;
+        background: transparent;
+        margin: 0 auto;
+    }
+
+    .number {
+        position: static;
+        width: 100%;
+        height: 88%;
+        padding-top: 30px;
+        margin: 0;
+        background: transparent;
+        min-height: 350px;
+        margin-bottom: 70px;
+
+        .container {
+            position: static;
+            margin: 0 auto;
+        }
+    }
+
+    .authNumber {
+        position: static;
+        padding-top: 30px;
+        height: 88%;
+        min-height: 400px;
+        margin-bottom: 70px;
+
+        .container {
+            margin: 0 auto;
+        }
+    }
+
+    .login {
+        position: static;
+        padding-top: 30px;
+        height: 88%;
+        margin-bottom: 70px;
+
+        .container {
+            margin: 0 auto;
+        }
+    }
+
+    .register {
+        position: static;
+        padding-top: 30px;
+        height: 88%;
+        margin-bottom: 70px;
+
+        .container {
+            margin: 0 auto;
+        }
+    }
+
+    .footer {
+        // position: fixed;
+        // bottom: 0;
+    }
+
+    @media (max-width:360px) {
+        .navbar {
+            // max-width: none;
+            // min-width: auto;
+            height: 90px;
+            width: 100%;
+            background: transparent;
+            margin: 0 auto;
+        }
+
+        .number {
+            position: static;
+            width: 100%;
+            height: 100%;
+            padding-top: 30px;
+            margin: 0;
+            background: transparent;
+            min-height: 350px;
+
+            .container {
+                width: 97%;
+                position: static;
+                margin: 0 auto;
+            }
+
+            .box {
+                width: 100%;
+                height: 100%;
+                padding: 10;
+            }
+        }
+
+        .authNumber {
+            position: static;
+            padding-top: 30px;
+            height: 88%;
+            min-height: 400px;
+
+            .container {
+                width: 97%;
+                margin: 0 auto;
+
+                .check{
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+            }
+        }
+
+        .login {
+            position: static;
+            padding-top: 30px;
+            height: 88%;
+
+            .container {
+                margin: 0 auto;
+                width: 97%;
+
+                .regLink{
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+            }
+        }
+
+        .register {
+            position: static;
+            padding-top: 30px;
+            height: 100%;
+
+            .container {
+                margin: 0 auto;
+                width: 97%;
+
+                a{
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+            }
+        }
+
+        .footer {
+            position: fixed;
+            top: 90%;
+            bottom: 0;
+        }
+    }
+}

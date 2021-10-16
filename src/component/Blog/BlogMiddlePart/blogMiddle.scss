@@ -31,7 +31,6 @@
           min-width: 24px;
           height: 24px;
 
-          background-image: url("../../../backgroundImages/short group 130.svg");
         }
       }
     }
@@ -41,6 +40,17 @@
   .blogMiddle {
     .container {
       max-width: 910px;
+
+      .head{
+
+        .theme{
+
+          h1{    
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+      }
     }
   }
 }
@@ -51,6 +61,17 @@
     .container {
       max-width: 685px;
       min-width: 685px;
+
+      .head{
+
+        .theme{
+
+          h1{
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+      }
     }
   }
 }
@@ -60,6 +81,17 @@
       width: 540px;
       max-width: 540px;
       min-width: auto;
+
+      .head{
+
+        .theme{
+
+          h1{
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+      }
     }
   }
 }
@@ -90,7 +122,6 @@
             min-width: 24px;
             height: 24px;
 
-            background-image: url("../../../backgroundImages/short group 130.svg");
           }
         }
       }

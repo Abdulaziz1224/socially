@@ -2,27 +2,25 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./register.scss";
-import { FormContext } from "../Navbar/Navbar";
+import { MFormContext } from "./MobileForm";
 
-function Register({ active }) {
+function MobileRegister({ active }) {
   const [name, setname] = useState("");
   const [pass, setpass] = useState("");
   const [checkPass, setCheckPass] = useState("");
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm } = useContext(MFormContext);
+  const { mForm, setMForm } = useContext(MFormContext);
 
   return (
     <div
       className="register"
-      style={{ display: form === "register" ? "block" : "none" }}
+      style={{ display: mForm === "register" ? "block" : "none" }}
     >
       <div
         // className="container"
-        className={form === "register" ? "container active" : "container active"}
+        className={mForm === "register" ? "container active" : "container active"}
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
-          <img src="images/Form/x.svg" alt="x" />
-        </Link>
 
         <div className="box">
           <h1>Ro'yhatdan o'tish</h1>
@@ -54,7 +52,7 @@ function Register({ active }) {
             }}
             placeholder="Parolni kiriting"
           />
-          <Link to="/" onClick={() => setForm("number")}>
+          <Link to="/mobileForm" onClick={() => setMForm("number")}>
             Ro’yxatdan o’tish
             <img src="images/Form/arrow.svg" alt="accept" />
           </Link>
@@ -64,4 +62,4 @@ function Register({ active }) {
   );
 }
 
-export default Register;
+export default MobileRegister;

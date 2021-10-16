@@ -8,7 +8,7 @@ function BlogMiddle(props) {
         <div className="head">
           <div className="theme">
             <h1>So'ngi maqolalarimiz</h1>
-            <div className="img"></div>
+            <img src="/images/Web Design01/section-3/Group 130.svg" width="66px" height="24px" alt="" />
           </div>
         </div>
       </div>

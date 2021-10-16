@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./Blog.scss";
 import BlogBox from "./BlogBox";
 
@@ -13,12 +13,12 @@ function Blog() {
             <div className="img"></div>
           </div>
           <div className="btn">
-            <a href="Blogs" className="allBlogs">
+            <Link to="Blogs" className="allBlogs">
               <img
                 src="/images/Asosiy Qism/available courses/arrow.svg"
                 alt="arrow"
               />
-            </a>
+            </Link>
             <div className="underline"></div>
           </div>
         </div>

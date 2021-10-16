@@ -1,26 +1,29 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import "./authNumber.scss";
-import { FormContext } from "../Navbar/Navbar";
+import { MFormContext } from "./MobileForm";
 
-function AuthNumber({ active }) {
+function MobileAuthNumber({ active }) {
   const [number, setnumber] = useState("");
   const [timer, setTimer] = useState(60);
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm } = useContext(MFormContext);
+  const { mForm, setMForm } = useContext(MFormContext);
+
 
   useEffect(() => {
-    let num = number;
+    let num = number
 
     if (isNaN(parseInt(num.slice(-1))) && num.slice(-1) !== " ") {
-      setnumber(num.slice(0, -1));
+      setnumber(num.slice(0, -1))
     }
 
     if (num.length > 6) {
-      setnumber(num.slice(0, -1));
+      setnumber(num.slice(0, -1))
     }
-  }, [number]);
+
+  }, [number])
 
   useEffect(() => {
     if (timer !== 0) {
@@ -28,22 +31,24 @@ function AuthNumber({ active }) {
         setTimer(timer - 1);
       }, 1000);
     }
+
+    console.log(timer);
   }, [timer]);
+
+  console.log(mForm)
+
 
   return (
     <div
       className="authNumber"
-      style={{ display: form === "authNumber" ? "block" : "none" }}
+      style={{ display: mForm === "authNumber" ? "block" : "none" }}
     >
       <div
         // className="container"
-        className={
-          form === "authNumber" ? "container active" : "container active"
+        className = {
+          mForm === "authNumber" ? "container active" : "container active"
         }
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
-          <img src="images/Form/x.svg" alt="x" />
-        </Link>
 
         <div className="box">
           <h1>Tizimga kirish</h1>
@@ -86,7 +91,7 @@ function AuthNumber({ active }) {
               ""
             )}
           </div>
-          <Link to="/" className="check" onClick={() => setForm("login")}>
+          <Link to="/mobileForm" className="check" onClick={() => setMForm("login")}>
             Kodni tasdiqlash
             <img src="images/Form/ok.svg" alt="accept" />
           </Link>
@@ -96,4 +101,4 @@ function AuthNumber({ active }) {
   );
 }
 
-export default AuthNumber;
+export default MobileAuthNumber;

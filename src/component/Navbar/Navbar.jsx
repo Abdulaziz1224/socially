@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.scss";
-import Number from "../form/Number";
-import AuthNumber from "../form/AuthNumber";
-import Login from "../form/Login";
-import Register from "../form/Register";
+import Number from "../Form/Number";
+import AuthNumber from "../Form/AuthNumber";
+import Login from "../Form/Login";
+import Register from "../Form/Register";
+import { useHistory } from "react-router-dom";
 
 export const FormContext = React.createContext();
 
@@ -12,9 +13,19 @@ function Navbar() {
   const [status, setStatus] = useState(false);
   const [form, setForm] = useState("");
 
+  let history = useHistory();
+
   const navbarFunc = () => {
     setStatus((prev) => !prev);
   };
+
+  function kirish() {
+    if (window.innerWidth > 577) {
+      setForm("number");
+    } else {
+      history.push("/mobileForm");
+    }
+  }
 
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
@@ -60,10 +71,15 @@ function Navbar() {
         </ul>
       </div>
       <div className="col-2">
-        <button onClick={() => setForm("number")}>
+        <button onClick={kirish}>
           <span>Kirish</span>
           <img src="images/Web Design01/navbar/Person-icon.svg" alt="person" />
         </button>
+        <div className="NavProfil">
+          <Link to="profil">
+            <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" />
+          </Link>
+        </div>
         <div
           className={status ? "btn-burger open" : "btn-burger"}
           onClick={navbarFunc}

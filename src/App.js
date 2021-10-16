@@ -5,8 +5,9 @@ import Design01 from "./component/Web design01/Design01/Design01";
 import Basis from "./component/Asosiy qism/Basis/Basis";
 import Kurs from "./component/Kurs/Kurs";
 import BlogPart from "./component/Blog/BlogPart";
-import MainBlog from "./component/Blog/MainBlog";
+import MobileForm from "./component/Form/MobileForm";
 import Profil from "./component/Profil/Profil";
+import Video from "./component/Video/Video"
 import "./app.scss";
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
           <Route path="/kurslar" exact strict component={Kurs} />
           <Route path="/bloglar" exact strict component={BlogPart} />
           <Route path="/design" exact strict component={Design01} />
-          <Profil />
+          <Route path="/mobileForm" exact strict component={MobileForm} />
+          <Route path="/profil" exact strict component={Profil} /> 
+          <Route path="/video" exact strict component={Video} /> 
         </Switch>
       </Router>
     </div>

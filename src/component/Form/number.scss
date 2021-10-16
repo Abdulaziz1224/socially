@@ -104,16 +104,21 @@
 @media (max-width:575px){
     .number{
         background: transparent;
-        position: static;
+        position: fixed;
         display: flex;
         justify-content: center;
-        align-items: center;
+        // top: 240px;
+        background-color: #FFFFFF;
+        z-index: 300;
+        margin-top: 100px;
+
         .container{
-            position: static;
+            position: absolute;
             width: 343px;
             height: 315px;
             transform: none;
-
+            z-index: 300;
+            top: 200px;
             .xBtn{
                 display: none;
             }

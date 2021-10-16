@@ -1,5 +1,6 @@
 import React from "react";
 import "./availableBox.scss";
+import {BrowserRouter as Route, Link} from "react-router-dom"
 
 function AvailableBox() {
   return (
@@ -8,27 +9,25 @@ function AvailableBox() {
         <img
           className="card-img"
           src="/images/Asosiy Qism/available courses/image 12.png"
-          alt=""
-        />
+          alt=""/>
         <h1 className="card-title">SMM Design Masterclass</h1>
-        <a href="info" className="full-info">
+        <Link to="video" className="full-info">
           To‘liq maʼlumot
-          <img src="/images/Asosiy Qism/available courses/arrow.svg" alt="" />
-        </a>
+          <img src="/images/Asosiy Qism/available courses/arrow.svg" alt=""/>
+        </Link>
       </div>
 
       <div className="card">
         <img
           className="card-img"
           src="/images/Asosiy Qism/available courses/image 12.png"
-          alt=""
-        />
+          alt=""/>
         <div>
           <h1 className="card-title">SMM Design Masterclass</h1>
-          <a href="info" className="full-info">
+          <Link to="video" className="full-info">
             To‘liq maʼlumot
-            <img src="/images/Asosiy Qism/available courses/arrow.svg" alt="" />
-          </a>
+            <img src="/images/Asosiy Qism/available courses/arrow.svg" alt=""/>
+          </Link>
         </div>
       </div>
 
@@ -36,13 +35,12 @@ function AvailableBox() {
         <img
           className="card-img"
           src="/images/Asosiy Qism/available courses/image 12.png"
-          alt=""
-        />
+          alt=""/>
         <h1 className="card-title">SMM Design Masterclass</h1>
-        <a href="info" className="full-info">
+        <Link to="video" className="full-info">
           To‘liq maʼlumot
-          <img src="/images/Asosiy Qism/available courses/arrow.svg" alt="" />
-        </a>
+          <img src="/images/Asosiy Qism/available courses/arrow.svg" alt=""/>
+        </Link>
       </div>
     </div>
   );

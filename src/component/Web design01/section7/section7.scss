@@ -29,7 +29,6 @@
         }
       }
 
-
       .next,
       .prev {
         width: max-content;
@@ -61,7 +60,6 @@
           height: auto;
           display: flex;
           transition: 0.8s ease-in-out;
-
         }
 
         img {
@@ -71,13 +69,13 @@
           height: 24.505vw;
         }
 
-        @media (min-width:1600px) {
+        @media (min-width: 1600px) {
           img {
             width: 20.505vw;
             height: 20.505vw;
           }
         }
-        @media (min-width:2000px) {
+        @media (min-width: 2000px) {
           img {
             width: 17.505vw;
             height: 17.505vw;
@@ -86,65 +84,101 @@
       }
     }
 
-    @media (min-width:1600px){
+    @media (min-width: 1600px) {
       width: 65%;
     }
-    @media (min-width:2000px){
+    @media (min-width: 2000px) {
       width: 56%;
     }
   }
 }
 
-@media (max-width:992px) {
-  .section7{
-
-    .container{
-
-      .col{
-
-        .Caption{
-
-          &-text{
+@media (max-width: 992px) {
+  .section7 {
+    .container {
+      max-width: 685px;
+      min-width: 685px;
+      .col {
+        .Caption {
+          &-text {
             font-size: 16px;
-            line-height: 24px;
+            font-weight: normal;
+            line-height: 19.2px;
           }
         }
-
+        .carousel-control {
+          display: none;
+        }
+      }
+      .Carousel {
+        .Carousel-slide {
+          .slide-box {
+            overflow: scroll;
+          }
+          .slide-box::-webkit-scrollbar {
+            display: none;
+          }
+        }
       }
     }
   }
 }
 
-@media (max-width:576px) {
-  .section7{
+@media (min-width: 576px) and (max-width: 767px) {
+  .section7 {
+    width: auto;
+    .container {
+      width: 540px;
+      max-width: 540px;
+      min-width: auto;
 
-    .container{
+      .Carousel {
+        .Carousel-slide {
+          img {
+            width: 244px;
+            height: 244px;
+            margin-right: 15px;
+          }
+          .slide-box {
+            overflow: scroll;
+          }
+          .slide-box::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .section7 {
+    .container {
+      max-width: 90%;
+      min-width: 90%;
 
-      .col{
-
-        .Caption{
-
-          &-text{
+      .col {
+        .Caption {
+          &-text {
             width: 90%;
             font-size: 16px;
             line-height: 24px;
           }
         }
-
-        .carousel-control{
+        .carousel-control {
           display: none;
         }
       }
-
-      .Carousel{
-
-        .Carousel-slide{
-
-          .slide-box{
+      .Carousel {
+        .Carousel-slide {
+          img {
+            width: 244px;
+            height: 244px;
+            margin-right: 15px;
+          }
+          .slide-box {
             overflow: scroll;
           }
-
-          .slide-box::-webkit-scrollbar{
+          .slide-box::-webkit-scrollbar {
             display: none;
           }
         }

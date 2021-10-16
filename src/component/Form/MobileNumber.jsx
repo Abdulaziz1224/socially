@@ -1,13 +1,30 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import "./login.scss";
-import { FormContext } from "../Navbar/Navbar";
+import AuthNumber from "./AuthNumber";
+import { MFormContext } from "./MobileForm";
+import "./number.scss";
 
-function Login({ active }) {
-  const [number, setnumber] = useState("+998");
+import form from "../Navbar/Navbar";
 
-  const { form, setForm } = useContext(FormContext);
+function MobileNumber() {
+  const [number, setnumber] = useState("");
+
+  const { mForm, setMForm } = useContext(MFormContext);
+  const [nHeight, setNHeight] = useState(window.innerWidth<577?`${window.innerHeight-200}px`:'')
+
+  useEffect(() => {
+    if(window.innerwidth<577){
+      setNHeight(`${window.innerHeight-200}px`)
+    }
+    console.log("cdcdcdcdc");
+  }, [form])
+
+  window.addEventListener("resize", ()=>{
+    if(window.innerWidth<577){
+      setNHeight(`${window.innerHeight-200}px`)
+    }
+  })
 
   useEffect(() => {
     let num = number;
@@ -113,14 +130,14 @@ function Login({ active }) {
 
   return (
     <div
-      className="login"
-      style={{ display: form === "login" ? "block" : "none" }}
+      className="number"
+      style={{ display: mForm === "number" ? "block" : "none"}}
     >
       <div
         // className="container"
-        className={form === "login" ? "container active" : "container active"}
+        className={mForm === "number" ? "container active" : "container active"}
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
+        <Link to="/" className="xBtn" onClick={() => setMForm("")}>
           <img src="images/Form/x.svg" alt="x" />
         </Link>
 
@@ -144,16 +161,14 @@ function Login({ active }) {
             }}
             maxLength="19"
           />
-          <input type="password" required placeholder="Password" />
-          <div className="password">
-            <p className="forget">Parolni unutdingizmi?</p>
-            <Link className="reset" to="number">
-              Parolni tiklash
-              <div className="underline"></div>
-            </Link>
-          </div>
-          <Link to="/" className="regLink" onClick={() => setForm("register")}>
-            Tizimga kirish
+          <Link
+            to="/mobileForm"
+            className="check"
+            onClick={() => {
+              setMForm("authNumber");
+            }}
+          >
+            Tekshirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </Link>
         </div>
@@ -162,4 +177,4 @@ function Login({ active }) {
   );
 }
 
-export default Login;
+export default MobileNumber;

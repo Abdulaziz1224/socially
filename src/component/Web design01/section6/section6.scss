@@ -7,8 +7,9 @@
   padding-bottom: 60px;
 
   .container {
-    width: 76%;
-    margin: auto;
+    width: 80%;
+    max-width: 1036px;
+    margin: 0 auto;
 
     .head {
       width: max-content;
@@ -87,8 +88,8 @@
 
         .img1 {
           position: absolute;
-          right: -12%;
-          top: 12%;
+          right: -14%;
+          top: 10%;
           padding: 12px;
           background: rgba(255, 171, 0, 1);
           transform: rotate(35deg);
@@ -107,8 +108,8 @@
 
         .img2 {
           position: absolute;
-          right: -11%;
-          top: 16%;
+          right: -10.5%;
+          top: 15%;
           padding: 12px 20px;
           background: rgba(255, 171, 0, 1);
           transform: rotate(35deg);
@@ -169,17 +170,17 @@
   }
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
   .section6 {
-
+    width: 100%;
     .container {
-      width: max-content;
+      max-width: 685px;
+      min-width: 685px;
 
       .head {
-
         .Caption {
           font-size: 16px;
-          line-height: 19px;
+          line-height: 19.2px;
         }
       }
 
@@ -192,15 +193,12 @@
         justify-content: center;
         align-items: center;
 
-
         .card {
           width: 332px;
           height: 231px;
 
           &-text {
-
             .title {
-
               h3 {
                 font-size: 20px;
                 line-height: 24px;
@@ -216,7 +214,7 @@
           }
 
           [class*="img"] {
-            right: -17%;
+            right: -16%;
             top: 1%;
           }
         }
@@ -225,32 +223,28 @@
   }
 }
 
-@media (max-width:740px) {
+@media (max-width: 767px) {
   .section6 {
     width: 100%;
-    min-width: 375px;
 
     .container {
-      width: max-content;
-
+      width: 540px;
+      max-width: 540px;
+      min-width: auto;
       .head {
-
         .Caption {
           font-size: 16px;
-          line-height: 19px;
+          line-height: 19.2px;
         }
       }
-
       .categories {
-
+        width: 100%;
         .card {
-          width: 300px;
+          width: 100%;
           height: 231px;
 
           &-text {
-
             .title {
-
               h3 {
                 font-size: 20px;
                 line-height: 24px;
@@ -266,8 +260,14 @@
           }
 
           [class*="img"] {
-            right: -17%;
-            top: 1%;
+            width: max-content;
+            right: -20%;
+            top: 0;
+            p {
+              font-size: 16px;
+              line-height: 16px;
+              letter-spacing: 0.015em;
+            }
           }
         }
       }
@@ -275,32 +275,29 @@
   }
 }
 
-@media (max-width:650px) {
+@media (max-width: 650px) {
   .section6 {
     width: 100%;
-    min-width: 375px;
 
     .container {
-      width: max-content;
+      width: 540px;
+      max-width: 540px;
+      min-width: auto;
 
       .head {
-
         .Caption {
           font-size: 16px;
-          line-height: 19px;
+          line-height: 19.2px;
         }
       }
 
       .categories {
-
         .card {
           width: 250px;
           height: 271px;
 
           &-text {
-
             .title {
-
               h3 {
                 font-size: 20px;
                 line-height: 24px;
@@ -326,36 +323,34 @@
   }
 }
 
-@media (max-width:576px) {
+@media (max-width: 576px) {
   .section6 {
     width: 100%;
-    min-width: 375px;
 
     .container {
       width: 90%;
 
       .head {
-
         .Caption {
           font-size: 16px;
           line-height: 19px;
         }
+        img{
+          width: 45px;
+        }
       }
 
       .categories {
-        display: grid;
-        grid-template-columns: auto;
-
-      
+        width: 100%;
+        display: flex;
+        flex-direction: column;
 
         .card {
-          width: 332px;
+          width: 100%;
           height: 231px;
 
           &-text {
-
             .title {
-
               h3 {
                 font-size: 20px;
                 line-height: 24px;
@@ -371,8 +366,15 @@
           }
 
           [class*="img"] {
-            right: -17%;
-            top: 1%;
+            right: -14%;
+            top: 3%;
+
+            p {
+              font-size: 15px;
+              font-weight: 400;
+              line-height: 14px;
+              letter-spacing: 0.005em;
+            }
           }
         }
       }

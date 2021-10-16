@@ -1,6 +1,6 @@
 import React from "react";
 import "./SectionVideo.scss";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 function SectionVideo() {
   return (
@@ -12,11 +12,15 @@ function SectionVideo() {
         </div>
 
         <div className="video_link">
-          <ReactPlayer
-            url="https://youtu.be/cHiRz_A3Ct0"
+          <iframe
+          className="video"
             width="100%"
-            height="536px"
-          />
+            src="https://www.youtube.com/embed/cHiRz_A3Ct0"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </div>
