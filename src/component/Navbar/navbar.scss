@@ -288,10 +288,10 @@
     animation: nav 0.5s ease-out;
 
     @keyframes nav {
-      0% {
-        transform: translateX(-100%);
+      from {
+        transform: translateX(100%);
       }
-      100% {
+      to {
         transform: translateX(0%);
       }
     }

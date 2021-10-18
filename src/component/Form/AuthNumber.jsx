@@ -36,7 +36,6 @@ function AuthNumber({ active }) {
       style={{ display: form === "authNumber" ? "block" : "none" }}
     >
       <div
-        // className="container"
         className={
           form === "authNumber" ? "container active" : "container active"
         }

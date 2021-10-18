@@ -1,9 +1,14 @@
-import React, { useContext} from "react";
+import React, { useContext, useEffect, useRef} from "react";
 import { Context } from "./Profil";
 import "./modal.scss";
 
 function Modal() {
   const { bool, setBool } = useContext(Context);
+  const tel = useRef(null);
+
+  // useEffect(() => {
+  //   if(tel !== )
+  // }, [tel])
   const deleteFunc = () => {
     setBool(!bool);
   };
@@ -38,12 +43,16 @@ function Modal() {
                 name="name"
                 className="name"
                 placeholder="Ismingiz"
+                required
               />
               <input
                 name="tel"
                 type="tel"
                 className="tel"
                 placeholder="Telefon raqamingiz"
+                autoComplete="off"
+                required
+                ref={tel}
               />
             </div>
             <div className="parol">
@@ -52,12 +61,14 @@ function Modal() {
                 type="password"
                 className="pass1"
                 placeholder="Yangi parol"
+                required
               />
               <input
                 name="pass2"
                 type="password"
                 className="pass2"
                 placeholder="Parolingizni tasdiqlang"
+                required
               />
             </div>
           </div>

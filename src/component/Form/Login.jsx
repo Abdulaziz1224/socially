@@ -15,6 +15,8 @@ function Login({ active }) {
     if (num.charAt(0) !== "+") {
       num = "+" + num.slice(1);
       setnumber(num);
+
+      
     }
     if (num.charAt(1) !== "9") {
       num = num.slice(0, 1) + "9" + num.slice(3);

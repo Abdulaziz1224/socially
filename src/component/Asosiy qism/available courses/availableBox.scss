@@ -11,8 +11,11 @@
     user-select: none;
 
     background: #ffffff;
-    border: 2px solid #dad9d9;
+    border: 2px solid rgba(234, 234, 234, 1);
 
+    &:hover {
+      border: 2px solid rgba(218, 217, 217, 1);
+    }
     &-img {
       width: 100%;
       margin-bottom: 30px;
@@ -24,7 +27,7 @@
       margin-left: 30px;
       margin-bottom: 39px;
 
-      font-family: Proxima Nova Rg;
+      font-family: "Proxima Nova Rg";
       font-size: 20px;
       font-style: normal;
       font-weight: 700;
