@@ -1,88 +1,82 @@
 .modul {
+  width: 100%;
+  margin-top: 20px;
+
+  .container {
     width: 100%;
-    margin-top: 20px;
 
-    .container {
-        width: 100%;
+    .modulNav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: #f4f4f4;
+      margin-bottom: 20px;
 
-        .modulNav {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: #F4F4F4;
-            margin-bottom: 20px;
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 128px;
+        height: 54px;
+        outline: none;
+        background: #f4f4f4;
+        border: 2px solid #eaeaea;
+        margin-right: 15px;
+        text-align: center;
+        cursor: pointer;
 
-            button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 128px;
-                height: 54px;
-                outline: none;
-                background: #F4F4F4;
-                border: 2px solid #EAEAEA;
-                margin-right: 15px;
-                text-align: center;
-                cursor: pointer;
+        font-family: Proxima Nova Lt;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
 
-                font-family: Proxima Nova Lt;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 19px;
-                letter-spacing: 0em;
-                text-align: left;
-
-
-                img {
-                    margin-left: 5px;
-                }
-            }
+        img {
+          margin-left: 5px;
         }
+      }
     }
+  }
 }
 
-@media (max-width:992px) {
-    .container{
-        width
-
-        .modulNav{
-
-            button{
-                height: 44px;
-            }
-        }
+@media (max-width: 992px) {
+  .container {
+    width .modulNav {
+      button {
+        height: 44px;
+      }
     }
+  }
 }
 
 @media (max-width: 767px) {
-    .modul{
+  .modul {
+    .container {
+      .modulNav {
+        width: 120%;
+        padding-right: 15%;
+        overflow-x: scroll;
 
-        .container{
-
-            .modulNav{
-                width: 100%;
-                overflow-x: scroll;
-
-                &::-webkit-scrollbar{
-                    display: none;
-                }
-
-                button{
-                    min-width: 145px;
-                    height: 54px;
-                }
-            }
+        &::-webkit-scrollbar {
+          display: none;
         }
+
+        button {
+          min-width: 145px;
+          height: 54px;
+        }
+      }
     }
+  }
 }
 
 @media (max-width: 576px) {
-    .modul{
-
-        .container{
-            width: 343px;
-        }
+  .modul {
+    .container {
+      width: 100%;
     }
+  }
 }

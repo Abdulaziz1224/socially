@@ -13,7 +13,7 @@ function SectionVideo() {
 
         <div className="video_link">
           <iframe
-          className="video"
+            className="video"
             width="100%"
             src="https://www.youtube.com/embed/cHiRz_A3Ct0"
             title="YouTube video player"

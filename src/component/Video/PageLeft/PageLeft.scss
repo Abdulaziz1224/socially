@@ -12,35 +12,27 @@
             width: 332px;
             background: #FFFFFF;
             border: 2px solid #EAEAEA;
-            margin-bottom: 20px;
-
-            .img {
-                width: 328px;
-                height: 328px;
-                background-image: url("../../../backgroundImages/card.png");
-                border-bottom: 2px solid rgba(233, 233, 233, 1);
-;
-            }
+            margin-bottom: 20px;  
 
             .text {
                 width: 262px;
                 margin: 30px 40px 32px 30px;
 
                 h2 {
-                    font-family: "Proxima Nova Rg";
+                    font-family: Proxima Nova Rg;
                     font-size: 20px;
-                    line-height: 24.36px;
+                    line-height: 24px;
                 }
 
                 p {
-                    font-family: "Proxima Nova Rg";
+                    font-family: Proxima Nova Rg;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
-                    line-height: 26px;
+                    line-height: 24px;
+                    letter-spacing: 0em;
+                    text-align: left;
                     color: #484848;
-                    margin-top: 5px;
-
                 }
             }
 
@@ -53,7 +45,7 @@
                     margin-left: 15px;
 
                     h3 {
-                        font-family: "Proxima Nova Rg";
+                        font-family: Proxima Nova Rg;
                         font-size: 20px;
                         font-style: normal;
                         font-weight: 600;
@@ -62,7 +54,7 @@
                     }
 
                     p {
-                        font-family: "Proxima Nova Rg";
+                        font-family: Proxima Nova Rg;
                         font-size: 16px;
                         font-style: normal;
                         font-weight: 400;
@@ -91,10 +83,11 @@
             }
 
             .underline {
-                width: 108px;
+                width: 129px;       
                 height: 1px;
-                margin-right: 153px;
-                border-radius: 50%;
+                margin-right: auto;
+                margin-left: 32px;
+                border-radius: 100vw;
                 background-color: black;
                 margin-bottom: 30px;
             }
@@ -224,9 +217,7 @@
                 width: 215px;
 
                 .img {
-                    width: 211px;
-                    height: 211px;
-                    background-image: url("../../../backgroundImages/tabletCard.png");
+                    width: 100%;
                 }
 
                 .text {
@@ -270,8 +261,8 @@
                     width: 185px;
                 }
 
-                .underline {
-                    margin-right: 76px;
+                .underline {    
+                    margin-left: 14px;   
                 }
             }
 
@@ -333,5 +324,15 @@
 @media (max-width:576px) {
     .pageLeft{
         display: none;
+
+        .container{
+
+            .card{
+
+                .underline{
+                    margin-left: 30px;  
+                }
+            }
+        }
     }
 }

@@ -77,7 +77,8 @@ function Navbar() {
         </button>
         <div className="NavProfil">
           <Link to="profil"  className="profilLink">
-            <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" />
+            <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" className="person"/>
+            <img src="" alt="profilImg" className="profilImg" />
           </Link>
 
           <h2 className="profilName">

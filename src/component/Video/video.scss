@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  overflow: hidden;
   .base-container {
     width: 80%;
     max-width: 1036px;
@@ -20,7 +21,6 @@
       align-items: flex-start;
       width: 100%;
       margin-left: 20px;
-      margin-top: 20px;
       margin-bottom: 60px;
 
       .pageLeft {
@@ -30,9 +30,6 @@
   }
 }
 
-$a: 100%;
-$b: 20px;
-
 @media (max-width: 992px) {
   .videoCourse {
     .base-container {
@@ -41,6 +38,7 @@ $b: 20px;
 
       .pageRight {
         width: 65.8%;
+        margin-top: 20px;
       }
     }
   }
@@ -70,45 +68,52 @@ $b: 20px;
       width: 90%;
 
       .pageRight {
-        width: 343px;
+        width: 100%;
         margin: 0 auto;
         margin-top: 20px;
 
         .pageLeft {
           display: block;
-          // width: 343px;
+          width: 100%;
 
           .container {
+            width: 100%;
+            margin: 0 auto;
+
             .card {
               display: flex;
               flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              width: 343px;
-              background: #ffffff;
-              border: 2px solid #eaeaea;
+              justify-content: left;
+              align-items: flex-start;
+              width: 100%;
+              min-width: 215px;
               margin-bottom: 20px;
 
               .img {
-                width: 343px;
-                height: 343px;
-                background-image: url("../../backgroundImages/card.png");
+                width: 100%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: auto;
               }
 
               .text {
-                width: 262px;
+                width: 80%;
                 margin: 30px 40px 32px 30px;
 
                 h2 {
+                  font-family: "Proxima Nova Rg";
                   font-size: 20px;
                   line-height: 24px;
                 }
 
                 p {
+                  font-family: "Proxima Nova Rg";
                   font-size: 16px;
                   font-style: normal;
                   font-weight: 400;
                   line-height: 24px;
+                  letter-spacing: 0em;
+                  text-align: left;
                 }
               }
 
@@ -116,11 +121,13 @@ $b: 20px;
                 display: flex;
                 width: 262px;
                 margin-bottom: 30px;
+                margin-left: 30px;
 
                 .nameAndLebel {
                   margin-left: 15px;
 
                   h3 {
+                    font-family: "Proxima Nova Rg";
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 600;
@@ -128,6 +135,7 @@ $b: 20px;
                   }
 
                   p {
+                    font-family: "Proxima Nova Rg";
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
@@ -141,31 +149,24 @@ $b: 20px;
                 text-decoration: none;
                 color: black;
 
+                font-family: Proxima Nova Lt;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 19px;
+                margin-left: 30px;
 
                 img {
                   margin-bottom: -5px;
                   margin-left: 5px;
                 }
               }
-
-              .underline {
-                width: 108px;
-                height: 1px;
-                margin-right: 153px;
-                border-radius: 50%;
-                background-color: black;
-                margin-bottom: 30px;
-              }
             }
 
             .download {
               display: flex;
               flex-direction: column;
-              width: 343px;
+              width: 100%;
               padding: 30px;
               background: #ffffff;
               border: 2px solid #eaeaea;
@@ -180,7 +181,7 @@ $b: 20px;
               }
 
               span {
-                font-family: Proxima Nova Rg;
+                font-family: "Proxima Nova Rg";
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
@@ -219,7 +220,7 @@ $b: 20px;
             }
 
             .courses {
-              width: 343px;
+              width: 100%;
               padding: 30px;
               background: #ffffff;
               border: 2px solid #eaeaea;
@@ -260,7 +261,7 @@ $b: 20px;
                 p {
                   margin-right: 5px;
 
-                  font-family: Proxima Nova Rg;
+                  font-family: "Proxima Nova Rg";
                   font-size: 16px;
                   font-style: normal;
                   font-weight: 600;
@@ -269,6 +270,40 @@ $b: 20px;
                   text-align: left;
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .videoCourse {
+    .base-container {
+      .pageRight {
+        .pageLeft {
+          .container {
+            .card {
+              .text {
+                margin-left: 10px;
+              }
+
+              .profile {
+                margin-left: 10px;
+              }
+
+              a {
+                margin-left: 10px;
+              }
+
+              .underline {
+                margin-left: 10px;
+              }
+            }
+
+            .courses {
+              padding: 15px;
             }
           }
         }

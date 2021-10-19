@@ -6,7 +6,7 @@ function PageLeft() {
     <div className="pageLeft">
       <div className="container">
         <div className="card">
-          <div className="img"></div>
+          <img src="/images/videoCourse/card.png" alt="" className="img" />
 
           <div className="text">
             <h2>SMM design masterclass</h2>
