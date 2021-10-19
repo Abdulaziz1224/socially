@@ -1,7 +1,7 @@
 .availableCourses {
   width: 100%;
   margin: 0 auto;
-  
+
   .container {
     width: 80%;
     max-width: 1036px;
@@ -75,7 +75,6 @@
   }
 }
 
-
 @media (max-width: 991px) {
   .availableCourses {
     width: 685px;
@@ -140,7 +139,6 @@
         .btn {
           margin-left: -15px;
           .underline {
-            width: 54px;
             height: 2px;
             border-radius: 1px;
             position: relative;
@@ -171,7 +169,6 @@
           }
         }
       }
-
     }
   }
 }

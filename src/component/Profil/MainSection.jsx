@@ -35,11 +35,11 @@ function MainSection() {
           <div className="tizim">
             <button className="settings" onClick={openModal}>
               Profil sozlamalari
-              <img src="images/Web Design01/footer/pen.png" alt="img" />
+              <img src="images/Web Design01/footer/pen.svg" alt="img" />
             </button>
             <button className="out">
               Tizimdan chiqish
-              <img src="images/Web Design01/footer/log-out.png" alt="img" />
+              <img src="images/Web Design01/footer/log-out.svg" alt="img" />
             </button>
           </div>
         </div>

@@ -114,9 +114,12 @@
         }
       }
       .Carousel {
+        width: 130%;
         .Carousel-slide {
           .slide-box {
+            width: 120%;
             overflow: scroll;
+            padding-right: 16%;
           }
           .slide-box::-webkit-scrollbar {
             display: none;

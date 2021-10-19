@@ -54,6 +54,34 @@
           margin-right: 30px;
           position: relative;
 
+          &:hover {
+            &::after {
+              content: "";
+              width: 100%;
+              height: 2px;
+              border-radius: 1px;
+              position: absolute;
+              bottom: -9px;
+              left: 0;
+              transition: width 0.4s;
+              background: linear-gradient(
+                270deg,
+                #ffab00 0%,
+                rgba(255, 171, 0, 0.15) 100%
+              );
+              animation: anim 0.4s ease-in-out;
+
+              @keyframes anim {
+                from {
+                  width: 0;
+                }
+                to {
+                  width: 100%;
+                }
+              }
+            }
+          }
+
           &.navLink {
             font-family: "Proxima Nova Lt";
             font-size: 20px;
@@ -129,7 +157,7 @@
       align-items: center;
       cursor: pointer;
 
-      a {
+      .profilLink {
         border-radius: 50%;
         color: transparent;
         text-decoration: none;
@@ -146,13 +174,15 @@
           border-radius: 50%;
         }
       }
-      h2 {
+      .profilText {
         font-family: "Proxima Nova Rg";
         font-size: 20px;
         margin-left: 15px;
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
+        text-decoration: none;
+        color: #000;
       }
     }
     .btn-burger {
@@ -166,8 +196,7 @@
     max-width: 685px;
     min-width: 685px;
     padding: 0;
-    height: 50px;
-    margin-top: 20px;
+    padding-top: 20px;
 
     .navbarMobile {
       display: none;
@@ -177,6 +206,7 @@
       margin-left: 30px;
       ul {
         li {
+          width: max-content;
           a {
             font-family: "Proxima Nova Rg";
             font-size: 16px;
@@ -209,7 +239,7 @@
   .navbar {
     max-width: 540px;
     min-width: 540px;
-    transition: 0.6s;
+    transition: 0.7s;
     .col-9 {
       display: none;
     }
@@ -285,7 +315,7 @@
     display: flex;
     flex-direction: column;
     z-index: 1500;
-    animation: nav 0.5s ease-out;
+    animation: nav 0.5s linear;
 
     @keyframes nav {
       from {
@@ -395,7 +425,7 @@
         align-items: center;
         cursor: pointer;
 
-        a {
+        .profilLink {
           border-radius: 50%;
           color: transparent;
           text-decoration: none;
@@ -412,13 +442,15 @@
             border-radius: 50%;
           }
         }
-        h2 {
+        .profilText {
+          text-decoration: none;
           font-family: "Proxima Nova Rg";
           font-size: 20px;
           margin-left: 15px;
           font-style: normal;
           font-weight: 400;
           line-height: 20px;
+          color: #000;
         }
       }
       .btn-burger {
@@ -481,7 +513,7 @@
   .navbar {
     max-width: 90%;
     min-width: 90%;
-    transition: 0.6s;
+    transition: 0.7s;
   }
 
   .phoneNavbar {
@@ -494,11 +526,11 @@
     display: flex;
     flex-direction: column;
     z-index: 1500;
-    animation: nav 0.4s ease-out;
+    animation: nav 0.5s linear;
 
     @keyframes nav {
       0% {
-        transform: translateX(-100%);
+        transform: translateX(100%);
       }
       100% {
         transform: translateX(0%);
@@ -603,7 +635,7 @@
         align-items: center;
         cursor: pointer;
 
-        a {
+        .profilLink {
           border-radius: 50%;
           color: transparent;
           text-decoration: none;
@@ -620,7 +652,7 @@
             border-radius: 50%;
           }
         }
-        h2 {
+        .profilText {
           font-family: "Proxima Nova Rg";
           font-size: 20px;
           margin-left: 15px;

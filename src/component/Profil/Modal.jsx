@@ -29,7 +29,7 @@ function Modal() {
               <input type="file" id="file" className="file" />
               <label htmlFor="file">
                 <img
-                  src="images/Web Design01/footer/kamera.png"
+                  src="images/Web Design01/footer/kamera.svg"
                   className="kamera"
                   alt="png"
                 />

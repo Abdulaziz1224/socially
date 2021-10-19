@@ -53,24 +53,30 @@
       }
     }
     .qurilma {
+      width: max-content;
       margin-top: 30px;
       user-select: none;
+      border: 1px solid red;
+      text-align: center;
+      border: 2px solid rgba(234, 234, 234, 1);
       .row {
         display: flex;
-        border: 2px solid rgba(234, 234, 234, 1);
         padding: 15px 30px;
         cursor: pointer;
         transition: all 0.4s;
 
-        span {
-          font-family: "Proxima Nova Lt";
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 19px;
+        .p {
+          width: max-content;
+          span {
+            font-family: "Proxima Nova Lt";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 19px;
+          }
         }
         img {
-          margin-left: 10px;
+          margin-left: 8px;
         }
       }
     }

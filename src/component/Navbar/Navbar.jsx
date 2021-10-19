@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.scss";
 import Number from "../Form/Number";
@@ -65,7 +65,7 @@ function Navbar() {
           </li>
           <li>
             <NavLink to="design" activeClassName="navLink">
-              Web design 01
+              Web Design 01
             </NavLink>
           </li>
         </ul>
@@ -76,10 +76,13 @@ function Navbar() {
           <img src="images/Web Design01/navbar/Person-icon.svg" alt="person" />
         </button>
         <div className="NavProfil">
-          <Link to="profil">
+          <Link to="profil"  className="profilLink">
             <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" />
           </Link>
-          <h2 className="profilName">Bahodir Yoqubov</h2>
+
+          <h2 className="profilName">
+            <Link to="profil" className="profilText">Bahodir Yoqubov</Link>
+          </h2>
         </div>
         <div
           className={status ? "btn-burger open" : "btn-burger"}

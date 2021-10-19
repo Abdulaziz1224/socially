@@ -22,27 +22,22 @@
     .textAndDate {
       border-left: 2px solid rgb(234, 234, 234);
       .text {
-        margin: 46px 30px 0px 30px;
-        font-family: Proxima Nova Lt;
+        margin: 35px 30px 0px 30px;
+        font-family: "Proxima Nova Lt";
         font-size: 20px;
         font-style: normal;
         font-weight: 600;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
+        line-height: 30px;
       }
 
       .date {
         margin: 5px 0 0 30px;
         color: rgba(72, 72, 72, 1);
-
-        font-family: Proxima Nova Rg;
+        font-family: "Proxima Nova Rg";
         font-size: 16px;
         font-style: normal;
         font-weight: normal;
         line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
       }
     }
   }
@@ -55,16 +50,16 @@
       .textAndDate {
         .text {
           max-height: 96px;
-          overflow: scroll;
           color: rgba(0, 0, 0, 1);
-          font-family: Proxima Nova Lt;
+          font-family: "Proxima Nova Lt";
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
-          line-height: 19px;
-          letter-spacing: 0em;
-          text-align: left;
-          margin: 46px 15px 0 15px;
+          line-height: 25px;
+          margin: 35px 15px 0 15px;
+        }
+        .date{
+          margin-left: 15px;
         }
       }
     }
@@ -81,14 +76,11 @@
 
       .textAndDate {
         .text {
-          margin: 26px 15px 0 15px;
-
+          margin: 15px 15px 0 15px;
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
-          line-height: 19px;
-          letter-spacing: 0em;
-          text-align: left;
+          line-height: 20px;
         }
 
         .date {
@@ -121,13 +113,11 @@
 
       .textAndDate {
         .text {
-          margin: 15px 8px 0 8px;
+          margin: 15px 6px 0 15px;
           font-size: 15px;
           font-style: normal;
           font-weight: 600;
           line-height: 19px;
-          letter-spacing: 0em;
-          text-align: left;
         }
 
         .date {

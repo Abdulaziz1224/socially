@@ -23,7 +23,7 @@ function Sistema() {
         </div>
         <div className="qurilma">
           <div className="row">
-            <p>
+            <p className="p">
               <span className="span1">Qurilamani</span> <span className="span2">o'chirish</span>
             </p>
             <img src="images/Web Design01/footer/x.svg" alt="img" />

@@ -167,7 +167,7 @@
         .mobile {
           display: none;
         }
-        .tablet{
+        .tablet {
           display: block;
         }
       }
@@ -352,14 +352,13 @@
       min-width: auto;
 
       .Caption-box {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: start;
         .col-6 {
           h3 {
             font-size: 16px;
             line-height: 19.2px;
-          }
-
-          .curriculum {
-            display: none;
           }
           .mobile {
             position: static;

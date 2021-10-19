@@ -26,20 +26,6 @@ function MainMiddle() {
               <div className="link">
                 <Link
                   to={{
-                    pathname: "https://www.instagram.com/sociallyuz/",
-                  }}
-                  target="_blank"
-                >
-                  <img
-                    src="/images/Web Design01/footer/instagram.svg"
-                    alt="instagram"
-                  />
-                </Link>
-              </div>
-
-              <div className="link">
-                <Link
-                  to={{
                     pathname: " https://t.me/sociallyuz",
                   }}
                   target="_blank"
