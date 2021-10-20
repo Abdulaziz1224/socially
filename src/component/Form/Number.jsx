@@ -1,30 +1,30 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import AuthNumber from "./AuthNumber";
+// import AuthNumber from "./AuthNumber";
 import { FormContext } from "../Navbar/Navbar";
 import "./number.scss";
-
-import form from "../Navbar/Navbar";
+// import form from "../Navbar/Navbar";
 
 function Number() {
   const [number, setnumber] = useState("");
 
   const { form, setForm } = useContext(FormContext);
-  const [nHeight, setNHeight] = useState(window.innerWidth<577?`${window.innerHeight-200}px`:'')
+  const [nHeight, setNHeight] = useState(
+    window.innerWidth < 577 ? `${window.innerHeight - 200}px` : ""
+  );
 
   useEffect(() => {
-    if(window.innerwidth<577){
-      setNHeight(`${window.innerHeight-200}px`)
+    if (window.innerwidth < 577) {
+      setNHeight(`${window.innerHeight - 200}px`);
     }
-    console.log("cdcdcdcdc");
-  }, [form])
+  }, [form]);
 
-  window.addEventListener("resize", ()=>{
-    if(window.innerWidth<577){
-      setNHeight(`${window.innerHeight-200}px`)
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 577) {
+      setNHeight(`${window.innerHeight - 200}px`);
     }
-  })
+  });
 
   useEffect(() => {
     let num = number;
@@ -86,44 +86,44 @@ function Number() {
         num = num.slice(0, i) + num.slice(i + 1);
         setnumber(num);
       }
-      if(num.charAt(5)===" "){
+      if (num.charAt(5) === " ") {
         num = num.slice(0, 5) + num.slice(5 + 1);
       }
-      if(num.charAt(6)===" " || num.charAt(6)===")"){
-        num = num.slice(0, 6) + num.slice(6+1);
-        setnumber(num)
+      if (num.charAt(6) === " " || num.charAt(6) === ")") {
+        num = num.slice(0, 6) + num.slice(6 + 1);
+        setnumber(num);
       }
-      if(num.charAt(7)===" " || num.charAt(7)===")"){
-        num = num.slice(0, 7) + num.slice(7+1);
-        setnumber(num)
+      if (num.charAt(7) === " " || num.charAt(7) === ")") {
+        num = num.slice(0, 7) + num.slice(7 + 1);
+        setnumber(num);
       }
-      if(num.charAt(10)===" " || num.charAt(10)==="-"){
-        num = num.slice(0, 10) + num.slice(10+1);
-        setnumber(num)
+      if (num.charAt(10) === " " || num.charAt(10) === "-") {
+        num = num.slice(0, 10) + num.slice(10 + 1);
+        setnumber(num);
       }
-      if(num.charAt(11)===" " || num.charAt(11)==="-"){
-        num = num.slice(0, 11) + num.slice(11+1);
-        setnumber(num)
+      if (num.charAt(11) === " " || num.charAt(11) === "-") {
+        num = num.slice(0, 11) + num.slice(11 + 1);
+        setnumber(num);
       }
-      if(num.charAt(12)===" " || num.charAt(12)==="-"){
-        num = num.slice(0, 12) + num.slice(12+1);
-        setnumber(num)
+      if (num.charAt(12) === " " || num.charAt(12) === "-") {
+        num = num.slice(0, 12) + num.slice(12 + 1);
+        setnumber(num);
       }
-      if(num.charAt(14)===" " || num.charAt(14)==="-"){
-        num = num.slice(0, 14) + num.slice(14+1);
-        setnumber(num)
+      if (num.charAt(14) === " " || num.charAt(14) === "-") {
+        num = num.slice(0, 14) + num.slice(14 + 1);
+        setnumber(num);
       }
-      if(num.charAt(15)===" " || num.charAt(15)==="-"){
-        num = num.slice(0, 15) + num.slice(15+1);
-        setnumber(num)
+      if (num.charAt(15) === " " || num.charAt(15) === "-") {
+        num = num.slice(0, 15) + num.slice(15 + 1);
+        setnumber(num);
       }
-      if(num.charAt(17)===" " || num.charAt(17)==="-"){
-        num = num.slice(0, 17) + num.slice(17+1);
-        setnumber(num)
+      if (num.charAt(17) === " " || num.charAt(17) === "-") {
+        num = num.slice(0, 17) + num.slice(17 + 1);
+        setnumber(num);
       }
-      if(num.charAt(18)===" " || num.charAt(18)==="-"){
-        num = num.slice(0, 18) + num.slice(18+1);
-        setnumber(num)
+      if (num.charAt(18) === " " || num.charAt(18) === "-") {
+        num = num.slice(0, 18) + num.slice(18 + 1);
+        setnumber(num);
       }
     }
   }, [number]);

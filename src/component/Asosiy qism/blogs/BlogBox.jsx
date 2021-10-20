@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import "./blogBox.scss";
-function BlogBox(props) {
+function BlogBox() {
   const [blog, setBlog] = useState([]);
 
   useEffect(() => {
