@@ -14,14 +14,12 @@ function Video() {
     <div className="videoCourse">
       <Navbar />
       <div className="base-container">
-        {}
         <PageLeft />
         <div className="pageRight">
           <VideoPlayer />
           <Modul />
           <PageLeft />
         </div>
-        {}
       </div>
       <Footer />
     </div>

@@ -1,47 +1,55 @@
 import React from 'react'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { ModulContext } from '../Modul'
 import Topic from '../../Topic/Topic'
 
 function Modul2() {
-    const [topics, setTopics] = useState([])
+  const [topics, setTopics] = useState([])
 
-    const {modul, setModul} = useContext(ModulContext)
+  const {modul, setModul, modules} = useContext(ModulContext)
+
+  useEffect(()=>{
+    if(modules.length !==0){
+      let array = modules[1].lessons.map((obj)=>{
+        let lessonNumber = (modules[1].lessons.indexOf(obj)+1)/10<1?"0"+(modules[1].lessons.indexOf(obj)+1):(modules[1].lessons.indexOf(obj)+1)
+        return({
+          number: lessonNumber,
+          topic: obj.theme,
+          theme: obj.parts.map((mavzu)=>{
+            return({
+              lock: !mavzu.access,
+              themeNumber: (modules[1].lessons.indexOf(obj)+1)+"."+(obj.parts.indexOf(mavzu)+1),
+              label: mavzu.title,
+            })
+          })
+        })
+      })
+
+      setTopics(array)
+    }
+  },[modules])
 
     return (
         <div className="modul2"  style={{display:modul==2?"block":"none"}}>
-            <Topic
-              number="21"
-              topic="Video kursga kirish"
-              theme={[
-                {
-                  lock:false,
-                  themeNumber: "1.1",
-                  label:"00 SMM design kursiga kirish"
-                },
-                {
-                  lock:true,
-                  themeNumber: "1.2",
-                  label:"01 Kurs haqida ma’lumot"
-                }
-              ]}
-            />
-            <Topic
-              number="22"
-              topic="Amaliyot | Shape Usage imkoniyati"
-              theme={[
-                {
-                  lock:false,
-                  themeNumber: "2.1",
-                  label:"Amaliyot | Shape Usage imkoniyati"
-                },
-                {
-                  lock:true,
-                  themeNumber: "2.2",
-                  label:"Stock Photos | Sur’atlardan foydalanish texnologiyasi"
-                }
-              ]}
-            />
+            {
+              topics.length!==0
+              ?topics.map((lesson)=>{
+                return(
+                  <Topic
+                    number = {lesson.number}
+                    topic={lesson.topic}
+                    theme={lesson.theme.map((mavzu)=>{
+                      return({
+                        lock: mavzu.lock,
+                        themeNumber: mavzu.themeNumber,
+                        label: mavzu.label
+                      })
+                    })}
+                  />
+                )
+              })
+              :""
+            }
         </div>
     )
 }

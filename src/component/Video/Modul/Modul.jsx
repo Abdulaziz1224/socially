@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modul1 from "./Modules/Modul1";
 import { useState } from "react";
 import Modul2 from "./Modules/Modul2";
 import Modul3 from "./Modules/Modul3";
+import axios from "axios";
 
 export const ModulContext = React.createContext();
 
 function Modul() {
   const [modul, setModul] = useState(1);
+  const [modules, setModules] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://socially.uz/api/v2/course/public/1003")
+      .then((res) => {
+        setModules(res.data.data.course.modules);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="modul">
@@ -48,7 +61,7 @@ function Modul() {
           </button>
         </nav>
 
-        <ModulContext.Provider value={{ modul, setModul }}>
+        <ModulContext.Provider value={{ modul, setModul, modules }}>
           <Modul1 />
           <Modul2 />
           <Modul3 />

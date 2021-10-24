@@ -16,18 +16,13 @@ function Topic({ number, topic, theme }) {
   }, [modul]);
 
   const toggleAccardion = () => {
-    console.log(content.current.scrollHeight);
     setActiveClass(activeClass === "" ? "active" : "");
-
     setHeight(height === 0 ? `${content.current.scrollHeight}px` : 0);
     setRotateIcon(activeClass === "active" ? "icon" : "icon rotate");
   };
 
   return (
-    <div
-      className={`topic ${activeClass}`}
-      // style={{height:minheight}}
-    >
+    <div className={`topic ${activeClass}`}>
       <div className="head" onClick={toggleAccardion}>
         <div className="title">
           <h3 className="topic-number">{number}</h3>

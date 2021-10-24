@@ -25,14 +25,11 @@
         margin-right: 15px;
         text-align: center;
         cursor: pointer;
-
-        font-family: Proxima Nova Lt;
+        font-family: "Proxima Nova Lt";
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
         line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
 
         img {
           margin-left: 5px;
@@ -73,7 +70,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .modul {
     .container {
       width: 100%;

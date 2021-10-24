@@ -13,9 +13,9 @@ import "./app.scss";
 
 function App() {
   return (
-    <div className="app">
+    <div className="app">   
       <Router>
-        <Switch>
+        <Switch>   
           <Route path="/" exact strict component={Basis} />
           <Route path="/kurslar" exact strict component={Kurs} />
           <Route path="/bloglar" exact strict component={BlogPart} />
