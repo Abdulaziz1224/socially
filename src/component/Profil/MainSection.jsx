@@ -2,6 +2,7 @@ import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 import { Context } from "./Profil";
 import "./mainSection.scss";
+import axios from "axios";
 
 function MainSection() {
   const { bool, setBool } = useContext(Context);
@@ -10,6 +11,10 @@ function MainSection() {
   const openModal = () => {
     setBool(!bool);
   };
+
+  const LogOut = async () => {
+   
+  }
   return (
     <div className="profilSection">
       <div className="container">
@@ -37,7 +42,7 @@ function MainSection() {
               Profil sozlamalari
               <img src="images/Web Design01/footer/pen.svg" alt="img" />
             </button>
-            <button className="out">
+            <button className="out" onClick={LogOut}>
               Tizimdan chiqish
               <img src="images/Web Design01/footer/log-out.svg" alt="img" />
             </button>

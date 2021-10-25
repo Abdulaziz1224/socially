@@ -11,6 +11,18 @@ function Modal() {
   const [changePass, setChangePass] = useState("");
   const [passMatch, setPassMatch] = useState(2);
 
+  const Submit = (e) => {
+    e.preventDefault();
+    let Item = { image, name, pass, son };
+    console.log(Item);
+    // Item = Item.json()
+    // let result = await axios()
+    localStorage.setItem("user-info", JSON.stringify(Item));
+    setSon("");
+    setName("");
+    setPass("");
+    setChangePass("");
+  };
   useEffect(() => {
     if (pass === changePass) {
       setPassMatch(1);
@@ -153,7 +165,7 @@ function Modal() {
         />
         <h3>Profil sozlamalari</h3>
         <p>O‘zgarishlar qilish uchun ma’lumotlaringizni kiriting</p>
-        <form action="ro'yxat">
+        <form action="ro'yxat" method="POST">
           <div className="form">
             <div className="img">
               <input
@@ -238,7 +250,10 @@ function Modal() {
               type="submit"
               value="O'zgarishlarni saqlash"
               className="submit"
-              // onSubmit={submit}
+              onChange={(e) => {
+                e.preventDefault();
+              }}
+              onClick={Submit}
             />
             <img
               src="images/Web Design01/footer/Vector.png"
