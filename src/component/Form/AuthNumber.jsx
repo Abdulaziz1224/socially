@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./authNumber.scss";
 import { FormContext } from "../Navbar/Navbar";
+import { BsMenuButtonWideFill } from "react-icons/bs";
 
 function AuthNumber({ active }) {
   const [number, setnumber] = useState("");
@@ -40,9 +41,9 @@ function AuthNumber({ active }) {
           form === "authNumber" ? "container active" : "container active"
         }
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
+        <button className="xBtn" onClick={() =>{setForm("");setnumber("")}}>
           <img src="images/Form/x.svg" alt="x" />
-        </Link>
+        </button>
 
         <div className="box">
           <h1>Tizimga kirish</h1>

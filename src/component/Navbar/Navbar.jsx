@@ -6,13 +6,14 @@ import AuthNumber from "../Form/AuthNumber";
 import Login from "../Form/Login";
 import Register from "../Form/Register";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 export const FormContext = React.createContext();
 
 function Navbar() {
   const [status, setStatus] = useState(false);
   const [form, setForm] = useState("");
-
+  const [userData, setUserData] = useState(localStorage.getItem("user"))
   let history = useHistory();
 
   const navbarFunc = () => {
@@ -27,9 +28,14 @@ function Navbar() {
     }
   }
 
+  useEffect(() => {
+    setUserData(localStorage.getItem("user"))
+  },[])
+
+
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
-      <FormContext.Provider value={{ form, setForm }}>
+      <FormContext.Provider value={{ form, setForm,userData,setUserData }}>
         <Number />
         <AuthNumber />
         <Login />
@@ -71,11 +77,11 @@ function Navbar() {
         </ul>
       </div>
       <div className="col-2">
-        <button onClick={kirish}>
+        <button onClick={kirish} style={{display:userData===null?"flex":"none"}}>
           <span>Kirish</span>
           <img src="images/Web Design01/navbar/Person-icon.svg" alt="person" />
         </button>
-        <div className="NavProfil">
+        <div className="NavProfil" style={{display:userData===null?"none":"flex"}}>
           <Link to="profil"  className="profilLink">
             <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" className="person"/>
             <img src="" alt="profilImg" className="profilImg" />

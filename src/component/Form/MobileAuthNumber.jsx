@@ -6,7 +6,7 @@ import { MFormContext } from "./MobileForm";
 
 function MobileAuthNumber({ active }) {
   const [number, setnumber] = useState("");
-  const [timer, setTimer] = useState(60);
+  const [mTimer, setMTimer] = useState(60);
 
   const { form, setForm } = useContext(MFormContext);
   const { mForm, setMForm } = useContext(MFormContext);
@@ -25,15 +25,19 @@ function MobileAuthNumber({ active }) {
 
   }, [number])
 
+  useEffect(()=>{
+    setMTimer(60)
+  },[mForm])
+
   useEffect(() => {
-    if (timer !== 0) {
+    if (mTimer !== 0) {
       setTimeout(() => {
-        setTimer(timer - 1);
+        setMTimer(mTimer - 1);
       }, 1000);
     }
 
-    console.log(timer);
-  }, [timer]);
+    console.log(mTimer);
+  }, [mTimer]);
 
   console.log(mForm)
 
@@ -71,17 +75,17 @@ function MobileAuthNumber({ active }) {
 
           <div className="counterAndResend">
             <p className="counter">
-              {timer === 60
+              {mTimer === 60
                 ? "1:00"
-                : timer < 10
-                ? "0:0" + timer
-                : "0:" + timer}
+                : mTimer < 10
+                ? "0:0" + mTimer
+                : "0:" + mTimer}
             </p>
-            {timer === 0 ? (
+            {mTimer === 0 ? (
               <div
                 className="resend"
                 onClick={() => {
-                  setTimer(60);
+                  setMTimer(60);
                 }}
               >
                 <button>Qayta yuborish</button>

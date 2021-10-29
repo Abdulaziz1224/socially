@@ -20,9 +20,9 @@ function Register({ active }) {
         // className="container"
         className={form === "register" ? "container active" : "container active"}
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
+        <button className="xBtn" onClick={() => setForm("")}>
           <img src="images/Form/x.svg" alt="x" />
-        </Link>
+        </button>
 
         <div className="box">
           <h1>Ro'yhatdan o'tish</h1>

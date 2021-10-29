@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "./Profil";
 import "./modal.scss";
+import axios from "axios";
 
 function Modal() {
   const [son, setSon] = useState("");
@@ -12,12 +13,38 @@ function Modal() {
   const [passMatch, setPassMatch] = useState(2);
 
   const Submit = (e) => {
-    e.preventDefault();
-    let Item = { image, name, pass, son };
-    console.log(Item);
-    // Item = Item.json()
-    // let result = await axios()
-    localStorage.setItem("user-info", JSON.stringify(Item));
+    // e.preventDefault();
+    let Item = {
+      // "avatar": `${image}`,
+      "firstName": `${name}`,
+      // "lastName": "Doe",
+      // "password": `${pass}`,
+      // "phonde": `${son}`,
+      "avatar":  `${image}`,
+    };
+
+    let dat = JSON.parse(localStorage.getItem("user"));
+
+    let config = {
+      method: "put",
+      url: `https://socially2.herokuapp.com/v2/user`,
+      headers: {
+        "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${dat.tokens.accessToken}`,
+      },
+      data: Item,
+    };
+
+     axios(config)
+      .then(function (response) {
+        // localStorage.setItem("user", response.data);
+        console.log(response.data);
+        alert("qo'shildi");
+      })
+      .catch(function (error) {
+        alert("qo'shilmadi");
+      });
     setSon("");
     setName("");
     setPass("");
@@ -149,11 +176,35 @@ function Modal() {
     };
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
+      console.log(e.target.files[0].name);
     }
+    // const files = e.target.value;
+    // const dat = new FormData();
+    // dat.append("file", files[0]);
+    // dat.append("upload_preset", "darwin");
+    // let data = localStorage.getItem("user");
+    // data = JSON.parse(data);
+    // var config = {
+    //   method: "post",
+    //   url: "https://socially2.herokuapp.com/v2/upload/image",
+    //   headers: {
+    //     Authorization: `Bearer ${data.tokens.accessToken}`,
+    //   },
+    //   form: "dat",
+    // };
+    // await axios
+    //   .post(config)
+    //   .then((res) => {
+    //     localStorage.setItem(data);
+    //   })
+    //   .catch((err) => {
+    //     alert("xatolik");
+    //   });
   };
   const deleteFunc = () => {
     setBool(!bool);
   };
+  let getData = JSON.parse(localStorage.getItem("user"));
   return (
     <div className={bool ? "modal" : "modal close"}>
       <div className="contain">
@@ -206,7 +257,7 @@ function Modal() {
                 className="name"
                 placeholder="Ismingiz"
                 required
-                value={name}
+                defaultValue={getData.user.firstName}
                 onChange={(e) => setName(e.target.value)}
               />
               <input
@@ -214,10 +265,8 @@ function Modal() {
                 type="tel"
                 className="tel"
                 placeholder="Telefon raqamingiz"
-                value={son}
-                onFocus={() => {
-                  console.log(son);
-                }}
+                value={getData.user.phone}
+                required
                 onChange={(e) => setSon(e.target.value)}
                 maxLength="19"
               />
@@ -228,6 +277,7 @@ function Modal() {
                 type="password"
                 className="pass1"
                 placeholder="Yangi parol"
+                required
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
               />
@@ -235,6 +285,7 @@ function Modal() {
                 name="pass2"
                 type="password"
                 className="pass2"
+                required
                 placeholder="Parolingizni tasdiqlang"
                 value={changePass}
                 onChange={(e) => setChangePass(e.target.value)}

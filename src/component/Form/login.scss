@@ -24,6 +24,9 @@
             height: 20px;
             float: right;
             margin: 15px 15px 0 0;
+            background: transparent;
+            border: none;
+            outline: none;
         }
 
         .box {
@@ -113,6 +116,8 @@
                 text-decoration: none;
                 background: #FFAB00;
                 color: black;
+                border: none;
+                outline: none;
 
                 font-family: Proxima Nova Lt;
                 font-size: 16px;

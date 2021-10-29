@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import AuthNumber from "./AuthNumber";
 import { FormContext } from "../Navbar/Navbar";
 import "./number.scss";
+import {checkphone} from "../user"
 // import form from "../Navbar/Navbar";
 
 function Number() {
   const [number, setnumber] = useState("");
 
   const { form, setForm } = useContext(FormContext);
+  const [registered, setRegistered] = useState(null)
   const [nHeight, setNHeight] = useState(
     window.innerWidth < 577 ? `${window.innerHeight - 200}px` : ""
   );
@@ -25,6 +27,47 @@ function Number() {
       setNHeight(`${window.innerHeight - 200}px`);
     }
   });
+
+  function check(){
+    var raqam = number;
+
+    for(let i =0; i<raqam.length; i++){
+      if(raqam.charAt(i)===" "){
+        raqam = raqam.slice(0,i) + raqam.slice(i + 1);
+        
+      }
+      if(raqam.charAt(i)==="("){
+        raqam = raqam.slice(0,i) + raqam.slice(i + 1);
+        
+      }
+      if(raqam.charAt(i)===")"){
+        raqam = raqam.slice(0,i) + raqam.slice(i + 2);
+        
+      }
+      if(raqam.charAt(i)==="-"){
+        raqam = raqam.slice(0,i) + raqam.slice(i + 1);
+        
+      }
+      if((raqam.length-1)===i){
+      }
+    }
+    function cb(exists){
+      setRegistered(exists)
+    }
+
+    checkphone(raqam,cb)
+  }
+
+  useEffect(()=>{
+    if(registered === true){
+      setForm("login")
+      setRegistered(null)
+    }
+    if(registered === false){
+      setForm("authNumber")
+      setRegistered(null)
+    }
+  },[registered])
 
   useEffect(() => {
     let num = number;
@@ -137,9 +180,9 @@ function Number() {
         // className="container"
         className={form === "number" ? "container active" : "container active"}
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
+        <button className="xBtn" onClick={() =>{setForm("");setnumber("");setRegistered(null)}}>
           <img src="images/Form/x.svg" alt="x" />
-        </Link>
+        </button>
 
         <div className="box">
           <h1>Tizimga kirish</h1>
@@ -150,6 +193,8 @@ function Number() {
           <input
             type="tel"
             placeholder="Telefon raqamingiz"
+            autoFocus
+            required
             value={number}
             onChange={(e) => {
               setnumber(e.target.value);
@@ -161,16 +206,13 @@ function Number() {
             }}
             maxLength="19"
           />
-          <Link
-            to="/"
+          <button
             className="check"
-            onClick={() => {
-              setForm("authNumber");
-            }}
+            onClick={check}
           >
             Tekshirish
             <img src="images/Form/arrow.svg" alt="arrow" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

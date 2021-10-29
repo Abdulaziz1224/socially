@@ -1,38 +1,68 @@
-import React, { useContext} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "./Profil";
 import "./mainSection.scss";
+import { logout } from "../user";
 import axios from "axios";
 
 function MainSection() {
   const { bool, setBool } = useContext(Context);
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
   const openModal = () => {
     setBool(!bool);
   };
 
-  const LogOut = async () => {
-   
-  }
+  // useEffect(() => {
+  let dat = JSON.parse(localStorage.getItem("user"));
+  // setData((data) => (data = dat));
+  // }, []);
+
+  // useEffect(() => {
+    let config = {
+      method: "get",
+      url: "https://socially2.herokuapp.com/v2/user/profile",
+      headers: {
+        "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
+        "Authorization": `Bearer ${dat.tokens.accessToken}`,
+      },
+    };
+    axios(config)
+    .then(function (res) {
+      console.log(res.data.data);
+      setData(res.data.data)
+    })
+    .catch(function (err){
+      console.log(err.data);
+    })
+  // }, []);
   return (
     <div className="profilSection">
       <div className="container">
         <div className="col-4">
           <div className="information">
             <div className="profil">
-              <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" />
+              <img
+                src={
+                  data.avatar !== ""
+                    ? data.avatar
+                    : `images/Web Design01/navbar/Person-icon.svg`
+                }
+                alt=""
+              />
             </div>
             <div className="info">
               <div className="name">
                 <span>Foydalanuvchi ismi</span>
                 {/* <h3>{data.name.length > 14 ? "Bahodir Yoqubo..." : `${data.name}`}</h3> */}
-                <p className="kompText">Bahodir Yoqubov</p>
+                <p className="kompText">
+                  {data.firstName + " " + data.lastName}
+                </p>
                 <p className="tableText">Bahodir Yoqubo...</p>
               </div>
               <div className="num">
                 <span>Telefon raqami</span>
-                <p className="komp">+998 (97) 707-27-11</p>
+                <p className="komp">{data.phone}</p>
                 <p className="table">(97) 707-27-11 </p>
               </div>
             </div>
@@ -42,7 +72,7 @@ function MainSection() {
               Profil sozlamalari
               <img src="images/Web Design01/footer/pen.svg" alt="img" />
             </button>
-            <button className="out" onClick={LogOut}>
+            <button className="out" onClick={logout}>
               Tizimdan chiqish
               <img src="images/Web Design01/footer/log-out.svg" alt="img" />
             </button>

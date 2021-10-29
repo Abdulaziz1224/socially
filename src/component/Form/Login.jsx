@@ -3,11 +3,31 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./login.scss";
 import { FormContext } from "../Navbar/Navbar";
+import {login} from "../user"
 
 function Login({ active }) {
   const [number, setnumber] = useState("+998");
+  const [pass, setPass] = useState("")
+  const [phone, setPhone] = useState("")
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm, userData, setUserData } = useContext(FormContext);
+
+  useEffect(()=>{
+    setnumber("     "+localStorage.getItem("number"))
+    setPhone(localStorage.getItem("number"))
+    localStorage.removeItem("number")
+  },[form])
+
+  function kirish(){
+    function cb(data){
+      setUserData(data)
+      if(data){
+        setForm("")
+      }
+    }
+
+    login({phone:phone,password: pass},cb)
+  }
 
   useEffect(() => {
     let num = number;
@@ -120,9 +140,9 @@ function Login({ active }) {
         // className="container"
         className={form === "login" ? "container active" : "container active"}
       >
-        <Link to="/" className="xBtn" onClick={() => setForm("")}>
+        <button className="xBtn" onClick={() =>{setForm("");setnumber("")}}>
           <img src="images/Form/x.svg" alt="x" />
-        </Link>
+        </button>
 
         <div className="box">
           <h1>Tizimga kirish</h1>
@@ -144,7 +164,7 @@ function Login({ active }) {
             }}
             maxLength="19"
           />
-          <input type="password" required placeholder="Password" />
+          <input type="password" placeholder="Password" value={pass} onChange={(e)=>{setPass(e.target.value)}}/>
           <div className="password">
             <p className="forget">Parolni unutdingizmi?</p>
             <Link className="reset" to="number">
@@ -152,10 +172,10 @@ function Login({ active }) {
               <div className="underline"></div>
             </Link>
           </div>
-          <Link to="/" className="regLink" onClick={() => setForm("register")}>
+          <button className="regLink" onClick={kirish}>
             Tizimga kirish
             <img src="images/Form/arrow.svg" alt="arrow" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

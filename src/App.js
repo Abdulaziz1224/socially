@@ -11,19 +11,20 @@ import Video from "./component/Video/Video"
 import MainBlog from "./component/Blog/MainBlog"
 import "./app.scss";
 
+
 function App() {
   return (
-    <div className="app">   
+    <div className="app">
       <Router>
-        <Switch>   
+        <Switch>
           <Route path="/" exact strict component={Basis} />
           <Route path="/kurslar" exact strict component={Kurs} />
           <Route path="/bloglar" exact strict component={BlogPart} />
           <Route path="/design" exact strict component={Design01} />
           <Route path="/mobileForm" exact strict component={MobileForm} />
-          <Route path="/profil" exact strict component={Profil} /> 
-          <Route path="/video" exact strict component={Video} /> 
-          <Route path="/ablog" exact strict component={MainBlog} /> 
+          <Route path="/profil" exact strict component={Profil} />
+          <Route path="/video" exact strict component={Video} />
+          <Route path="/ablog" exact strict component={MainBlog} />
         </Switch>
       </Router>
     </div>
