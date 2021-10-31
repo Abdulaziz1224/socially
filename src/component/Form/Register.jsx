@@ -3,13 +3,33 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./register.scss";
 import { FormContext } from "../Navbar/Navbar";
+import { register } from "../user";
 
 function Register({ active }) {
   const [name, setname] = useState("");
+  const [lastName, setlastName] = useState("")
   const [pass, setpass] = useState("");
   const [checkPass, setCheckPass] = useState("");
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm, setUserData } = useContext(FormContext);
+
+  function signup(){
+    let num = localStorage.getItem("number")
+    function cb(data){
+      setUserData(data)
+      setForm("")
+    }
+
+    register(
+      {
+        firstName: name,
+        lastName: lastName,
+        phone: num,
+        password: pass
+      },
+      cb
+    )
+  }
 
   return (
     <div
@@ -18,7 +38,9 @@ function Register({ active }) {
     >
       <div
         // className="container"
-        className={form === "register" ? "container active" : "container active"}
+        className={
+          form === "register" ? "container active" : "container active"
+        }
       >
         <button className="xBtn" onClick={() => setForm("")}>
           <img src="images/Form/x.svg" alt="x" />
@@ -39,6 +61,14 @@ function Register({ active }) {
             placeholder="Ismingizni kiriting"
           />
           <input
+            type="fname"
+            value={lastName}
+            onChange={(e) => {
+              setlastName(e.target.value);
+            }}
+            placeholder="Familiyangizni kiriting"
+          />
+          <input
             type="password"
             value={pass}
             onChange={(e) => {
@@ -54,10 +84,10 @@ function Register({ active }) {
             }}
             placeholder="Parolni kiriting"
           />
-          <Link to="/" onClick={() => setForm("number")}>
+          <button onClick={signup} className="submit">
             Ro’yxatdan o’tish
             <img src="images/Form/arrow.svg" alt="accept" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

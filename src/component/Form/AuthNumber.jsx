@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import "./authNumber.scss";
 import { FormContext } from "../Navbar/Navbar";
-import { BsMenuButtonWideFill } from "react-icons/bs";
 
-function AuthNumber({ active }) {
+function AuthNumber() {
   const [number, setnumber] = useState("");
   const [timer, setTimer] = useState(60);
 
   const { form, setForm } = useContext(FormContext);
+
+  function checknumber(){
+    setForm("register")
+  }
 
   useEffect(() => {
     let num = number;
@@ -86,10 +88,10 @@ function AuthNumber({ active }) {
               ""
             )}
           </div>
-          <Link to="/" className="check" onClick={() => setForm("login")}>
+          <button className="check" onClick={checknumber}>
             Kodni tasdiqlash
             <img src="images/Form/ok.svg" alt="accept" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

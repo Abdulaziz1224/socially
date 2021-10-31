@@ -2,9 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "./Profil";
 import "./mainSection.scss";
-import { logout } from "../user";
+import { Logout } from "../user";
 import axios from "axios";
-
 function MainSection() {
   const { bool, setBool } = useContext(Context);
   const [data, setData] = useState({});
@@ -12,13 +11,8 @@ function MainSection() {
   const openModal = () => {
     setBool(!bool);
   };
-
-  // useEffect(() => {
-  let dat = JSON.parse(localStorage.getItem("user"));
-  // setData((data) => (data = dat));
-  // }, []);
-
-  // useEffect(() => {
+  useEffect(() => {
+    let dat = JSON.parse(localStorage.getItem("user"));
     let config = {
       method: "get",
       url: "https://socially2.herokuapp.com/v2/user/profile",
@@ -28,14 +22,13 @@ function MainSection() {
       },
     };
     axios(config)
-    .then(function (res) {
-      console.log(res.data.data);
-      setData(res.data.data)
-    })
-    .catch(function (err){
-      console.log(err.data);
-    })
-  // }, []);
+      .then(function (res) {
+        setData(res.data.data);
+      })
+      .catch(function (err) {
+        console.log(err.data);
+      });
+  }, []);
   return (
     <div className="profilSection">
       <div className="container">
@@ -44,7 +37,7 @@ function MainSection() {
             <div className="profil">
               <img
                 src={
-                  data.avatar !== ""
+                  data.avatar !== "1.2"
                     ? data.avatar
                     : `images/Web Design01/navbar/Person-icon.svg`
                 }
@@ -54,7 +47,6 @@ function MainSection() {
             <div className="info">
               <div className="name">
                 <span>Foydalanuvchi ismi</span>
-                {/* <h3>{data.name.length > 14 ? "Bahodir Yoqubo..." : `${data.name}`}</h3> */}
                 <p className="kompText">
                   {data.firstName + " " + data.lastName}
                 </p>
@@ -72,7 +64,7 @@ function MainSection() {
               Profil sozlamalari
               <img src="images/Web Design01/footer/pen.svg" alt="img" />
             </button>
-            <button className="out" onClick={logout}>
+            <button className="out" onClick={Logout}>
               Tizimdan chiqish
               <img src="images/Web Design01/footer/log-out.svg" alt="img" />
             </button>

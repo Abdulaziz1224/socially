@@ -1,15 +1,48 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext} from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./login.scss";
 import { MFormContext } from "./MobileForm";
+import axios from "axios";
 
 function MobileLogin({ active }) {
   const [number, setnumber] = useState("+998");
 
-  const { form, setForm } = useContext(MFormContext);
   const { mForm, setMForm } = useContext(MFormContext);
+  const [pass, setPass] = useState("");
+  const [phone, setPhone] = useState("");
+  const [click, setClick] = useState(0);
 
+  let history = useHistory()
+
+  let renderCounter = 0;
+
+  useEffect(() => {
+    setnumber("     " + localStorage.getItem("number"));
+    if (localStorage.getItem("number")) {
+      setPhone(localStorage.getItem("number"));
+    }
+  }, [mForm]);
+
+  useEffect(() => {
+    renderCounter++;
+    if (renderCounter > 0) {
+      axios.post("https://socially2.herokuapp.com/v2/login/basic", {
+          phone: phone,
+          password: pass,
+          device: window.navigator.userAgent,
+        })
+        .then((res) => {
+          console.log(res)
+          localStorage.setItem("user", JSON.stringify(res.data.data));
+          history.push("/")
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+    }
+  }, [click]);
 
   useEffect(() => {
     let num = number;
@@ -71,44 +104,44 @@ function MobileLogin({ active }) {
         num = num.slice(0, i) + num.slice(i + 1);
         setnumber(num);
       }
-      if(num.charAt(5)===" "){
+      if (num.charAt(5) === " ") {
         num = num.slice(0, 5) + num.slice(5 + 1);
       }
-      if(num.charAt(6)===" " || num.charAt(6)===")"){
-        num = num.slice(0, 6) + num.slice(6+1);
-        setnumber(num)
+      if (num.charAt(6) === " " || num.charAt(6) === ")") {
+        num = num.slice(0, 6) + num.slice(6 + 1);
+        setnumber(num);
       }
-      if(num.charAt(7)===" " || num.charAt(7)===")"){
-        num = num.slice(0, 7) + num.slice(7+1);
-        setnumber(num)
+      if (num.charAt(7) === " " || num.charAt(7) === ")") {
+        num = num.slice(0, 7) + num.slice(7 + 1);
+        setnumber(num);
       }
-      if(num.charAt(10)===" " || num.charAt(10)==="-"){
-        num = num.slice(0, 10) + num.slice(10+1);
-        setnumber(num)
+      if (num.charAt(10) === " " || num.charAt(10) === "-") {
+        num = num.slice(0, 10) + num.slice(10 + 1);
+        setnumber(num);
       }
-      if(num.charAt(11)===" " || num.charAt(11)==="-"){
-        num = num.slice(0, 11) + num.slice(11+1);
-        setnumber(num)
+      if (num.charAt(11) === " " || num.charAt(11) === "-") {
+        num = num.slice(0, 11) + num.slice(11 + 1);
+        setnumber(num);
       }
-      if(num.charAt(12)===" " || num.charAt(12)==="-"){
-        num = num.slice(0, 12) + num.slice(12+1);
-        setnumber(num)
+      if (num.charAt(12) === " " || num.charAt(12) === "-") {
+        num = num.slice(0, 12) + num.slice(12 + 1);
+        setnumber(num);
       }
-      if(num.charAt(14)===" " || num.charAt(14)==="-"){
-        num = num.slice(0, 14) + num.slice(14+1);
-        setnumber(num)
+      if (num.charAt(14) === " " || num.charAt(14) === "-") {
+        num = num.slice(0, 14) + num.slice(14 + 1);
+        setnumber(num);
       }
-      if(num.charAt(15)===" " || num.charAt(15)==="-"){
-        num = num.slice(0, 15) + num.slice(15+1);
-        setnumber(num)
+      if (num.charAt(15) === " " || num.charAt(15) === "-") {
+        num = num.slice(0, 15) + num.slice(15 + 1);
+        setnumber(num);
       }
-      if(num.charAt(17)===" " || num.charAt(17)==="-"){
-        num = num.slice(0, 17) + num.slice(17+1);
-        setnumber(num)
+      if (num.charAt(17) === " " || num.charAt(17) === "-") {
+        num = num.slice(0, 17) + num.slice(17 + 1);
+        setnumber(num);
       }
-      if(num.charAt(18)===" " || num.charAt(18)==="-"){
-        num = num.slice(0, 18) + num.slice(18+1);
-        setnumber(num)
+      if (num.charAt(18) === " " || num.charAt(18) === "-") {
+        num = num.slice(0, 18) + num.slice(18 + 1);
+        setnumber(num);
       }
     }
   }, [number]);
@@ -120,7 +153,7 @@ function MobileLogin({ active }) {
     >
       <div
         // className="container"
-        className={mForm === "login" ? "container active" : "container active"}  
+        className={mForm === "login" ? "container active" : "container active"}
       >
         <Link to="/" className="xBtn" onClick={() => setMForm("")}>
           <img src="images/Form/x.svg" alt="x" />
@@ -137,16 +170,24 @@ function MobileLogin({ active }) {
             placeholder="Telefon raqamingiz"
             value={number}
             onChange={(e) => {
-              setnumber(e.target.value);
+              
             }}
-            onFocus={() => {
-              if (number.length === 0) {
-                setnumber("+998 ");
-              }
-            }}
+            // onFocus={() => {
+            //   if (number.length === 0) {
+            //     setnumber("+998 ");
+            //   }
+            // }}
             maxLength="19"
           />
-          <input type="password" required placeholder="Password" />
+          <input
+            type="password"
+            required
+            placeholder="Password"
+            value={pass}
+            onChange={(e) => {
+              setPass(e.target.value);
+            }}
+          />
           <div className="password">
             <p className="forget">Parolni unutdingizmi?</p>
             <Link className="reset" to="number">
@@ -154,7 +195,13 @@ function MobileLogin({ active }) {
               <div className="underline"></div>
             </Link>
           </div>
-          <Link to="/mobileForm" className="regLink" onClick={() => setMForm("register")}>
+          <Link
+            to="/mobileForm"
+            className="regLink"
+            onClick={() => {
+              setClick(click + 1);
+            }}
+          >
             Tizimga kirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </Link>

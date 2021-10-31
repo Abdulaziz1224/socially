@@ -10,10 +10,11 @@
 
     .container {
         width: 442px;
-        height: 516px;
+        height: max-content;
         background: #FFFFFF;
         border: 2px solid #EAEAEA;
         position: absolute;
+        padding-bottom: 60px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -33,7 +34,7 @@
         .box {
             display: block;
             width: 322px;
-            height: 268px;
+            height: max-content;
             margin: 60px auto 0 auto;
 
             h1 {
@@ -108,7 +109,7 @@
                 right: 80px;
             }
 
-            a {
+            .submit {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -117,6 +118,8 @@
                 text-decoration: none;
                 background: #FFAB00;
                 color: black;
+                border: none;
+                outline: none;
 
                 font-family: Proxima Nova Lt;
                 font-size: 16px;
@@ -190,6 +193,7 @@
             width: 343px;
             height: 453px;
             transform: none;
+            padding-bottom: 30px;
 
             .xBtn{
                 display: none;
@@ -207,7 +211,7 @@
                     line-height: 28px;
                 }
 
-                a{
+                .submit{
                     padding: 16px 65px 15px 65px;
                 }
             }

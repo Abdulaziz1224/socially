@@ -4,13 +4,17 @@ import {  Link } from "react-router-dom";
 import "./authNumber.scss";
 import { MFormContext } from "./MobileForm";
 
-function MobileAuthNumber({ active }) {
+function MobileAuthNumber() {
   const [number, setnumber] = useState("");
   const [mTimer, setMTimer] = useState(60);
 
   const { form, setForm } = useContext(MFormContext);
   const { mForm, setMForm } = useContext(MFormContext);
 
+
+  function checknumber() {
+    setMForm("register");
+  }
 
   useEffect(() => {
     let num = number
@@ -35,12 +39,7 @@ function MobileAuthNumber({ active }) {
         setMTimer(mTimer - 1);
       }, 1000);
     }
-
-    console.log(mTimer);
   }, [mTimer]);
-
-  console.log(mForm)
-
 
   return (
     <div
@@ -95,7 +94,7 @@ function MobileAuthNumber({ active }) {
               ""
             )}
           </div>
-          <Link to="/mobileForm" className="check" onClick={() => setMForm("login")}>
+          <Link to="/mobileForm" className="check" onClick={checknumber}>
             Kodni tasdiqlash
             <img src="images/Form/ok.svg" alt="accept" />
           </Link>

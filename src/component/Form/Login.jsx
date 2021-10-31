@@ -15,7 +15,6 @@ function Login({ active }) {
   useEffect(()=>{
     setnumber("     "+localStorage.getItem("number"))
     setPhone(localStorage.getItem("number"))
-    localStorage.removeItem("number")
   },[form])
 
   function kirish(){

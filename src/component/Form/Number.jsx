@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import AuthNumber from "./AuthNumber";
 import { FormContext } from "../Navbar/Navbar";
 import "./number.scss";
@@ -193,8 +193,6 @@ function Number() {
           <input
             type="tel"
             placeholder="Telefon raqamingiz"
-            autoFocus
-            required
             value={number}
             onChange={(e) => {
               setnumber(e.target.value);

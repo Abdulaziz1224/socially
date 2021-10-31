@@ -13,7 +13,9 @@ export const FormContext = React.createContext();
 function Navbar() {
   const [status, setStatus] = useState(false);
   const [form, setForm] = useState("");
-  const [userData, setUserData] = useState(localStorage.getItem("user"))
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
   let history = useHistory();
 
   const navbarFunc = () => {
@@ -27,15 +29,13 @@ function Navbar() {
       history.push("/mobileForm");
     }
   }
-
   useEffect(() => {
-    setUserData(localStorage.getItem("user"))
-  },[])
-
+    setUserData(JSON.parse(localStorage.getItem("user")));
+  }, []);
 
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
-      <FormContext.Provider value={{ form, setForm,userData,setUserData }}>
+      <FormContext.Provider value={{ form, setForm, userData, setUserData }}>
         <Number />
         <AuthNumber />
         <Login />
@@ -77,18 +77,36 @@ function Navbar() {
         </ul>
       </div>
       <div className="col-2">
-        <button onClick={kirish} style={{display:userData===null?"flex":"none"}}>
+        <button
+          onClick={kirish}
+          style={{ display: userData === null ? "flex" : "none" }}
+        >
           <span>Kirish</span>
           <img src="images/Web Design01/navbar/Person-icon.svg" alt="person" />
         </button>
-        <div className="NavProfil" style={{display:userData===null?"none":"flex"}}>
-          <Link to="profil"  className="profilLink">
-            <img src="images/Web Design01/navbar/Person-icon.svg" alt="img" className="person"/>
+        <div
+          className="NavProfil"
+          style={{ display: userData === null ? "none" : "flex" }}
+        >
+          <Link to="profil" className="profilLink">
+            <img
+              src={
+                userData !== null
+                  ? userData.user.avatar === "1.2"
+                    ? "images/Web Design01/navbar/Person-icon.svg"
+                    : userData.user.avatar
+                  : "images/Web Design01/navbar/Person-icon.svg"
+              }
+              alt="img"
+              className="person"
+            />
             <img src="" alt="profilImg" className="profilImg" />
           </Link>
 
           <h2 className="profilName">
-            <Link to="profil" className="profilText">Bahodir Yoqubov</Link>
+            <Link to="profil" className="profilText">
+              {userData !==null ? (userData.user.firstName + " " + userData.user.lastName) : ""}
+            </Link>
           </h2>
         </div>
         <div
