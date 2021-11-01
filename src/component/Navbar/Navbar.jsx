@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect} from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.scss";
 import Number from "../Form/Number";
 import AuthNumber from "../Form/AuthNumber";
 import Login from "../Form/Login";
 import Register from "../Form/Register";
-import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
-
+import { Context } from "../Profil/Profil";
+import { useHistory } from "react-router";
 export const FormContext = React.createContext();
 
 function Navbar() {
+  const {count} = useContext(Context);
   const [status, setStatus] = useState(false);
   const [form, setForm] = useState("");
   const [userData, setUserData] = useState(
@@ -31,7 +31,7 @@ function Navbar() {
   }
   useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem("user")));
-  }, []);
+  }, [count]);
 
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
@@ -105,7 +105,9 @@ function Navbar() {
 
           <h2 className="profilName">
             <Link to="profil" className="profilText">
-              {userData !==null ? (userData.user.firstName + " " + userData.user.lastName) : ""}
+              {userData !== null
+                ? userData.user.firstName + " " + userData.user.lastName
+                : ""}
             </Link>
           </h2>
         </div>

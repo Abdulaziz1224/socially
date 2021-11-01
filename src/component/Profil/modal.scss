@@ -173,31 +173,31 @@
           }
         }
       }
-      .change-info {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 30px;
-        position: relative;
+    }
+    .change-info {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 30px;
+      position: relative;
 
-        .submit {
-          outline: none;
-          border: none;
-          background-color: transparent;
-          background: rgba(255, 189, 58, 1);
-          padding: 15px 50px 15px 30px;
-          font-family: "Proxima Nova Lt";
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 19px;
-          cursor: pointer;
-        }
-        .vector {
-          position: absolute;
-          right: 30px;
-        }
+      .submit {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        background: rgba(255, 189, 58, 1);
+        padding: 15px 50px 15px 30px;
+        font-family: "Proxima Nova Lt";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        cursor: pointer;
+      }
+      .vector {
+        position: absolute;
+        right: 30px;
       }
     }
   }
@@ -288,12 +288,12 @@
             margin-bottom: 18px;
           }
         }
-        .change-info {
-          justify-content: start;
+      }
+      .change-info {
+        justify-content: start;
 
-          .vector {
-            left: 190px;
-          }
+        .vector {
+          left: 190px;
         }
       }
     }
@@ -346,12 +346,12 @@
             }
           }
         }
-        .change-info {
-          justify-content: start;
+      }
+      .change-info {
+        justify-content: start;
 
-          .vector {
-            left: 190px;
-          }
+        .vector {
+          left: 190px;
         }
       }
     }

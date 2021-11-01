@@ -6,7 +6,7 @@ import MobileNumber from "./MobileNumber";
 import MobileRegister from "./MobileRegister";
 import MobileAuthNumber from "./MobileAuthNumber";
 import "./mobileForm.scss";
-
+// import firebase from "./firebase";
 import { useState } from "react";
 
 export const MFormContext = React.createContext();
@@ -14,7 +14,7 @@ export const MFormContext = React.createContext();
 function MobileForm() {
   const [userData, setUserData] = useState(localStorage.getItem("user"));
   const [mForm, setMForm] = useState("number");
-  const [mFirstName, setMFirstName] = useState("")
+  const [mFirstName, setMFirstName] = useState("");
 
   useEffect(() => {
     let user;
@@ -25,21 +25,33 @@ function MobileForm() {
     }
   }, [mForm]);
 
+  // firebase.auth().languageCode = "it";
+  // function phoneverify() {
+  //   firebase.auth
+  //     .RecaptchaVerifier("recaptcha-container")
+  //     .then((res) => {
+  //       console.log("res");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
+  // phoneverify();
   return (
     <div className="mobileForm">
       <MFormContext.Provider
         value={{
           mForm,
           setMForm,
-          mFirstName
+          mFirstName,
         }}
       >
-        <Navbar mFirstName={mFirstName}/>
+        <Navbar mFirstName={mFirstName} />
         <MobileNumber />
         <MobileAuthNumber />
         <MobileLogin />
         <MobileRegister />
-        <Footer /> 
+        <Footer />
       </MFormContext.Provider>
     </div>
   );

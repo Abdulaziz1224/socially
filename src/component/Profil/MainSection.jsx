@@ -2,33 +2,40 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "./Profil";
 import "./mainSection.scss";
-import { Logout } from "../user";
 import axios from "axios";
 function MainSection() {
-  const { bool, setBool } = useContext(Context);
-  const [data, setData] = useState({});
+  const {count, bool, setBool } = useContext(Context);
+  const [data, setData] = useState(JSON.parse(localStorage.getItem("user")));
 
   const openModal = () => {
     setBool(!bool);
   };
   useEffect(() => {
-    let dat = JSON.parse(localStorage.getItem("user"));
-    let config = {
-      method: "get",
-      url: "https://socially2.herokuapp.com/v2/user/profile",
-      headers: {
-        "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
-        "Authorization": `Bearer ${dat.tokens.accessToken}`,
-      },
-    };
-    axios(config)
-      .then(function (res) {
-        setData(res.data.data);
-      })
-      .catch(function (err) {
-        console.log(err.data);
-      });
-  }, []);
+    setData(JSON.parse(localStorage.getItem("user")));
+  }, [count]);
+  function Logout() {
+    if (data) {
+      let config = {
+        method: "delete",
+        url: `https://socially2.herokuapp.com/v2/logout`,
+        headers: {
+          //  "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${data.tokens.accessToken}`,
+        },
+      };
+      axios(config)
+        .then(function (response) {
+          alert("o'chdi");
+          // <Redirect to="/bloglar" />;
+          window.location.href = "/";
+        })
+        .catch(function (error) {
+          console.log(error);
+          alert("o'chmadi");
+        });
+    }
+  }
   return (
     <div className="profilSection">
       <div className="container">
@@ -37,8 +44,8 @@ function MainSection() {
             <div className="profil">
               <img
                 src={
-                  data.avatar !== "1.2"
-                    ? data.avatar
+                  data.user.avatar !== "1.2"
+                    ? data.user.avatar
                     : `images/Web Design01/navbar/Person-icon.svg`
                 }
                 alt=""
@@ -48,13 +55,13 @@ function MainSection() {
               <div className="name">
                 <span>Foydalanuvchi ismi</span>
                 <p className="kompText">
-                  {data.firstName + " " + data.lastName}
+                  {data.user.firstName + " " + data.user.lastName}
                 </p>
                 <p className="tableText">Bahodir Yoqubo...</p>
               </div>
               <div className="num">
                 <span>Telefon raqami</span>
-                <p className="komp">{data.phone}</p>
+                <p className="komp">{data.user.phone}</p>
                 <p className="table">(97) 707-27-11 </p>
               </div>
             </div>

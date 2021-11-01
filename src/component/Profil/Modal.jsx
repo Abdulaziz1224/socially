@@ -4,49 +4,84 @@ import "./modal.scss";
 import axios from "axios";
 
 function Modal() {
-  const [lastName, setLastName] = useState("");
-  const { bool, setBool } = useContext(Context);
-  const [image, setImage] = useState("");
+  
+  const {count, setCount, bool, setBool } = useContext(Context);
   const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [image, setImage] = useState("");
   const [pass, setPass] = useState("");
   const [changePass, setChangePass] = useState("");
   const [passMatch, setPassMatch] = useState(2);
 
+
   const Submit = (e) => {
-    e.preventDefault();
+    let dat = JSON.parse(localStorage.getItem("user"));
     let Item = {
       "firstName": `${name}`,
       "lastName": `${lastName}`,
       "password": `${pass}`,
       "avatar": `${image}`,
     };
-
-    let dat = JSON.parse(localStorage.getItem("user"));
-console.log(dat);
     let config = {
       method: "put",
       url: `https://socially2.herokuapp.com/v2/user`,
       headers: {
-        "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
         "Content-Type": "application/json",
         "Authorization": `Bearer ${dat.tokens.accessToken}`,
       },
-
       data: Item,
     };
-
+    // const form = new FormData(); 
+    // form.append("image", image);
+    // // form = JSON.stringify(form);
+    // console.log(image);
+    // let config = {
+    //   method: "post",
+    //   url: `https://socially2.herokuapp.com/v2/upload/image`,
+    //   headers: {
+    //     // "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
+    //     "Content-Type": "multipart/form-data",
+    //     Authorization: `Bearer ${dat.tokens.accessToken}`,
+    //   },
+    //   data: form,
+    // };
+    // axios(config)
+    //   .then(function (response) {
+    //     alert("qo'shildi");
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     alert("qo'shilmadi");
+    //     console.log(error);
+    //   });
     axios(config)
       .then(function (response) {
         alert("qo'shildi");
-        console.log(response);
         setBool(!bool);
-        localStorage.setItem(response.data)
+        dat.user.firstName = name;
+        dat.user.lastName = lastName;
+        dat.user.password = pass;
+        dat.user.avatar = image;
+        localStorage.setItem("user", JSON.stringify(dat));
+        setName("");
+        setLastName("");
+        setImage("");
+        setPass("");
+        setChangePass("");
+        setCount(prev => prev + 1);
       })
       .catch(function (error) {
         alert("qo'shilmadi");
         console.log(error);
       });
   };
+  useEffect(() => {
+     let dat = JSON.parse(localStorage.getItem("user"));
+     setImage( dat.user.avatar)
+     setName(dat.user.firstName);
+     setLastName(dat.user.lastName)
+     console.log(count+"salom");
+  }, [count])
 
   useEffect(() => {
     if (pass === changePass) {
@@ -72,10 +107,37 @@ console.log(dat);
     };
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
+      // console.log(reader.readAsDataURL(e.target.files[0]));
     }
+    // setImage(e.target.value );
+
+    // let form = new FormData()
+    // form.append("avatar", e.target.files[0]);
+    // // form = JSON.stringify(form);
+    // console.log(form);
+    // let dat = JSON.parse(localStorage.getItem("user"))  ;
+    // let config = {
+    //   method: "post",
+    //   url: (`https://socially2.herokuapp.com/v2/upload/image`),
+    //   data: form,
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //     "Authorization": `Bearer ${dat.tokens.accessToken}`,
+    //   },
+    // };
+    // axios(config)
+    //   .then(function (response) {
+    //     alert("qo'shildi");
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     alert("qo'shilmadi");
+    //     console.log(error);
+    //   });
   };
   const deleteFunc = () => {
     setBool(!bool);
+    
   };
   return (
     <div className={bool ? "modal" : "modal close"}>
@@ -88,14 +150,16 @@ console.log(dat);
         />
         <h3>Profil sozlamalari</h3>
         <p>O‘zgarishlar qilish uchun ma’lumotlaringizni kiriting</p>
-        <form method="Post" action="">
+        <form method="Post">
           <div className="form">
             <div className="img">
               <input
+                name="uploadImg"
                 type="file"
                 id="file"
                 className="file"
                 accept="image/*"
+                required
                 onChange={imageHandler}
               />
               <label htmlFor="file">
@@ -128,7 +192,7 @@ console.log(dat);
                 autoFocus
                 className="name"
                 placeholder="Ismingiz"
-                required
+                required="required"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -167,23 +231,17 @@ console.log(dat);
               />
             </div>
           </div>
-          <div className="change-info">
-            <input
-              type="submit"
-              value="O'zgarishlarni saqlash"
-              className="submit"
-              onChange={(e) => {
-                e.preventDefault();
-              }}
-              onClick={Submit}
-            />
-            <img
-              src="images/Web Design01/footer/Vector.png"
-              alt="img"
-              className="vector"
-            />
-          </div>
         </form>
+        <div className="change-info">
+          <button className="submit" onClick={Submit}>
+            O'zgarishlarni saqlash
+          </button>
+          <img
+            src="images/Web Design01/footer/Vector.png"
+            alt="img"
+            className="vector"
+          />
+        </div>
       </div>
     </div>
   );
