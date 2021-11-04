@@ -152,7 +152,6 @@ function MobileLogin({ active }) {
       style={{ display: mForm === "login" ? "block" : "none" }}
     >
       <div
-        // className="container"
         className={mForm === "login" ? "container active" : "container active"}
       >
         <Link to="/" className="xBtn" onClick={() => setMForm("")}>
@@ -172,11 +171,6 @@ function MobileLogin({ active }) {
             onChange={(e) => {
               
             }}
-            // onFocus={() => {
-            //   if (number.length === 0) {
-            //     setnumber("+998 ");
-            //   }
-            // }}
             maxLength="19"
           />
           <input
@@ -200,6 +194,7 @@ function MobileLogin({ active }) {
             className="regLink"
             onClick={() => {
               setClick(click + 1);
+              
             }}
           >
             Tizimga kirish

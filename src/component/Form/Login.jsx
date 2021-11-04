@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./login.scss";
 import { FormContext } from "../Navbar/Navbar";
 import {login} from "../user"
-
 function Login({ active }) {
   const [number, setnumber] = useState("+998");
   const [pass, setPass] = useState("")
@@ -24,7 +23,6 @@ function Login({ active }) {
         setForm("")
       }
     }
-
     login({phone:phone,password: pass},cb)
   }
 
@@ -136,7 +134,6 @@ function Login({ active }) {
       style={{ display: form === "login" ? "block" : "none" }}
     >
       <div
-        // className="container"
         className={form === "login" ? "container active" : "container active"}
       >
         <button className="xBtn" onClick={() =>{setForm("");setnumber("")}}>

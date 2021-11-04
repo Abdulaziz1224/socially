@@ -36,14 +36,21 @@
           justify-content: center;
           cursor: pointer;
           user-select: none;
+        
+        .person {
+          width: 25px;
+          height: 25px;
+          margin: auto;
+          object-fit: cover;
         }
-        img {
+
+        .profilImg{
+          display: none;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          border-radius: 50%
-          ;
+          border-radius: 50%;
         }
+      }
         .info {
           display: flex;
           .name {
@@ -61,27 +68,13 @@
               text-align: left;
               color: rgba(72, 72, 72, 1);
             }
-            .table,
-            .tableText {
-              display: none;
-              font-family: "Proxima Nova Lt";
-              font-size: 24px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: 29px;
-              letter-spacing: 0em;
-              text-align: left;
-            }
             .kompText,
             .komp {
-              display: block;
               font-family: "Proxima Nova Lt";
               font-size: 24px;
               font-style: normal;
               font-weight: 600;
               line-height: 29px;
-              letter-spacing: 0em;
-              text-align: left;
             }
           }
         }
@@ -194,18 +187,7 @@
             .num {
               .kompText,
               .komp {
-                display: none;
-              }
-              .table,
-              .tableText {
-                display: block;
-                font-family: "Proxima Nova Lt";
-                font-size: 24px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 29px;
-                letter-spacing: 0em;
-                text-align: left;
+                font-size: 22px;
               }
             }
           }
@@ -247,15 +229,9 @@
             .num {
               .kompText,
               .komp {
-                display: none;
-              }
-              .table,
-              .tableText {
-                display: block;
                 font-size: 20px;
                 line-height: 24px;
               }
-
               span {
                 margin-bottom: 5px;
               }
@@ -330,14 +306,6 @@
             }
             .name,
             .num {
-              .kompText,
-              .komp {
-                display: block;
-              }
-              .table,
-              .tableText {
-                display: none;
-              }
               span {
                 font-size: 16px;
                 line-height: 16px;
@@ -405,14 +373,6 @@
             }
             .name,
             .num {
-              .kompText,
-              .komp {
-                display: block;
-              }
-              .table,
-              .tableText {
-                display: none;
-              }
               span {
                 font-size: 16px;
                 line-height: 16px;

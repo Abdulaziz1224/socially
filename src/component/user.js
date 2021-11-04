@@ -40,7 +40,6 @@ export function register(data, cb) {
       lastName: data.lastName,
       phone: data.phone,
       password: data.password,
-      avatar: "1.2",
     })
     .then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data.data));

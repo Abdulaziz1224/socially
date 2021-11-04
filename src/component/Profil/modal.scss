@@ -117,6 +117,7 @@
         .name {
           width: 250px;
           margin-right: 20px;
+          position: relative;
           input {
             width: 100%;
             padding: 12px 15px;
@@ -138,13 +139,27 @@
               line-height: 20px;
               color: rgba(72, 72, 72, 1);
             }
-            &:last-child {
+            &:nth-child(3){
               margin-bottom: 0;
             }
+          }
+      
+          .errorImg{
+            position: absolute;
+            right: 15px;
+            top: 18px;
+            cursor: pointer;
+          }
+          .errorImg2{
+            position: absolute;
+            right: 15px;
+            top: 85px;
+            cursor: pointer;
           }
         }
         .parol {
           width: 250px;
+          position: relative;
           input {
             width: 100%;
             padding: 12px 15px;
@@ -167,9 +182,21 @@
               line-height: 20px;
               color: rgba(72, 72, 72, 1);
             }
-            &:last-child {
+            &:nth-child(3) {
               margin-bottom: 0;
             }
+          }
+          .errorImg{
+            position: absolute;
+            right: 15px;
+            top: 18px;
+            cursor: pointer;
+          }
+          .errorImg2{
+            position: absolute;
+            right: 15px;
+            top: 85px;
+             cursor: pointer;
           }
         }
       }
@@ -216,10 +243,34 @@
           .name {
             width: 253px;
             width: 80%;
+            input {
+              font-size: 18px;
+
+              &::placeholder {
+                font-size: 18px;
+              }
+            }
           }
           .parol {
             width: 253px;
             width: 80%;
+
+            input {
+              font-size: 18px;
+
+              &::placeholder {
+                font-size: 18px;
+              }
+            }
+
+          }
+          .name, .parol{
+            .errorImg{
+              top:15px;
+            }
+            .errorImg2{
+              top: 78px;
+            }
           }
         }
       }

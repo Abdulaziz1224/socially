@@ -44,12 +44,10 @@
         a {
           text-decoration: none;
           font-family: "Proxima Nova Rg";
-          font-size: 20px;
+          font-size: 19px;
           font-style: normal;
           font-weight: normal;
           line-height: 20px;
-          letter-spacing: 0em;
-          text-align: left;
           color: rgba(0, 0, 0, 1);
           margin-right: 30px;
           position: relative;
@@ -167,9 +165,9 @@
         border: 2px solid rgb(234, 234, 234);
 
         .person {
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
+          width: 25px;
+          height: 25px;
+          margin: auto;
           object-fit: cover;
         }
 
@@ -177,6 +175,7 @@
           display: none;
           width: 100%;
           height: 100%;
+          border-radius: 50%;
         }
       }
       .profilText {
@@ -401,7 +400,6 @@
         padding: 15px 30px;
         border: none;
         outline: none;
-        // display: flex;
         align-items: center;
         background: rgba(255, 255, 255, 1);
         border: 2px solid rgba(234, 234, 234, 1);
@@ -447,6 +445,9 @@
           }
           .profilImg{
             display: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
           }
         }
         .profilText {

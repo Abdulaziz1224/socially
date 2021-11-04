@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "./Profil";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; 
 import "./modal.scss";
 import axios from "axios";
 
 function Modal() {
-  
-  const {count, setCount, bool, setBool } = useContext(Context);
+  const { count, setCount, bool, setBool } = useContext(Context);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [image, setImage] = useState("");
@@ -13,90 +14,94 @@ function Modal() {
   const [changePass, setChangePass] = useState("");
   const [passMatch, setPassMatch] = useState(2);
 
-
   const Submit = (e) => {
     let dat = JSON.parse(localStorage.getItem("user"));
-    let Item = {
-      "firstName": `${name}`,
-      "lastName": `${lastName}`,
-      "password": `${pass}`,
-      "avatar": `${image}`,
-    };
-    let config = {
-      method: "put",
-      url: `https://socially2.herokuapp.com/v2/user`,
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${dat.tokens.accessToken}`,
-      },
-      data: Item,
-    };
-    // const form = new FormData(); 
-    // form.append("image", image);
-    // // form = JSON.stringify(form);
-    // console.log(image);
-    // let config = {
-    //   method: "post",
-    //   url: `https://socially2.herokuapp.com/v2/upload/image`,
-    //   headers: {
-    //     // "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
-    //     "Content-Type": "multipart/form-data",
-    //     Authorization: `Bearer ${dat.tokens.accessToken}`,
-    //   },
-    //   data: form,
-    // };
-    // axios(config)
-    //   .then(function (response) {
-    //     alert("qo'shildi");
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     alert("qo'shilmadi");
-    //     console.log(error);
-    //   });
-    axios(config)
-      .then(function (response) {
-        alert("qo'shildi");
-        setBool(!bool);
-        dat.user.firstName = name;
-        dat.user.lastName = lastName;
-        dat.user.password = pass;
-        dat.user.avatar = image;
-        localStorage.setItem("user", JSON.stringify(dat));
-        setName("");
-        setLastName("");
-        setImage("");
-        setPass("");
-        setChangePass("");
-        setCount(prev => prev + 1);
-      })
-      .catch(function (error) {
-        alert("qo'shilmadi");
-        console.log(error);
-      });
+    let Item = {};
+
+    if (image === dat.user.avatar) {
+      Item = {
+        "firstName": `${name}`,
+        "lastName": `${lastName}`,
+        "password": `${pass}`,
+      };
+    } else {
+      Item = {
+        "firstName": `${name}`,
+        "lastName": `${lastName}`,
+        "password": `${pass}`,
+        "avatar": `${image}`,
+      };
+    }
+    if (pass !== changePass || (pass.length < 6 || changePass.length < 6)) {
+      alert("Parol mos kelmadi");
+    } else 
+      if (name === "" || name.length < 3) {
+        
+      } else 
+      if(lastName === "" || lastName.length < 3){
+    
+      }
+      else{
+
+        // const form = new FormData();
+        // form.append("image", image);
+        // console.log(image);
+        // let config = {
+        //   method: "post",
+        //   url: `https://socially2.herokuapp.com/v2/upload/image`,
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //     Authorization: `Bearer ${dat.tokens.accessToken}`,
+        //   },
+        //   data: form,
+        // };
+        // axios(config)
+        //   .then(function (response) {
+        //     alert("qo'shildi");
+        //     console.log(response);
+        //   })
+        //   .catch(function (error) {
+        //     alert("qo'shilmadi");
+        //     console.log(error);
+        //   });
+        let config = {
+          method: "put",
+          url: `https://socially2.herokuapp.com/v2/user`,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${dat.tokens.accessToken}`,
+          },
+          data: Item,
+        };
+        axios(config)
+          .then(function (res) {
+            alert("qo'shildi");
+            setBool(!bool);
+            dat.user.firstName = name;
+            dat.user.lastName = lastName;
+            dat.user.password = pass;
+            dat.user.avatar = image;
+            localStorage.setItem("user", JSON.stringify(dat));
+            setName("");
+            setLastName("");
+            setImage("");
+            setPass("");
+            setChangePass("");
+            setCount((prev) => prev + 1);
+          })
+          .catch(function (error) {
+            alert("qo'shilmadi");
+          });
+      }
+    
   };
   useEffect(() => {
-     let dat = JSON.parse(localStorage.getItem("user"));
-     setImage( dat.user.avatar)
-     setName(dat.user.firstName);
-     setLastName(dat.user.lastName)
-     console.log(count+"salom");
-  }, [count])
-
-  useEffect(() => {
-    if (pass === changePass) {
-      setPassMatch(1);
-    } else {
-      setPassMatch(0);
-    }
-
-    if (pass === "") {
-      setPassMatch(2);
-    }
-    if (changePass === "") {
-      setPassMatch(2);
-    }
-  }, [changePass, pass]);
+    let dat = JSON.parse(localStorage.getItem("user"));
+    setImage(dat.user.avatar);
+    setName(dat.user.firstName);
+    setLastName(dat.user.lastName);
+    setPass(dat.user.password );
+  }, [count]);
 
   const imageHandler = (e) => {
     const reader = new FileReader();
@@ -107,13 +112,12 @@ function Modal() {
     };
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
-      // console.log(reader.readAsDataURL(e.target.files[0]));
     }
-    // setImage(e.target.value );
+    // setImage(e.target.files[0]);
 
     // let form = new FormData()
     // form.append("avatar", e.target.files[0]);
-    // // form = JSON.stringify(form);
+    // form = JSON.stringify(form);
     // console.log(form);
     // let dat = JSON.parse(localStorage.getItem("user"))  ;
     // let config = {
@@ -134,10 +138,11 @@ function Modal() {
     //     alert("qo'shilmadi");
     //     console.log(error);
     //   });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
   const deleteFunc = () => {
     setBool(!bool);
-    
+    setCount(count + 1);
   };
   return (
     <div className={bool ? "modal" : "modal close"}>
@@ -191,11 +196,16 @@ function Modal() {
                 name="name"
                 autoFocus
                 className="name"
-                placeholder="Ismingiz"
+                placeholder="Ismingiz kiriting"
                 required="required"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
+              <Tippy content="Ismingizni kiriting!">
+              <img src="images/Form/error.svg" alt="img" className="errorImg" style={{
+                display: name === "" || name.length < 3 ? "block" : "none" 
+              }}/>
+              </Tippy>
               <input
                 name="lastName"
                 type="text"
@@ -205,6 +215,11 @@ function Modal() {
                 required
                 onChange={(e) => setLastName(e.target.value)}
               />
+              <Tippy content="Familyangizni kiriting!">
+              <img src="images/Form/error.svg" alt="img" className="errorImg2" style={{
+                display: lastName === "" || lastName.length < 3 ? "block" : "none" 
+              }}/>
+              </Tippy>
             </div>
             <div className="parol">
               <input
@@ -216,7 +231,14 @@ function Modal() {
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
               />
-              <input
+              <Tippy content={pass==="" ? "Parolni to'ldiring!" : pass.length < 6 ? "Parol 6 belgidan iborat bo'lsin!" : ""}>
+              <img src="images/Form/error.svg" alt="img" className="errorImg"
+            style={{
+              display: pass === "" || pass.length < 6 ? "block" : "none" 
+            }}
+              />
+              </Tippy>
+              <input 
                 name="pass2"
                 type="password"
                 className="pass2"
@@ -229,6 +251,13 @@ function Modal() {
                     passMatch === 0 ? "2px solid #F3494A" : "2px solid #EAEAEA",
                 }}
               />
+              <Tippy content={changePass==="" ? "Tasdiqlovchi parol kiritilmagan!" : changePass!==pass ? "Tadiqlovchi parol xato!": ""}>
+              <img src="images/Form/error.svg" alt="img" className="errorImg2" 
+              style={{
+                display: changePass.length === 0 ? "none" : changePass.length < 6 ?  "block" : "none" 
+              }}
+              />
+              </Tippy>
             </div>
           </div>
         </form>

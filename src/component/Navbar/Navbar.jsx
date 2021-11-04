@@ -1,22 +1,24 @@
-import React, { useContext, useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.scss";
 import Number from "../Form/Number";
 import AuthNumber from "../Form/AuthNumber";
 import Login from "../Form/Login";
 import Register from "../Form/Register";
-import { Context } from "../Profil/Profil";
 import { useHistory } from "react-router";
-export const FormContext = React.createContext();
 
+export const FormContext = React.createContext();
 function Navbar() {
-  const {count} = useContext(Context);
   const [status, setStatus] = useState(false);
   const [form, setForm] = useState("");
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
   let history = useHistory();
+
+  useEffect(() => {
+    setUserData(JSON.parse(localStorage.getItem("user")));
+  }, [localStorage.getItem("user")]);
 
   const navbarFunc = () => {
     setStatus((prev) => !prev);
@@ -29,9 +31,6 @@ function Navbar() {
       history.push("/mobileForm");
     }
   }
-  useEffect(() => {
-    setUserData(JSON.parse(localStorage.getItem("user")));
-  }, [count]);
 
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
@@ -91,22 +90,49 @@ function Navbar() {
           <Link to="profil" className="profilLink">
             <img
               src={
-                userData !== null
-                  ? userData.user.avatar === "1.2"
-                    ? "images/Web Design01/navbar/Person-icon.svg"
-                    : userData.user.avatar
-                  : "images/Web Design01/navbar/Person-icon.svg"
+                userData === null
+                  ? "images/Web Design01/navbar/Person-icon.svg"
+                  : userData.user.avatar === ""
+                  ? "images/Web Design01/navbar/Person-icon.svg"
+                  : userData.user.avatar
               }
               alt="img"
               className="person"
+              style={{
+                display:
+                  userData === null
+                    ? "block"
+                    : userData.user.avatar === ""
+                    ? "block"
+                    : "none",
+              }}
             />
-            <img src="" alt="profilImg" className="profilImg" />
+            <img
+              src={userData === null ? "" : userData.user.avatar}
+              style={{
+                display:
+                  userData === null
+                    ? "none"
+                    : userData.user.avatar === ""
+                    ? "none"
+                    : "block",
+              }}
+              alt="profilImg"
+              className="profilImg"
+            />
           </Link>
 
           <h2 className="profilName">
             <Link to="profil" className="profilText">
               {userData !== null
-                ? userData.user.firstName + " " + userData.user.lastName
+                ? window.innerWidth > 1140 || window.innerWidth < 767
+                  ? userData.user.firstName + " " + userData.user.lastName
+                  : (userData.user.firstName + " " + userData.user.lastName)
+                      .length <= 13
+                  ? userData.user.firstName + " " + userData.user.lastName
+                  : (userData.user.firstName + " " + userData.user.lastName)
+                      .slice(0, 13)
+                      .padEnd(16, ".")
                 : ""}
             </Link>
           </h2>

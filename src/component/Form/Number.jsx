@@ -1,11 +1,8 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-// import AuthNumber from "./AuthNumber";
 import { FormContext } from "../Navbar/Navbar";
 import "./number.scss";
 import {checkphone} from "../user"
-// import form from "../Navbar/Navbar";
 
 function Number() {
   const [number, setnumber] = useState("");
@@ -27,6 +24,16 @@ function Number() {
       setNHeight(`${window.innerHeight - 200}px`);
     }
   });
+  useEffect(()=>{
+    if(registered === true){
+      setForm("login")
+      setRegistered(null)
+    }
+    if(registered === false){
+      setForm("authNumber")
+      setRegistered(null)
+    }
+  },[registered])
 
   function check(){
     var raqam = number;
@@ -57,18 +64,6 @@ function Number() {
 
     checkphone(raqam,cb)
   }
-
-  useEffect(()=>{
-    if(registered === true){
-      setForm("login")
-      setRegistered(null)
-    }
-    if(registered === false){
-      setForm("authNumber")
-      setRegistered(null)
-    }
-  },[registered])
-
   useEffect(() => {
     let num = number;
 
