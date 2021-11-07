@@ -1,4 +1,7 @@
+// @import url("./device.scss");                  
+
 .sistema {
+
   border: 2px solid rgba(234, 234, 234, 1);
   padding: 30px 30px 37px 30px;
 
@@ -9,7 +12,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: 24px;
-      margin-bottom: 5px;
+
     }
 
     span {
@@ -18,13 +21,14 @@
       font-style: normal;
       font-weight: 400;
       line-height: 16px;
+      margin: 0 5px 5px 0;
+
     }
   }
   .systemDelete {
     display: flex;
     flex-direction: column;
     .activeBox {
-      display: none;
       .row {
         margin-top: 40px;
         display: flex;
@@ -55,7 +59,6 @@
     .qurilma {
       width: max-content;
       margin-top: 30px;
-      user-select: none;
       border: 1px solid red;
       text-align: center;
       border: 2px solid rgba(234, 234, 234, 1);
@@ -80,5 +83,14 @@
         }
       }
     }
+  }
+}
+@media (max-width: 575px) {
+  .sisteem{
+    max-width: 250px;    
+    min-width: 250px;    
+    width: 80%; 
+    border: none;
+    border: 10px solid red;   
   }
 }

@@ -1,48 +1,40 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "./Profil";
+import axios from "axios";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; 
+import MoonLoader from "react-spinners/MoonLoader";
+import { toast, ToastContainer } from "react-toastify";
 import "./modal.scss";
-import axios from "axios";
-
+const override = `   
+  position: absolute;
+  border-radius: 50%;
+  ${window.innerWidth > 767 ? "right : 100px" : "left : 100px"};                  
+`;
 function Modal() {
+
   const { count, setCount, bool, setBool } = useContext(Context);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [image, setImage] = useState("");
   const [pass, setPass] = useState("");
   const [changePass, setChangePass] = useState("");
-  const [passMatch, setPassMatch] = useState(2);
-
-  const Submit = (e) => {
+  const [loading, setLoading] = useState(false)                            
+  const [color, setColor] = useState("white")  
+  const Submit = (e) => {   
     let dat = JSON.parse(localStorage.getItem("user"));
-    let Item = {};
 
-    if (image === dat.user.avatar) {
-      Item = {
-        "firstName": `${name}`,
-        "lastName": `${lastName}`,
-        "password": `${pass}`,
-      };
-    } else {
-      Item = {
-        "firstName": `${name}`,
-        "lastName": `${lastName}`,
-        "password": `${pass}`,
-        "avatar": `${image}`,
-      };
-    }
     if (pass !== changePass || (pass.length < 6 || changePass.length < 6)) {
-      alert("Parol mos kelmadi");
-    } else 
+      toast.error("Parol mos kelmadi!")
+    }
+     else {
       if (name === "" || name.length < 3) {
         
-      } else 
+      } 
+      else{
       if(lastName === "" || lastName.length < 3){
-    
       }
       else{
-
         // const form = new FormData();
         // form.append("image", image);
         // console.log(image);
@@ -64,6 +56,23 @@ function Modal() {
         //     alert("qo'shilmadi");
         //     console.log(error);
         //   });
+        let Item = {};
+        if (image === dat.user.avatar) {
+          Item = {
+            firstName: name,    
+            lastName: lastName,
+            password: pass,
+          };
+        } else {
+          Item = {
+            firstName: name,
+            lastName: lastName,
+            password: pass,
+            avatar: image,
+          };
+        }
+        setLoading(prev => !prev)
+        document.querySelector(".submit").disabled = true;
         let config = {
           method: "put",
           url: `https://socially2.herokuapp.com/v2/user`,
@@ -71,36 +80,39 @@ function Modal() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${dat.tokens.accessToken}`,
           },
-          data: Item,
+          data: JSON.stringify(Item),
         };
         axios(config)
           .then(function (res) {
-            alert("qo'shildi");
-            setBool(!bool);
             dat.user.firstName = name;
             dat.user.lastName = lastName;
             dat.user.password = pass;
             dat.user.avatar = image;
             localStorage.setItem("user", JSON.stringify(dat));
-            setName("");
-            setLastName("");
-            setImage("");
+            toast.success("Ma'lumotlar muvaffaqiyatli o'zgartirlidi!");
             setPass("");
             setChangePass("");
-            setCount((prev) => prev + 1);
+            setCount(prev => prev + 1);
+            setLoading(prev => !prev)
+            document.querySelector(".submit").disabled=false;
+            setBool(!bool);
+            setTimeout(() => {
+            }, 2000)
           })
           .catch(function (error) {
-            alert("qo'shilmadi");
+            toast.error("Ma'lumotlar o'zgartirilmadi!");
+            setLoading(prev => !prev)
+            document.querySelector(".submit").disabled=false;
           });
       }
-    
+    }
+  }
   };
   useEffect(() => {
     let dat = JSON.parse(localStorage.getItem("user"));
     setImage(dat.user.avatar);
     setName(dat.user.firstName);
     setLastName(dat.user.lastName);
-    setPass(dat.user.password );
   }, [count]);
 
   const imageHandler = (e) => {
@@ -143,10 +155,13 @@ function Modal() {
   const deleteFunc = () => {
     setBool(!bool);
     setCount(count + 1);
+    setPass("")
+    setChangePass("")
   };
   return (
     <div className={bool ? "modal" : "modal close"}>
       <div className="contain">
+      <ToastContainer />
         <img
           onClick={deleteFunc}
           src="images/Web Design01/footer/x.svg"
@@ -234,7 +249,7 @@ function Modal() {
               <Tippy content={pass==="" ? "Parolni to'ldiring!" : pass.length < 6 ? "Parol 6 belgidan iborat bo'lsin!" : ""}>
               <img src="images/Form/error.svg" alt="img" className="errorImg"
             style={{
-              display: pass === "" || pass.length < 6 ? "block" : "none" 
+              display: pass.length===0 ? "none" : pass.length < 6 ? "block" : "none" 
             }}
               />
               </Tippy>
@@ -246,15 +261,11 @@ function Modal() {
                 placeholder="Parolingizni tasdiqlang"
                 value={changePass}
                 onChange={(e) => setChangePass(e.target.value)}
-                style={{
-                  border:
-                    passMatch === 0 ? "2px solid #F3494A" : "2px solid #EAEAEA",
-                }}
               />
-              <Tippy content={changePass==="" ? "Tasdiqlovchi parol kiritilmagan!" : changePass!==pass ? "Tadiqlovchi parol xato!": ""}>
+              <Tippy content={changePass.length > 0 && changePass.length <6 ? "Tasdiqlovchi parol kiritilmagan!" : changePass!==pass ? "Tadiqlovchi parol xato!": ""}>
               <img src="images/Form/error.svg" alt="img" className="errorImg2" 
               style={{
-                display: changePass.length === 0 ? "none" : changePass.length < 6 ?  "block" : "none" 
+                display: changePass==="" ? "none" : changePass.length > 0 && changePass.length <6 ? "block" : changePass!==pass ?  "block" : "none" 
               }}
               />
               </Tippy>
@@ -262,16 +273,18 @@ function Modal() {
           </div>
         </form>
         <div className="change-info">
-          <button className="submit" onClick={Submit}>
-            O'zgarishlarni saqlash
+          <button className="submit" onClick={Submit}>         
+            O'zgarishlarni saqlash                   
           </button>
+          <MoonLoader  loading={loading} color={color} css={override} size={25} />               
           <img
+          style={{opacity: loading ? "0.4" : "1"}}
             src="images/Web Design01/footer/Vector.png"
             alt="img"
-            className="vector"
+            className="vector"        
           />
         </div>
-      </div>
+      </div>  
     </div>
   );
 }

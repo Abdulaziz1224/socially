@@ -3,15 +3,23 @@ import { useState, useEffect, useContext } from "react";
 import { FormContext } from "../Navbar/Navbar";
 import "./number.scss";
 import {checkphone} from "../user"
+import {MoonLoader} from "react-spinners"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Number() {
   const [number, setnumber] = useState("");
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm, sendCode, setSendCode } = useContext(FormContext);
   const [registered, setRegistered] = useState(null)
   const [nHeight, setNHeight] = useState(
     window.innerWidth < 577 ? `${window.innerHeight - 200}px` : ""
   );
+  const [load, setLoad] = useState(0)
+  const override = `
+    position: absolute;
+  `;
+
 
   useEffect(() => {
     if (window.innerwidth < 577) {
@@ -24,20 +32,11 @@ function Number() {
       setNHeight(`${window.innerHeight - 200}px`);
     }
   });
-  useEffect(()=>{
-    if(registered === true){
-      setForm("login")
-      setRegistered(null)
-    }
-    if(registered === false){
-      setForm("authNumber")
-      setRegistered(null)
-    }
-  },[registered])
 
   function check(){
     var raqam = number;
 
+    setLoad(1)
     for(let i =0; i<raqam.length; i++){
       if(raqam.charAt(i)===" "){
         raqam = raqam.slice(0,i) + raqam.slice(i + 1);
@@ -60,10 +59,33 @@ function Number() {
     }
     function cb(exists){
       setRegistered(exists)
+      setLoad(0);
     }
 
-    checkphone(raqam,cb)
+    function errCb(){
+      setLoad(0);
+    }
+    if(number.length<19){
+      toast.error("telefon raqamingizni toliq yozing");
+      setLoad(0)
+    }else{
+      if(load===0){
+        checkphone(raqam,cb,errCb)
+      }
+    }
   }
+
+  useEffect(()=>{
+    if(registered === true){
+      setForm("login")
+      setRegistered(null)
+    }
+    if(registered === false){
+      setForm("authNumber")
+      setRegistered(null)
+    }
+  },[registered])
+
   useEffect(() => {
     let num = number;
 
@@ -170,12 +192,20 @@ function Number() {
     <div
       className="number"
       style={{ display: form === "number" ? "block" : "none", height: nHeight }}
-    >
+    >    
+      <ToastContainer />
       <div
         // className="container"
         className={form === "number" ? "container active" : "container active"}
       >
-        <button className="xBtn" onClick={() =>{setForm("");setnumber("");setRegistered(null)}}>
+        <button
+          className="xBtn"
+          onClick={() => {
+            setForm("");
+            setnumber("");
+            setRegistered(null);
+          }}
+        >
           <img src="images/Form/x.svg" alt="x" />
         </button>
 
@@ -201,8 +231,17 @@ function Number() {
           />
           <button
             className="check"
-            onClick={check}
+            onClick={() => {
+              check();
+              setSendCode(sendCode + 1);
+            }}
+            style={{ opacity: load === 1 ? 0.5 : 1 }}
           >
+            {load === 1 ? (
+              <MoonLoader size={30} css={override} color="white" />
+            ) : (
+              ""
+            )}
             Tekshirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </button>

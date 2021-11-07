@@ -8,9 +8,9 @@ import MobileForm from "./component/Form/MobileForm";
 import Profil from "./component/Profil/Profil";
 import Video from "./component/Video/Video"
 import MainBlog from "./component/Blog/MainBlog"
-import "./app.scss";
 import MobileLogin from "./component/Form/MobileLogin";
 import Login from "./component/Form/Login";
+import "./app.scss";
 function App() {
   const [storage, setStorage] = useState(null)
  useEffect(() => {
@@ -25,9 +25,9 @@ function App() {
           <Route path="/bloglar" exact strict component={BlogPart} />
           <Route path="/design" exact strict component={Design01} />
           <Route path="/mobileForm" exact strict component={MobileForm} />
-          <Route path="/profil" exact component={Profil}>
+          <Route path="/profil" exact strict component={Profil}>          
          {  storage===null ?  <Redirect to="/" /> : <Profil/>}
-          </Route>
+          </Route>    
           <Route path="/video" exact strict component={Video} />
           <Route path="/ablog" exact strict component={MainBlog} />
         </Switch>

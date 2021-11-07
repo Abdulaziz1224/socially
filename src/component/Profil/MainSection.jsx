@@ -1,17 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Context } from "./Profil";
+import { toast, ToastContainer } from "react-toastify";
 import "./mainSection.scss";
 import axios from "axios";
 function MainSection() {
-  const { bool, setBool, count } = useContext(Context);
-  const [data, setData] = useState(JSON.parse(localStorage.getItem("user")));
+  const { bool, setBool, data,  } = useContext(Context);
   const openModal = () => {
     setBool(!bool);
   };
-  useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("user")));
-  }, [count]);
 
   function Logout() {
     let config = {
@@ -25,18 +22,22 @@ function MainSection() {
     };
     axios(config)
       .then(function (res) {
+        toast.success("Tizimdan muvaffaqiyatli chiqdingiz!")
         localStorage.removeItem("user")
         // window.location.reload();
-        return (<Redirect to ="/design" />)
+        alert("o'chdi")
+          (<Redirect to={{
+            pathname: "/"
+          }} />)
       })
       .catch(function (error) {
-        console.log(error);
-        alert("o'chmadi");
+        toast.error("Tizimda xatolik!");
       });
   }
   return (
     <div className="profilSection">
       <div className="container">
+      <ToastContainer/>
         <div className="col-4">
           <div className="information">
             <div className="profil">

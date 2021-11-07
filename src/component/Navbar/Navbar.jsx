@@ -14,14 +14,11 @@ function Navbar() {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
+  const [sendCode, setSendCode] = useState(0)
   let history = useHistory();
 
-  useEffect(() => {
-    setUserData(JSON.parse(localStorage.getItem("user")));
-  }, [localStorage.getItem("user")]);
-
   const navbarFunc = () => {
-    setStatus((prev) => !prev);
+    setStatus(prev => !prev);
   };
 
   function kirish() {
@@ -29,16 +26,22 @@ function Navbar() {
       setForm("number");
     } else {
       history.push("/mobileForm");
+      localStorage.setItem("redirect", "toNumber")
     }
   }
-
+  let data = localStorage.getItem("user");
+  useEffect(() => {
+    setUserData(JSON.parse(localStorage.getItem("user")));
+  }, [data]);
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
-      <FormContext.Provider value={{ form, setForm, userData, setUserData }}>
-        <Number />
-        <AuthNumber />
-        <Login />
-        <Register />
+    <FormContext.Provider
+        value={{ form, setForm, userData, setUserData, sendCode, setSendCode }}
+      >
+        {form === "number" ? <Number /> : ""}
+        {form === "authNumber" ? <AuthNumber /> : ""}
+        {form === "login" ? <Login /> : ""}
+        {form === "register" ? <Register /> : ""}
       </FormContext.Provider>
       <div className="col-1">
         <Link to="/" className="Logo">

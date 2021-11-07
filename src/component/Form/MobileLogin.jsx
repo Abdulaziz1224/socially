@@ -1,9 +1,10 @@
 import React from "react";
-import { useState, useEffect, useContext} from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./login.scss";
 import { MFormContext } from "./MobileForm";
 import axios from "axios";
+import { MoonLoader } from "react-spinners";
 
 function MobileLogin({ active }) {
   const [number, setnumber] = useState("+998");
@@ -12,35 +13,51 @@ function MobileLogin({ active }) {
   const [pass, setPass] = useState("");
   const [phone, setPhone] = useState("");
   const [click, setClick] = useState(0);
+  const [hideErr, setHideErr] = useState(1);
+  const [errClick, setErrClick] = useState(0);
+  const [codeErr, setCodeErr] = useState(0);
+  const [load, setLoad] = useState(0);
 
-  let history = useHistory()
+  let history = useHistory();
 
   let renderCounter = 0;
 
+  const override = `
+    position: absolute;
+  `;
+
   useEffect(() => {
-    setnumber("     " + localStorage.getItem("number"));
-    if (localStorage.getItem("number")) {
+    if (number === "+998 ") {
+      setnumber("     " + localStorage.getItem("number"));
       setPhone(localStorage.getItem("number"));
     }
-  }, [mForm]);
+  }, [Date.now()]);
 
   useEffect(() => {
+    setCodeErr(0);
     renderCounter++;
     if (renderCounter > 0) {
-      axios.post("https://socially2.herokuapp.com/v2/login/basic", {
-          phone: phone,
-          password: pass,
-          device: window.navigator.userAgent,
-        })
-        .then((res) => {
-          console.log(res)
-          localStorage.setItem("user", JSON.stringify(res.data.data));
-          history.push("/")
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-
+      if (click > 0 && load===0) {
+        setLoad(1);
+        axios
+          .post("https://socially2.herokuapp.com/v2/login/basic", {
+            phone: phone,
+            password: pass,
+            device: window.navigator.userAgent,
+          })
+          .then((res) => {
+            setCodeErr(0);
+            setLoad(0);
+            console.log(res);
+            localStorage.setItem("user", JSON.stringify(res.data.data));
+            history.push("/");
+          })
+          .catch((err) => {
+            setLoad(0);
+            if (click > 0) setCodeErr(1);
+            console.log(err);
+          });
+      }
     }
   }, [click]);
 
@@ -146,12 +163,24 @@ function MobileLogin({ active }) {
     }
   }, [number]);
 
+  function errMsg() {
+    console.log(hideErr);
+    if (errClick > 0) {
+      setHideErr(0);
+      console.log(hideErr);
+      setTimeout(() => {
+        setHideErr(1);
+      }, 6000);
+    }
+  }
+
   return (
     <div
       className="login"
-      style={{ display: mForm === "login" ? "block" : "none" }}
+      style={{ display: mForm === "login" ? "flex" : "none" }}
     >
       <div
+        // className="container"
         className={mForm === "login" ? "container active" : "container active"}
       >
         <Link to="/" className="xBtn" onClick={() => setMForm("")}>
@@ -159,6 +188,25 @@ function MobileLogin({ active }) {
         </Link>
 
         <div className="box">
+          <div
+            className="errorMsg"
+            style={{ opacity: hideErr === 1 ? 0 : 1, transition: "0.3s" }}
+          >
+            Parol noto'g'ri kiritilgan
+          </div>
+          <img
+            src="images/Form/error.svg"
+            alt="error"
+            className="errorImg"
+            onClick={() => {
+              setErrClick(errClick + 1);
+              errMsg();
+            }}
+            style={{
+              display: codeErr === 0 ? "none" : "block",
+            }}
+          />
+
           <h1>Tizimga kirish</h1>
           <p>
             Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga
@@ -168,9 +216,12 @@ function MobileLogin({ active }) {
             type="tel"
             placeholder="Telefon raqamingiz"
             value={number}
-            onChange={(e) => {
-              
-            }}
+            onChange={(e) => {}}
+            // onFocus={() => {
+            //   if (number.length === 0) {
+            //     setnumber("+998 ");
+            //   }
+            // }}
             maxLength="19"
           />
           <input
@@ -194,9 +245,14 @@ function MobileLogin({ active }) {
             className="regLink"
             onClick={() => {
               setClick(click + 1);
-              
             }}
+            style={{ opacity: load === 1 ? 0.5 : 1 }}
           >
+            {load === 1 ? (
+              <MoonLoader size={30} css={override} color="white" />
+            ) : (
+              ""
+            )}
             Tizimga kirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </Link>

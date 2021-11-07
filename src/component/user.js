@@ -16,7 +16,7 @@ export function checkphone(number, cb) {
     });
 }
 
-export function login(data, cb) {
+export function login(data, cb, errCb) {
   axios
     .post("https://socially2.herokuapp.com/v2/login/basic", {
       phone: data.phone,
@@ -29,7 +29,7 @@ export function login(data, cb) {
       this.return(res.data.data);
     })
     .catch((err) => {
-      console.log(err.response);
+      errCb()
     });
 }
 

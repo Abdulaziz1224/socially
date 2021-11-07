@@ -4,16 +4,22 @@ import { Link } from "react-router-dom";
 import { MFormContext } from "./MobileForm";
 import "./number.scss";
 import { checkphone } from "../user";
+import { MoonLoader } from "react-spinners";
+import { toast, ToastContainer } from "react-toastify";
 
 function MobileNumber() {
   const [number, setnumber] = useState("");
   const [registered, setRegistered] = useState(null);
-  const { mForm, setMForm } = useContext(MFormContext);
-  const [nHeight, setNHeight] = useState(
-    window.innerWidth < 577 ? `${window.innerHeight - 200}px` : ""
-  );
+  const { mForm, setMForm,sendCode ,setSendCode } = useContext(MFormContext);
+  const [load, setLoad] = useState(0);
+
+  const override = `
+    position: absolute;
+  `;
 
   function check() {
+    localStorage.removeItem("redirect");
+    setLoad(1)
     var raqam = number;
 
     for (let i = 0; i < raqam.length; i++) {
@@ -34,13 +40,22 @@ function MobileNumber() {
     }
     function cb(exists) {
       setRegistered(exists);
+      setLoad(0);
     }
-    console.log(registered);
-    checkphone(raqam, cb);
+
+    function errCb(){
+      setLoad(0)
+    }
+
+    if (number.length < 19) {
+      toast.error("telefon raqamingizni toliq yozing");
+      setLoad(0);
+    } else {
+      if(load===0) checkphone(raqam, cb, errCb);
+    }
   }
 
   useEffect(() => {
-    console.log(registered);
     if (registered === true) {
       setMForm("login");
       setRegistered(null);
@@ -51,17 +66,6 @@ function MobileNumber() {
     }
   }, [registered]);
 
-  useEffect(() => {
-    if (window.innerwidth < 577) {
-      setNHeight(`${window.innerHeight - 200}px`);
-    }
-  }, [mForm]);
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth < 577) {
-      setNHeight(`${window.innerHeight - 200}px`);
-    }
-  });
 
   useEffect(() => {
     let num = number;
@@ -170,6 +174,7 @@ function MobileNumber() {
       className="number"
       style={{ display: mForm === "number" ? "block" : "none" }}
     >
+      <ToastContainer />
       <div
         // className="container"
         className={mForm === "number" ? "container active" : "container active"}
@@ -203,8 +208,15 @@ function MobileNumber() {
             className="check"
             onClick={() => {
               check();
+              setSendCode(sendCode + 1);
             }}
+            style={{ opacity: load === 1 ? 0.5 : 1 }}
           >
+            {load === 1 ? (
+              <MoonLoader size={30} css={override} color="white" />
+            ) : (
+              ""
+            )}
             Tekshirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </Link>

@@ -221,6 +221,9 @@
         font-weight: 600;
         line-height: 19px;
         cursor: pointer;
+        @media (max-width: 333px){
+          padding: 15px 46px 15px 16px;
+        }
       }
       .vector {
         position: absolute;
@@ -400,6 +403,7 @@
       }
       .change-info {
         justify-content: start;
+
 
         .vector {
           left: 190px;

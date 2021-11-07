@@ -5,52 +5,71 @@ import MobileLogin from "./MobileLogin";
 import MobileNumber from "./MobileNumber";
 import MobileRegister from "./MobileRegister";
 import MobileAuthNumber from "./MobileAuthNumber";
+import {useHistory} from "react-router-dom"
 import "./mobileForm.scss";
-// import firebase from "./firebase";
+
 import { useState } from "react";
 
 export const MFormContext = React.createContext();
 
+
 function MobileForm() {
-  const [userData, setUserData] = useState(localStorage.getItem("user"));
+  const [sendCode, setSendCode] = useState(0);
+
   const [mForm, setMForm] = useState("number");
   const [mFirstName, setMFirstName] = useState("");
+  const [foot, setFoot] = useState("mobileForm");
+  const [xClick, setXClick] = useState(0);
+
+  const history = useHistory()
+
+  window.addEventListener("resize",()=>{
+    if(window.innerWidth>576){
+      history.push("/")
+    }
+  })
 
   useEffect(() => {
     let user;
     if (localStorage.getItem("user") !== null) {
       user = JSON.parse(localStorage.getItem("user"));
-      setUserData(user);
       setMFirstName(user.user.firstName);
+    }
+    if (mForm === "register") {
+      setFoot("mobileForm reg");
+    } else if (mForm === "login") {
+      setFoot("mobileForm log");
+    } else {
+      setFoot("mobileForm");
     }
   }, [mForm]);
 
-  // firebase.auth().languageCode = "it";
-  // function phoneverify() {
-  //   firebase.auth
-  //     .RecaptchaVerifier("recaptcha-container")
-  //     .then((res) => {
-  //       console.log("res");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
-  // phoneverify();
+  useEffect(()=>{
+    if(localStorage.getItem("redirect")){
+      setMForm("number")
+      setXClick(1)
+    }
+    localStorage.removeItem("redirect")
+  }, [])
+
   return (
-    <div className="mobileForm">
+    <div className={foot}>
       <MFormContext.Provider
         value={{
           mForm,
           setMForm,
           mFirstName,
+          sendCode,
+          setSendCode,
+          xClick,
+          setXClick,
         }}
       >
-        <Navbar mFirstName={mFirstName} />
-        <MobileNumber />
-        <MobileAuthNumber />
-        <MobileLogin />
-        <MobileRegister />
+        <Navbar />
+        {mForm === "number" ? <MobileNumber /> : ""}
+        {mForm === "authNumber" ? <MobileAuthNumber /> : ""}
+        {mForm === "login" ? <MobileLogin /> : ""}
+        {mForm === "register" ? <MobileRegister /> : ""}
         <Footer />
       </MFormContext.Provider>
     </div>

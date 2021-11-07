@@ -1,220 +1,214 @@
 .register {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.15);
-    
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
 
-    .container {
-        width: 442px;
-        height: max-content;
-        background: #FFFFFF;
-        border: 2px solid #EAEAEA;
-        position: absolute;
-        padding-bottom: 60px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 100;
+  .container {
+    width: 442px;
+    height: max-content;
+    background: #ffffff;
+    border: 2px solid #eaeaea;
+    position: absolute;
+    padding-bottom: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
 
-        .xBtn {
-            position: relative;
-            width: 20px;
-            height: 20px;
-            float: right;
-            margin: 15px 15px 0 0;
-            background: transparent;
-            border: none;
-            outline: none;
-        }
-
-        .box {
-            display: block;
-            width: 322px;
-            height: max-content;
-            margin: 60px auto 0 auto;
-
-            h1 {
-                margin-bottom: 15px;
-
-                font-family: Gosha Sans;
-                font-size: 34px;
-                font-weight: 700;
-                line-height: 41px;
-                letter-spacing: 0em;
-                text-align: left;
-
-            }
-
-            p {
-                margin-bottom: 30px;
-
-                font-family: Proxima Nova Rg;
-                font-size: 16px;
-                line-height: 19px;
-                letter-spacing: 0em;
-
-            }
-
-            input {
-                display: block;
-                width: 100%;
-                height: 54px;
-                outline: none;
-                padding: 15px 20px;
-
-                margin-bottom: 16px;
-                border: 2px solid #EAEAEA;
-                // color: rgba(72, 72, 72, 1);
-
-                font-family: Proxima Nova Rg;
-                font-size: 20px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 24px;
-                letter-spacing: 0em;
-                text-align: left;
-            }
-
-            .errorMsg {
-                width: 164px;
-                height: 47px;
-                position: absolute;
-                top: 150px;
-                right: 23px;
-                text-align: center;
-                padding-top: 13px;
-                padding-left: 15px;
-                color: rgba(243, 73, 74, 1);
-
-                background: #FFFFFF;
-                border: 2px solid rgba(72, 72, 72, 0.15);
-
-                font-family: Proxima Nova Lt;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 17px;
-                letter-spacing: 0em;
-                text-align: left;
-
-            }
-
-            .errorImg {
-                position: absolute;
-                top: 203px;
-                right: 80px;
-            }
-
-            .submit {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                block-size: auto;
-                padding: 16px 87px 15px 88px;
-                text-decoration: none;
-                background: #FFAB00;
-                color: black;
-                border: none;
-                outline: none;
-
-                font-family: Proxima Nova Lt;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 19px;
-                letter-spacing: 0em;
-                text-align: left;
-
-                img {
-                    margin-left: 5px;
-                    margin-bottom: 2px;
-                }
-            }
-
-            .counterAndResend {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-
-                .counter {
-                    margin-bottom: 31px;
-                    color: rgba(72, 72, 72, 1);
-
-                    font-family: Proxima Nova Rg;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 19px;
-                    letter-spacing: 0em;
-                    text-align: left;
-
-                }
-
-                .resend {
-
-                    button {
-                        background: transparent;
-                        border: none;
-                        outline: none;
-
-                        font-family: Proxima Nova Lt;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 19px;
-                        letter-spacing: 0em;
-                        text-align: right;
-
-                    }
-
-                    .underline {
-                        width: 109px;
-                        border: 1px solid #000000;
-                    }
-                }
-            }
-        }
+    .xBtn {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      float: right;
+      margin: 15px 15px 0 0;
+      background: transparent;
+      border: none;
+      outline: none;
     }
-}
 
-@media (max-width:575px){
-    .register{
-        background: transparent;
-        position: static;
+    .box {
+      display: block;
+      width: 322px;
+      height: max-content;
+      margin: 60px auto 0 auto;
+
+      h1 {
+        margin-bottom: 15px;
+
+        font-family: Gosha Sans;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 41px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      p {
+        margin-bottom: 30px;
+
+        font-family: Proxima Nova Rg;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0em;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        height: 54px;
+        outline: none;
+        padding: 15px 20px;
+
+        margin-bottom: 16px;
+        border: 2px solid #eaeaea;
+        // color: rgba(72, 72, 72, 1);
+
+        font-family: Proxima Nova Rg;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      .errorMsg {
+        width: 164px;
+        height: 47px;
+        position: absolute;
+        top: 150px;
+        right: 23px;
+        text-align: center;
+        padding-top: 13px;
+        padding-left: 15px;
+        color: rgba(243, 73, 74, 1);
+
+        background: #ffffff;
+        border: 2px solid rgba(72, 72, 72, 0.15);
+
+        font-family: Proxima Nova Lt;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      .errorImg {
+        position: absolute;
+        top: 203px;
+        right: 80px;
+      }
+
+      .submit {
         display: flex;
         justify-content: center;
         align-items: center;
-        .container{
-            position: static;
-            width: 343px;
-            height: 453px;
-            transform: none;
-            padding-bottom: 30px;
+        block-size: auto;
+        padding: 16px 87px 15px 88px;
+        text-decoration: none;
+        background: #ffab00;
+        color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
 
-            .xBtn{
-                display: none;
-            }
+        font-family: Proxima Nova Lt;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
 
-            .box{
-                width: 100%;
-                height: 315px;
-                margin: 0;
-                padding: 30px;
-
-                h1{
-                    font-size: 24px;
-                    margin-bottom: 5px;
-                    line-height: 28px;
-                }
-
-                .submit{
-                    padding: 16px 65px 15px 65px;
-                }
-            }
+        img {
+          margin-left: 5px;
+          margin-bottom: 2px;
         }
+      }
+
+      .counterAndResend {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .counter {
+          margin-bottom: 31px;
+          color: rgba(72, 72, 72, 1);
+
+          font-family: Proxima Nova Rg;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 19px;
+          letter-spacing: 0em;
+          text-align: left;
+        }
+
+        .resend {
+          button {
+            background: transparent;
+            border: none;
+            outline: none;
+
+            font-family: Proxima Nova Lt;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: right;
+          }
+
+          .underline {
+            width: 109px;
+            border: 1px solid #000000;
+          }
+        }
+      }
     }
+  }
+}
+
+@media (max-width: 575px) {
+  .register {
+    background: transparent;
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+      position: static;
+      width: 343px;
+      height: 453px;
+      transform: none;
+      padding-bottom: 30px;
+
+      .xBtn {
+        display: none;
+      }
+
+      .box {
+        width: 100%;
+        height: 315px;
+        margin: 0;
+        padding: 30px;
+
+        h1 {
+          font-size: 24px;
+          margin-bottom: 5px;
+          line-height: 28px;
+        }
+
+        .submit {
+          padding: 16px 65px 15px 65px;
+        }
+      }
+    }
+  }
 }

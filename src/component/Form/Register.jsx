@@ -4,31 +4,49 @@ import { Link } from "react-router-dom";
 import "./register.scss";
 import { FormContext } from "../Navbar/Navbar";
 import { register } from "../user";
+import { MoonLoader } from "react-spinners"; 
+import { toast, ToastContainer } from "react-toastify";
 
 function Register({ active }) {
   const [name, setname] = useState("");
   const [lastName, setlastName] = useState("")
   const [pass, setpass] = useState("");
   const [checkPass, setCheckPass] = useState("");
+  const[load, setLoad] = useState(0);
 
   const { form, setForm, setUserData } = useContext(FormContext);
+  
+  const override = `
+    position: absolute;
+  `;
 
   function signup(){
+    setLoad(1)
     let num = localStorage.getItem("number")
     function cb(data){
       setUserData(data)
       setForm("")
+      setLoad(0)
     }
 
-    register(
-      {
-        firstName: name,
-        lastName: lastName,
-        phone: num,
-        password: pass
-      },
-      cb
-    )
+    function errCb(){
+      setLoad(0)
+    }
+    if(pass === checkPass){
+      register(
+        {
+          firstName: name,
+          lastName: lastName,
+          phone: num,
+          password: pass
+        },
+        cb,
+        errCb
+      )
+    }else{
+      toast.error("Tasdiqlash paroli mos emas.");
+      setLoad(0)
+    }
   }
 
   return (
@@ -36,6 +54,7 @@ function Register({ active }) {
       className="register"
       style={{ display: form === "register" ? "block" : "none" }}
     >
+      <ToastContainer />
       <div
         // className="container"
         className={
@@ -84,7 +103,16 @@ function Register({ active }) {
             }}
             placeholder="Parolni kiriting"
           />
-          <button onClick={signup} className="submit">
+          <button
+            onClick={signup}
+            className="submit"
+            style={{ opacity: load === 1 ? 0.5 : 1 }}
+          >
+            {load === 1 ? (
+              <MoonLoader size={30} css={override} color="white" />
+            ) : (
+              ""
+            )}
             Ro’yxatdan o’tish
             <img src="images/Form/arrow.svg" alt="accept" />
           </button>

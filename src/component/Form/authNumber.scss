@@ -104,6 +104,10 @@
         right: 80px;
       }
 
+      [id*="cap"]{
+        display: none;
+      }
+
       .check {
         display: flex;
         justify-content: center;
@@ -112,6 +116,7 @@
         padding: 16px 89px 15px 90px;
         text-decoration: none;
         background: #ffab00;
+        cursor: pointer;
         color: black;
         border: none;
         outline: none;
@@ -165,7 +170,9 @@
 
           .underline {
             width: 109px;
-            border: 1px solid #000000;
+            height: 2px;
+            background-color: #000000;
+            border-radius: 100000px;
           }
         }
       }

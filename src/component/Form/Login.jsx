@@ -3,27 +3,48 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./login.scss";
 import { FormContext } from "../Navbar/Navbar";
-import {login} from "../user"
+import { login } from "../user";
+import { MoonLoader } from "react-spinners";
+
 function Login({ active }) {
   const [number, setnumber] = useState("+998");
-  const [pass, setPass] = useState("")
-  const [phone, setPhone] = useState("")
+  const [pass, setPass] = useState("");
+  const [phone, setPhone] = useState("");
+  const [hideErr, setHideErr] = useState(1);
+  const [errClick, setErrClick] = useState(0);
+  const [codeErr, setCodeErr] = useState(0);
+  const [load, setLoad] = useState(0);
 
-  const { form, setForm, userData, setUserData } = useContext(FormContext);
+  const { form, setForm, setUserData } = useContext(FormContext);
 
-  useEffect(()=>{
-    setnumber("     "+localStorage.getItem("number"))
-    setPhone(localStorage.getItem("number"))
-  },[form])
+  const override = `
+    position: absolute;
+  `;
+  useEffect(() => {
+    if(number==="+998 "){
+      setnumber("     " + localStorage.getItem("number"));
+      setPhone(localStorage.getItem("number"));
+    }
+  },[Date.now()]);
 
-  function kirish(){
-    function cb(data){
-      setUserData(data)
-      if(data){
-        setForm("")
+  function kirish() {
+    setLoad(1);
+    setCodeErr(0);
+    setHideErr(1)
+    function cb(data) {
+      setUserData(data);
+      setLoad(0);
+      if (data) {
+        setCodeErr(0);
+        setForm("");
       }
     }
-    login({phone:phone,password: pass},cb)
+    function errCb() {
+      setLoad(0);
+      setCodeErr(1);
+    }
+
+    if(load===0) login({ phone: phone, password: pass }, cb, errCb);
   }
 
   useEffect(() => {
@@ -128,19 +149,56 @@ function Login({ active }) {
     }
   }, [number]);
 
+  function errMsg() {
+    console.log(hideErr);
+    if (errClick > 0) {
+      setHideErr(0);
+      console.log(hideErr);
+      setTimeout(() => {
+        setHideErr(1);
+      }, 6000);
+    }
+  }
+
   return (
     <div
       className="login"
       style={{ display: form === "login" ? "block" : "none" }}
     >
       <div
+        // className="container"
         className={form === "login" ? "container active" : "container active"}
       >
-        <button className="xBtn" onClick={() =>{setForm("");setnumber("")}}>
+        <button
+          className="xBtn"
+          onClick={() => {
+            setForm("");
+            setnumber("");
+          }}
+        >
           <img src="images/Form/x.svg" alt="x" />
         </button>
 
         <div className="box">
+          <div
+            className="errorMsg"
+            style={{ opacity: hideErr === 1 ? 0 : 1, transition: "0.3s" }}
+          >
+            Parol noto'g'ri kiritilgan
+          </div>
+          <img
+            src="images/Form/error.svg"
+            alt="error"
+            className="errorImg"
+            onClick={() => {
+              setErrClick(errClick + 1);
+              errMsg();
+            }}
+            style={{
+              display: codeErr === 0 ? "none" : "block",
+            }}
+          />
+
           <h1>Tizimga kirish</h1>
           <p>
             Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga
@@ -160,7 +218,14 @@ function Login({ active }) {
             }}
             maxLength="19"
           />
-          <input type="password" placeholder="Password" value={pass} onChange={(e)=>{setPass(e.target.value)}}/>
+          <input
+            type="password"
+            placeholder="Password"
+            value={pass}
+            onChange={(e) => {
+              setPass(e.target.value);
+            }}
+          />
           <div className="password">
             <p className="forget">Parolni unutdingizmi?</p>
             <Link className="reset" to="number">
@@ -168,7 +233,16 @@ function Login({ active }) {
               <div className="underline"></div>
             </Link>
           </div>
-          <button className="regLink" onClick={kirish}>
+          <button
+            className="regLink"
+            onClick={kirish}
+            style={{ opacity: load === 1 ? 0.5 : 1 }}
+          >
+            {load === 1 ? (
+              <MoonLoader size={30} css={override} color="white" />
+            ) : (
+              ""
+            )}
             Tizimga kirish
             <img src="images/Form/arrow.svg" alt="arrow" />
           </button>

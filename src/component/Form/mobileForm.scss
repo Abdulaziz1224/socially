@@ -1,13 +1,15 @@
 .mobileForm {
   position: absolute;
   width: 100%;
-  height: max-content;
+  height: 100%;
   background-image: url(../../backgroundImages/veryDots.svg);
   min-height: 500px;
 
+  #sign-in-button {
+    display: none;
+  }
+
   .navbar {
-    // max-width: none;
-    // min-width: auto;
     height: 90px;
     width: 100%;
     background: transparent;
@@ -17,12 +19,14 @@
   .number {
     position: static;
     width: 100%;
-    height: 88%;
+    height: 80%;
     padding-top: 30px;
     margin: 0;
     background: transparent;
-    min-height: 350px;
-    margin-bottom: 70px;
+    // min-height: 350px;
+    min-height: max-content;
+    max-height: max-content;
+    display: block;
 
     .container {
       position: static;
@@ -33,9 +37,10 @@
   .authNumber {
     position: static;
     padding-top: 30px;
-    height: 88%;
+    height: 80%;
     min-height: 400px;
-    margin-bottom: 70px;
+    min-height: auto;
+    // margin-bottom: 50px;
 
     .container {
       margin: 0 auto;
@@ -43,35 +48,66 @@
   }
 
   .login {
-    position: static;
+    position: absolute;
+    top: 120px;
     padding-top: 30px;
-    height: 88%;
-    margin-bottom: 70px;
-
+    height: 80%;
     .container {
+      position: absolute;
       margin: 0 auto;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%,0);
+
+      .box{
+        .errorMsg {
+        top: 180px;
+        right: 30px;
+      }
+
+      .errorImg {
+        top: 237px;
+        right: 50px;
+      }
+      }
     }
   }
 
   .register {
     position: static;
     padding-top: 30px;
-    height: 88%;
-    margin-bottom: 70px;
+    height: 80%;
+    // margin-bottom: 70px;
+
+    .footer {
+      margin-top: 50px;
+      .container {
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        padding-bottom: 0;
+
+        // .connection-text{
+        //   .link, a{
+        //     margin: 0;
+        //   }
+        // }
+      }
+    }
 
     .container {
       margin: 0 auto;
       height: max-content;
+      padding-bottom: 5px;
 
       .box {
         height: max-content;
-
         // .submit {
         //   display: flex;
         //   justify-content: center;
         //   align-items: center;
         //   block-size: auto;
-        //   padding: 16px 87px 15px 88px;
+        //   padding: 16px 87px 15px 80px;
         //   text-decoration: none;
         //   background: #ffab00;
         //   color: black;
@@ -95,9 +131,11 @@
     }
   }
 
-  .footer {
-    // position: fixed;
-    // bottom: 0;
+  @media (min-height: 570px) {
+    .footer {
+      position: fixed;
+      bottom: 0;
+    }
   }
 
   @media (max-width: 360px) {
@@ -113,7 +151,7 @@
     .number {
       position: static;
       width: 100%;
-      height: 100%;
+      height: 80%;
       padding-top: 30px;
       margin: 0;
       background: transparent;
@@ -128,14 +166,14 @@
       .box {
         width: 100%;
         height: 100%;
-        padding: 10;
+        padding: 20px;
       }
     }
 
     .authNumber {
       position: static;
       padding-top: 30px;
-      height: 88%;
+      height: 80%;
       min-height: 400px;
 
       .container {
@@ -152,7 +190,7 @@
     .login {
       position: static;
       padding-top: 30px;
-      height: 88%;
+      height: 80%;
 
       .container {
         margin: 0 auto;
@@ -170,21 +208,71 @@
       padding-top: 30px;
       height: 100%;
 
+      .footer {
+        margin-top: 50px;
+        .container {
+          background-color: transparent;
+          border: none;
+          width: 100%;
+          padding-bottom: 0;
+
+          .connection-text {
+            .link,
+            a {
+              margin: 0;
+            }
+          }
+        }
+      }
+
       .container {
         margin: 0 auto;
         width: 97%;
-
-        a {
-          padding-left: 40px;
-          padding-right: 40px;
+        .box {
+          .submit {
+            padding: 16px 55px 15px 50px;
+          }
         }
       }
     }
+  }
+}
 
+.reg {
+  .footer {
+    display: none;
+  }
+
+  .register {
     .footer {
-      position: fixed;
-      top: 90%;
-      bottom: 0;
+      display: flex;
+      position: static;
     }
   }
+
+  @media (min-height: 768px) {
+    .register {
+      .footer {
+        position: fixed;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.log {
+  height: 616px;
+  .footer {
+    display: flex;
+    position: absolute;
+    top: 600px;
+  }
+  @media (min-height: 675px) {
+      height: 95%;
+      .footer {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+      }
+    }
 }

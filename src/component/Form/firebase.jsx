@@ -1,15 +1,19 @@
-// import firebase from "firebase"
+import {getAuth} from "firebase/auth"
+import { initializeApp } from "firebase/app";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDyoJAh-fRn24Pjso_kD2WMaPQsdWqhvp4",
-//   authDomain: "socially-ab7fa.firebaseapp.com",
-//   projectId: "socially-ab7fa",
-//   storageBucket: "socially-ab7fa.appspot.com",
-//   messagingSenderId: "876744711300",
-//   appId: "1:876744711300:web:bd1eaed622485b15b7f6d1",
-//   measurementId: "G-WV5Z73B7WT",
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyB31tElDya1HcgI16Gz0v0J7YtAmGep9ME",
+  authDomain: "socially-a8491.firebaseapp.com",
+  databaseURL: "https://socially-a8491.firebaseio.com",
+  projectId: "socially-a8491",
+  storageBucket: "socially-a8491.appspot.com",
+  messagingSenderId: "1029655166653",
+  appId: "1:1029655166653:web:702c20ce6e9c4ef8f581d4",
+  measurementId: "G-SY4WN275M4",
+};
 
-// firebase.initializeApp(firebaseConfig);
+let app = initializeApp(firebaseConfig);
 
-// export default firebase
+let auth = getAuth(app)
+
+export default auth
