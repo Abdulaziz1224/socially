@@ -1,19 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { useCallback, useContext, useState } from "react";
+import { Link} from "react-router-dom";
 import { Context } from "./Profil";
 import { toast, ToastContainer } from "react-toastify";
 import "./mainSection.scss";
 import axios from "axios";
+import { useHistory } from "react-router";
 function MainSection() {
   const { bool, setBool, data,  } = useContext(Context);
+  // const [out, setOut] = useState(false)
+  let history = useHistory()
   const openModal = () => {
     setBool(!bool);
   };
 
-  function Logout() {
+  const Logout = useCallback(() =>{
     let config = {
       method: "delete",
-      url: `https://socially2.herokuapp.com/v2/logout`,
+      url: `http://18.185.74.141:5000/v2/logout`,
       headers: {
         "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
         "Content-Type": "application/json",
@@ -22,18 +25,15 @@ function MainSection() {
     };
     axios(config)
       .then(function (res) {
-        toast.success("Tizimdan muvaffaqiyatli chiqdingiz!")
         localStorage.removeItem("user")
-        // window.location.reload();
-        alert("o'chdi")
-          (<Redirect to={{
-            pathname: "/"
-          }} />)
+        history.push('/')
+        // setOut(!out)
+        toast.success("Tizimdan muvaffaqiyatli chiqdingiz!")
       })
-      .catch(function (error) {
+      .catch(function (err) {
         toast.error("Tizimda xatolik!");
       });
-  }
+  }, [])
   return (
     <div className="profilSection">
       <div className="container">

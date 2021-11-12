@@ -8,14 +8,14 @@ import MobileForm from "./component/Form/MobileForm";
 import Profil from "./component/Profil/Profil";
 import Video from "./component/Video/Video"
 import MainBlog from "./component/Blog/MainBlog"
-import MobileLogin from "./component/Form/MobileLogin";
-import Login from "./component/Form/Login";
 import "./app.scss";
 function App() {
   const [storage, setStorage] = useState(null)
  useEffect(() => {
    setStorage(localStorage.getItem("user"))
- }, [localStorage.getItem("user")])  
+   window.scrollTo({ top: 0, behavior: "smooth" });
+
+ }, [])     
   return (
     <div className="app">
       <Router>

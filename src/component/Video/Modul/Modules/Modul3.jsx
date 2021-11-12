@@ -30,7 +30,7 @@ function Modul3() {
   },[modules])
 
     return (
-        <div className="modul3"  style={{display:modul==3?"block":"none"}}>
+        <div className="modul3"  style={{display:modul===3?"block":"none"}}>
             {
               topics.length!==0
               ?topics.map((lesson)=>{

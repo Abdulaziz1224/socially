@@ -3,7 +3,7 @@ import axios from "axios";
 export function checkphone(number, cb) {
   var exists;
   axios
-    .post("https://socially2.herokuapp.com/v2/signup/checkphone", {
+    .post("http://18.185.74.141:5000/v2/signup/checkphone", {
       phone: number,
     })
     .then((res) => {
@@ -18,7 +18,7 @@ export function checkphone(number, cb) {
 
 export function login(data, cb, errCb) {
   axios
-    .post("https://socially2.herokuapp.com/v2/login/basic", {
+    .post("http://18.185.74.141:5000/v2/login/basic", {
       phone: data.phone,
       password: data.password,
       device: window.navigator.userAgent,
@@ -35,7 +35,7 @@ export function login(data, cb, errCb) {
 
 export function register(data, cb) {
   axios
-    .post("https://socially2.herokuapp.com/v2/signup/basic", {
+    .post("http://18.185.74.141:5000/v2/signup/basic", {
       firstName: data.firstName,
       lastName: data.lastName,
       phone: data.phone,

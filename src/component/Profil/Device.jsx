@@ -8,7 +8,6 @@ function Device() {
   const deleteAgent = (id) => {
     data.user.devices.slice(id, 1)
   }
-  console.log(data);
   return (
     <div className="device">
       <div className="container">     

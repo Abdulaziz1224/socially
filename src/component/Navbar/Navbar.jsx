@@ -14,6 +14,7 @@ function Navbar() {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
+  
   const [sendCode, setSendCode] = useState(0)
   let history = useHistory();
 
@@ -32,7 +33,9 @@ function Navbar() {
   let data = localStorage.getItem("user");
   useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem("user")));
+
   }, [data]);
+  
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
     <FormContext.Provider
@@ -90,7 +93,7 @@ function Navbar() {
           className="NavProfil"
           style={{ display: userData === null ? "none" : "flex" }}
         >
-          <Link to="profil" className="profilLink">
+          <Link to={userData === null ? "" : "/profil"} className="profilLink">           
             <img
               src={
                 userData === null

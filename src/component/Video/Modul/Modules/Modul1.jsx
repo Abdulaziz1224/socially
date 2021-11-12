@@ -6,7 +6,7 @@ import Topic from "../../Topic/Topic";
 function Modul1() {
   const [topics, setTopics] = useState([]);
 
-  const { modul, setModul, modules } = useContext(ModulContext);
+  const { modul, modules } = useContext(ModulContext);
 
   useEffect(() => {
     if (modules.length !== 0) {
@@ -35,7 +35,6 @@ function Modul1() {
       setTopics(array);
     }
   }, [modules]);
-
   return (
     <div className="modul1" style={{ display: modul === 1 ? "block" : "none" }}>
       {topics.length !== 0

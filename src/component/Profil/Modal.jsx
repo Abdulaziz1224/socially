@@ -12,7 +12,6 @@ const override = `
   ${window.innerWidth > 767 ? "right : 100px" : "left : 100px"};                  
 `;
 function Modal() {
-
   const { count, setCount, bool, setBool } = useContext(Context);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,9 +20,10 @@ function Modal() {
   const [changePass, setChangePass] = useState("");
   const [loading, setLoading] = useState(false)                            
   const [color, setColor] = useState("white")  
-  const Submit = (e) => {   
+  const [window, setWindow] = useState(false)
+  
+  const Submit = () => {   
     let dat = JSON.parse(localStorage.getItem("user"));
-
     if (pass !== changePass || (pass.length < 6 || changePass.length < 6)) {
       toast.error("Parol mos kelmadi!")
     }
@@ -75,7 +75,7 @@ function Modal() {
         document.querySelector(".submit").disabled = true;
         let config = {
           method: "put",
-          url: `https://socially2.herokuapp.com/v2/user`,
+          url: `http://18.185.74.141:5000/v2/user`,
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${dat.tokens.accessToken}`,
@@ -96,18 +96,19 @@ function Modal() {
             setLoading(prev => !prev)
             document.querySelector(".submit").disabled=false;
             setBool(!bool);
-            setTimeout(() => {
-            }, 2000)
+            setWindow(!window)
           })
           .catch(function (error) {
             toast.error("Ma'lumotlar o'zgartirilmadi!");
             setLoading(prev => !prev)
             document.querySelector(".submit").disabled=false;
+            console.log(error);
           });
       }
     }
   }
   };
+
   useEffect(() => {
     let dat = JSON.parse(localStorage.getItem("user"));
     setImage(dat.user.avatar);
@@ -125,6 +126,7 @@ function Modal() {
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
     }
+    console.log(image);
     // setImage(e.target.files[0]);
 
     // let form = new FormData()
