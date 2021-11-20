@@ -10,8 +10,9 @@
 
   .header-bottom {
     height: 90%;
-    max-width: 1036px;
-    width: 80%;
+    max-width: 1258px;
+    padding: 0 30px;
+    width: 100%;
     margin: auto;
     display: flex;
     z-index: 20;
@@ -22,7 +23,7 @@
       flex-direction: column;
 
       h4 {
-        font-family: Gosha Sans;
+        font-family: "Gosha Sans";
         font-size: 48px;
         font-style: normal;
         font-weight: 500;
@@ -40,26 +41,6 @@
         letter-spacing: 0em;
         text-align: left;
         color: #484848;
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-        font-family: "Proxima Nova Rg";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0em;
-        text-align: left;
-        text-decoration: none;
-        color: #000000;
-        position: absolute;
-        bottom: 10%;
-
-        img {
-          margin-right: 5px;
-        }
       }
     }
   }

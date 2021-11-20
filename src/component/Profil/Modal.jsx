@@ -75,7 +75,7 @@ function Modal() {
         document.querySelector(".submit").disabled = true;
         let config = {
           method: "put",
-          url: `http://18.185.74.141:5000/v2/user`,
+          url: ` https://socially2.herokuapp.com/v2/user`,
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${dat.tokens.accessToken}`,
@@ -213,7 +213,7 @@ function Modal() {
                 name="name"
                 autoFocus
                 className="name"
-                placeholder="Ismingiz kiriting"
+                placeholder="Ismingiz"
                 required="required"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -227,7 +227,7 @@ function Modal() {
                 name="lastName"
                 type="text"
                 className="tel"
-                placeholder="Familyangizni kiriting"
+                placeholder="Familyangiz"
                 value={lastName}
                 required
                 onChange={(e) => setLastName(e.target.value)}

@@ -1,16 +1,16 @@
 .availableBox {
   display: flex;
-  width: 80%;
-  max-width: 1036px;
+  max-width: 1258px;
+  padding: 0 30px;
+  width: 100%;
   margin: 0 auto;
 
   .card {
-    width: 332px;
+    width: calc(100%/3);
     height: max-content;
     margin-right: 20px;
     user-select: none;
-
-    background: #ffffff;
+    background: #ffffff;    
     border: 2px solid rgba(234, 234, 234, 1);
 
     &:hover {
@@ -19,7 +19,7 @@
     &-img {
       width: 100%;
       margin-bottom: 30px;
-      border-bottom: 2px solid #EAEAEA;
+      border-bottom: 2px solid #eaeaea;
     }
 
     &-title {
@@ -27,13 +27,11 @@
       text-align: left;
       margin-left: 30px;
       margin-bottom: 39px;
-
       font-family: "Proxima Nova Rg";
       font-size: 20px;
       font-style: normal;
       font-weight: 700;
       line-height: 24px;
-      letter-spacing: 0em;
     }
 
     .full-info {
@@ -48,18 +46,14 @@
       color: black;
       margin-left: 30px;
       margin-bottom: 30px;
-      // padding: 16px 15px 15px 30px;
       background: #ffffff;
       border: 2px solid #eaeaea;
       transition: 200ms;
-
-      font-family: Proxima Nova Lt;
+      font-family: "Proxima Nova Lt";
       font-size: 16px;
       font-style: normal;
       font-weight: 600;
       line-height: 19px;
-      letter-spacing: 0em;
-      text-align: left;
 
       &:hover {
         background: rgba(255, 171, 0, 1);
@@ -105,7 +99,6 @@
 
       &-title {
         margin: 15px 15px 0 15px;
-
         font-size: 16px;
         font-style: normal;
         font-weight: 700;

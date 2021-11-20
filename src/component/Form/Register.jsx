@@ -25,7 +25,7 @@ function Register({ active }) {
     let num = localStorage.getItem("number")
     function cb(data){
       setUserData(data)
-      setForm("")
+      setForm("login")
       setLoad(0)
     }
 

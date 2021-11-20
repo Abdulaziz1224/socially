@@ -86,8 +86,7 @@ function Navbar() {
           onClick={kirish}
           style={{ display: userData === null ? "flex" : "none" }}
         >
-          <span>Kirish</span>
-          <img src="images/Web Design01/navbar/Person-icon.svg" alt="person" />
+          <span>Tizimga kirish</span>
         </button>
         <div
           className="NavProfil"

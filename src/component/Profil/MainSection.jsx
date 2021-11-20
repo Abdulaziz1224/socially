@@ -1,22 +1,20 @@
 import React, { useCallback, useContext, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Context } from "./Profil";
 import { toast, ToastContainer } from "react-toastify";
 import "./mainSection.scss";
 import axios from "axios";
 import { useHistory } from "react-router";
 function MainSection() {
-  const { bool, setBool, data,  } = useContext(Context);
-  // const [out, setOut] = useState(false)
-  let history = useHistory()
+  const { bool, setBool, data } = useContext(Context);
+  let history = useHistory();
   const openModal = () => {
     setBool(!bool);
   };
-
-  const Logout = useCallback(() =>{
+  const Logout = useCallback(() => {
     let config = {
       method: "delete",
-      url: `http://18.185.74.141:5000/v2/logout`,
+      url: ` https://socially2.herokuapp.com/v2/logout`,
       headers: {
         "x-api-key": "YqUxxDV7wuT3e2fUfybqy9Xd8Y6bV8KEh2EQ",
         "Content-Type": "application/json",
@@ -25,19 +23,18 @@ function MainSection() {
     };
     axios(config)
       .then(function (res) {
-        localStorage.removeItem("user")
-        history.push('/')
-        // setOut(!out)
-        toast.success("Tizimdan muvaffaqiyatli chiqdingiz!")
+        history.push("/");
+        localStorage.removeItem("user");
+        toast.success("Tizimdan muvaffaqiyatli chiqdingiz!");
       })
       .catch(function (err) {
         toast.error("Tizimda xatolik!");
       });
-  }, [])
+  }, []);
   return (
     <div className="profilSection">
       <div className="container">
-      <ToastContainer/>
+        <ToastContainer />
         <div className="col-4">
           <div className="information">
             <div className="profil">
@@ -46,8 +43,8 @@ function MainSection() {
                   data === null
                     ? "images/Web Design01/navbar/Person-icon.svg"
                     : data.user.avatar === ""
-                    ? "images/Web Design01/navbar/Person-icon.svg"
-                    : data.user.avatar
+                      ? "images/Web Design01/navbar/Person-icon.svg"
+                      : data.user.avatar
                 }
                 alt="img"
                 className="person"
@@ -56,8 +53,8 @@ function MainSection() {
                     data === null
                       ? "block"
                       : data.user.avatar === ""
-                      ? "block"
-                      : "none",
+                        ? "block"
+                        : "none",
                 }}
               />
               <img
@@ -67,8 +64,8 @@ function MainSection() {
                     data === null
                       ? "none"
                       : data.user.avatar === ""
-                      ? "none"
-                      : "block",
+                        ? "none"
+                        : "block",
                 }}
                 alt="profilImg"
                 className="profilImg"
@@ -82,8 +79,8 @@ function MainSection() {
                     ? data.user.firstName + " " + data.user.lastName
                     : (data.user.firstName + " " + data.user.lastName).length <=
                       13
-                    ? data.user.firstName + " " + data.user.lastName
-                    : (data.user.firstName + " " + data.user.lastName)
+                      ? data.user.firstName + " " + data.user.lastName
+                      : (data.user.firstName + " " + data.user.lastName)
                         .slice(0, 13)
                         .padEnd(16, ".")}
                 </p>
@@ -93,9 +90,7 @@ function MainSection() {
                 <p className="komp">
                   {window.innerWidth > 1140 || window.innerWidth < 767
                     ? data.user.phone
-                    : data.user.phone
-                    .slice(4, data.user.phone.length)
-                  }
+                    : data.user.phone.slice(4, data.user.phone.length)}
                 </p>
               </div>
             </div>

@@ -48,7 +48,7 @@ function MobileNumber() {
     }
 
     if (number.length < 19) {
-      toast.error("telefon raqamingizni toliq yozing");
+      toast.error("Telefon raqamingizni toliq yozing");
       setLoad(0);
     } else {
       if(load===0) checkphone(raqam, cb, errCb);

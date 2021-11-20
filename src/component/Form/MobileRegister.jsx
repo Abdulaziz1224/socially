@@ -77,7 +77,6 @@ function MobileRegister({ active }) {
     >
       <ToastContainer />
       <div
-        // className="container"
         className={
           mForm === "register" ? "container active" : "container active"
         }

@@ -1,11 +1,11 @@
 .blogBox {
-  width: 80%;
-  max-width: 1036px;
+  max-width: 1258px;
+  width: 100%;
   margin: auto;
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 20px;
-  padding-bottom: 60px;
+  padding: 0 30px 60px 30px;
 
   .card {
     cursor: pointer;

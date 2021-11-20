@@ -14,13 +14,6 @@ function MainSection() {
           <span>
             UX/UI va Grafik Dizaynni o‘rganish <br /> uchun maxsus akademiya
           </span>
-          <a href="#section1">
-            <img
-              src="images/Web Design01/header/arrowDown.svg"
-              alt="arrowDown"
-            />
-            Pastga suring
-          </a>
         </div>
       </div>
       <div className="gradient1"></div>

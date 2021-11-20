@@ -2,12 +2,13 @@
   width: 100%;
   background-color: #f4f4f4;
   background-image: url("../../../backgroundImages/veryDots.svg");
-  padding: 58px 0 60px 0;
+  padding: 60px 0;
   user-select: none;
 
   .container {
-    max-width: 1036px;
-    width: 80%;
+    max-width: 1258px;
+    width: 100%;
+    padding: 0 30px;
     margin: auto;
 
     .col {
@@ -24,7 +25,7 @@
         &-text {
           width: max-content;
           margin-right: 15px;
-          font-family: Gosha Sans;
+          font-family: "Gosha Sans";
           font-size: 24px;
           font-style: normal;
           font-weight: 400;

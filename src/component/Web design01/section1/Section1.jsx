@@ -27,7 +27,7 @@ function Section1() {
               <h4>$500</h4>
             </div>
             <p className="text">
-              SNG davlatlarida web designerning o‘rtacha <br /> daromadi.
+              SNG davlatlarida web designerning o‘rtacha daromadi.
             </p>
           </div>
           <div className="box">
@@ -37,7 +37,7 @@ function Section1() {
               <h4>Kelajak</h4>
             </div>
             <p className="text">
-              Hozirgi kunda talab <br /> anchagina yuqori bo‘lgan kelajak
+              Hozirgi kunda talab  anchagina yuqori bo‘lgan kelajak
               kasbini o‘rganing!
             </p>
           </div>

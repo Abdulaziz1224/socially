@@ -44,12 +44,9 @@ function AccardionTop(props) {
           {
             Array.isArray(props.parts) ?
             props.parts.map(value => (
-              <>
                 <li key={Math.random()*10000}>      
-              {/* <span></span> */}
                     {value.title}
                 </li>
-              </>
             )) 
             : ""
           }

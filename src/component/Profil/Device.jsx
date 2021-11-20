@@ -16,9 +16,9 @@ function Device() {
           <img src="/images/Web design01/section-3/Group 130.svg" alt="svg" />
         </div>
         <div className="device-bottom"> 
-          { data.user.devices.map((value, index) => ( 
+          { data.user!==null ? data.user.devices.map((value, index) => ( 
             <Sistema key={Math.floor(Math.random()*10000)} devices = {value}  id={index} deleteAgent={deleteAgent}/> 
-           ))}  
+           )) : ""}    
         </div>
       </div>
     </div>

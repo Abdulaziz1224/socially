@@ -3,8 +3,9 @@
   margin: 0 auto;
 
   .container {
-    width: 80%;
-    max-width: 1036px;
+    max-width: 1258px;
+    padding: 0 30px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 60px;
 
@@ -20,7 +21,7 @@
         justify-content: center;
 
         h1 {
-          font-family: Gosha Sans;
+          font-family: "Gosha Sans";
           font-size: 24px;
           font-style: normal;
           font-weight: 400;

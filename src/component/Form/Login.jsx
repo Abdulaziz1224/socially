@@ -39,12 +39,13 @@ function Login({ active }) {
         setForm("");
       }
     }
+
     function errCb() {
       setLoad(0);
       setCodeErr(1);
     }
 
-    if(load===0) login({ phone: phone, password: pass }, cb, errCb);
+    if (load === 0) login({ phone: phone, password: pass }, cb, errCb);
   }
 
   useEffect(() => {
@@ -150,10 +151,8 @@ function Login({ active }) {
   }, [number]);
 
   function errMsg() {
-    console.log(hideErr);
     if (errClick > 0) {
       setHideErr(0);
-      console.log(hideErr);
       setTimeout(() => {
         setHideErr(1);
       }, 6000);
@@ -166,7 +165,6 @@ function Login({ active }) {
       style={{ display: form === "login" ? "block" : "none" }}
     >
       <div
-        // className="container"
         className={form === "login" ? "container active" : "container active"}
       >
         <button

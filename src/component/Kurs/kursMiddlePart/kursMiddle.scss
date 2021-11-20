@@ -4,10 +4,10 @@
   padding-bottom: 60px;
 
   .container {
-    width: 80%;
-    max-width: 1036px;
-    margin: 0 auto;
-    margin-top: 71px;
+    max-width: 1258px;
+    width: 100%;
+    padding: 0 30px;
+    margin: 71px auto 0;
 
     .head {
       display: flex;
@@ -21,7 +21,7 @@
         justify-content: center;
 
         h1 {
-          font-family: Gosha Sans;
+          font-family: "Gosha Sans";
           font-size: 24px;
           font-style: normal;
           font-weight: 400;
