@@ -10,8 +10,7 @@
             justify-content: center;
             align-items: center;
             width: 332px;
-            background: #FFFFFF;
-            border: 2px solid #EAEAEA;
+            background: #F3F3F3; 
             margin-bottom: 20px;  
 
             .text {
@@ -40,6 +39,7 @@
                 display: flex;
                 width: 262px;
                 margin-bottom: 30px;
+                background: #F3F3F3;
 
                 .nameAndLebel {
                     margin-left: 15px;
@@ -98,8 +98,7 @@
             flex-direction: column;
             width: 332px;
             padding: 30px;
-            background: #FFFFFF;
-            border: 2px solid #EAEAEA;
+            background: #F3F3F3;
             margin-bottom: 20px;
 
             h2 {
@@ -126,8 +125,7 @@
                 justify-content: center;
                 width: 171px;
                 height: 50px;
-                background: #FFFFFF;
-                border: 2px solid #EAEAEA;
+                background: #FFFFFF; 
                 padding-top: 2px;
                 text-decoration: none;
 
@@ -153,8 +151,7 @@
         .courses {
             width: 332px;
             padding: 30px;
-            background: #FFFFFF;
-            border: 2px solid #EAEAEA;
+            background: #F3F3F3;   
 
             [class*="course"] {
                 display: flex;
@@ -186,7 +183,6 @@
                 width: 192px;
                 height: 50px;
                 background: #FFFFFF;
-                border: 2px solid #EAEAEA;
                 text-decoration: none;
                 color: black;
 
