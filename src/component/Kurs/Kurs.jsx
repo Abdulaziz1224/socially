@@ -10,8 +10,8 @@ function Kurs() {
   return (
     <div className="kurs">
       <KursTop />
-      <KursMiddle/>
-      <Footer/>
+      <KursMiddle />
+      <Footer />
     </div>
   );
 }

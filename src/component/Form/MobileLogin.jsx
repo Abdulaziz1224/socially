@@ -235,10 +235,10 @@ function MobileLogin({ active }) {
           />
           <div className="password">
             <p className="forget">Parolni unutdingizmi?</p>
-            <Link className="reset" to="number">
+            <button className="reset" to="mobileForm" onClick={() => {setMForm("recovery");}}>
               Parolni tiklash
               <div className="underline"></div>
-            </Link>
+            </button>
           </div>
           <Link
             to="/mobileForm"

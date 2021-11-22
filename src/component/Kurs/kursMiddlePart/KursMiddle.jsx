@@ -8,8 +8,8 @@ function KursMiddle() {
         <div className="container">
           <div className="col head">
             <div className="title">
-              <h1>Mavjud kurslarimiz</h1>
-              <div className="img"></div>
+              <h1>KURSLAR</h1>
+              <div className="line"></div>
             </div>
           </div>
         </div>

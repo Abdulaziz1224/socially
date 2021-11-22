@@ -1,13 +1,16 @@
 .kursMiddle {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1366px; 
   margin: 0 auto;
-  padding-bottom: 60px;
+  padding: 80px 0;
+  background: #E5E5E5;
 
   .container {
     max-width: 1258px;
     width: 100%;
-    padding: 0 30px;
-    margin: 71px auto 0;
+    margin: 0px auto 0;
+    padding-right: 20px;
 
     .head {
       display: flex;
@@ -21,7 +24,7 @@
         justify-content: center;
 
         h1 {
-          font-family: "Gosha Sans";
+          font-family: "Proxima Nova";  
           font-size: 24px;
           font-style: normal;
           font-weight: 400;
@@ -31,10 +34,10 @@
           margin-right: 15px;
         }
 
-        .img {
-          width: 66px;
-          height: 24px;
-          background-image: url("../../../backgroundImages/Group 130.png");
+        .line{
+          height: 1px;
+          width: 75px;
+          background-color: black;
         }
       }
     }
@@ -43,10 +46,8 @@
 
 @media (max-width: 991px) {
   .kursMiddle {
-    width: 685px;
+    width: 100%;
     .container {
-      max-width: 685px;
-      min-width: 685px;
 
       .head {
         .title {
@@ -73,6 +74,7 @@
 
 @media (max-width: 575px) {
   .kursMiddle {
+    display: block;
     width: 100%;
 
     .container {
@@ -84,8 +86,9 @@
         margin-top: 30px;
 
         .title {
+          width: 90%;
+          justify-content: start;
           h1 {
-            min-width: 138px;
             font-size: 17px;
             font-style: normal;
             font-weight: 400;

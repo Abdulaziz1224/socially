@@ -6,6 +6,7 @@ import AuthNumber from "../Form/AuthNumber";
 import Login from "../Form/Login";
 import Register from "../Form/Register";
 import { useHistory } from "react-router";
+import PassRecovery from "../Form/PassRecovery";
 
 export const FormContext = React.createContext();
 function Navbar() {
@@ -14,12 +15,13 @@ function Navbar() {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
-  
-  const [sendCode, setSendCode] = useState(0)
+  const [rec, setRec] = useState(false);
+
+  const [sendCode, setSendCode] = useState(0);
   let history = useHistory();
 
   const navbarFunc = () => {
-    setStatus(prev => !prev);
+    setStatus((prev) => !prev);
   };
 
   function kirish() {
@@ -27,24 +29,33 @@ function Navbar() {
       setForm("number");
     } else {
       history.push("/mobileForm");
-      localStorage.setItem("redirect", "toNumber")
+      localStorage.setItem("redirect", "toNumber");
     }
   }
   let data = localStorage.getItem("user");
   useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem("user")));
-
   }, [data]);
-  
+
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
-    <FormContext.Provider
-        value={{ form, setForm, userData, setUserData, sendCode, setSendCode }}
+      <FormContext.Provider
+        value={{
+          form,
+          setForm,
+          userData,
+          setUserData,
+          sendCode,
+          setSendCode,
+          rec,
+          setRec,
+        }}
       >
         {form === "number" ? <Number /> : ""}
         {form === "authNumber" ? <AuthNumber /> : ""}
         {form === "login" ? <Login /> : ""}
         {form === "register" ? <Register /> : ""}
+        {form === "recovery" ? <PassRecovery /> : ""}
       </FormContext.Provider>
       <div className="col-1">
         <Link to="/" className="Logo">
@@ -92,7 +103,7 @@ function Navbar() {
           className="NavProfil"
           style={{ display: userData === null ? "none" : "flex" }}
         >
-          <Link to={userData === null ? "" : "/profil"} className="profilLink">           
+          <Link to={userData === null ? "" : "/profil"} className="profilLink">
             <img
               src={
                 userData === null

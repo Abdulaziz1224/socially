@@ -17,7 +17,7 @@ function AuthNumber() {
   const [codeErr, setCodeErr] = useState(0);
   const [load, setLoad] = useState(0);
   const [xClick, setXClick] = useState(0);
-  const { form, setForm, sendCode, setSendCode } = useContext(FormContext);
+  const { form, setForm, sendCode, setSendCode, rec, setRec } = useContext(FormContext);
   const override = `
     position: absolute;
   `;
@@ -67,7 +67,11 @@ function AuthNumber() {
         confCode
           .confirm(number)
           .then((result) => {
-            setForm("register");
+            if(rec){
+             setForm("recovery") 
+            }else{
+              setForm("register");
+            }
             setCodeErr(0);
             setLoad(0);
             console.log("jdhsbcjshdbcjhdsbcj")

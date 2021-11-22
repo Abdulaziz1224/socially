@@ -2,11 +2,12 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./login.scss";
+import "./passRecovery.scss";
 import { FormContext } from "../Navbar/Navbar";
-import { login } from "../user";
+import { recovery } from "../user";
 import { MoonLoader } from "react-spinners";
 
-function Login({ active }) {
+function PassRecovery({ active }) {
   const [number, setnumber] = useState("+998");
   const [pass, setPass] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,8 +15,9 @@ function Login({ active }) {
   const [errClick, setErrClick] = useState(0);
   const [codeErr, setCodeErr] = useState(0);
   const [load, setLoad] = useState(0);
+  const [checkPass, setCheckPass] = useState("");
 
-  const { form, setForm, setUserData, rec, setRec } = useContext(FormContext);
+  const { form, setForm, setUserData, setRec } = useContext(FormContext);
 
   const override = `
     position: absolute;
@@ -28,24 +30,29 @@ function Login({ active }) {
   }, [Date.now()]);
 
   function kirish() {
-    setLoad(1);
-    setCodeErr(0);
-    setHideErr(1);
-    function cb(data) {
-      setUserData(data);
-      setLoad(0);
-      if (data) {
-        setCodeErr(0);
-        setForm("");
+    if (pass === checkPass) {
+      setLoad(1);
+      setCodeErr(0);
+      setHideErr(1);
+      function cb(data) {
+        setUserData(data);
+        setLoad(0);
+        if (data) {
+          setRec(false);
+          setCodeErr(0);
+          setForm("login");
+        }
       }
-    }
 
-    function errCb() {
-      setLoad(0);
+      function errCb() {
+        setLoad(0);
+        setCodeErr(1);
+      }
+
+      if (load === 0) recovery({ phone: phone, password: pass }, cb, errCb);
+    } else {
       setCodeErr(1);
     }
-
-    if (load === 0) login({ phone: phone, password: pass }, cb, errCb);
   }
 
   useEffect(() => {
@@ -161,8 +168,8 @@ function Login({ active }) {
 
   return (
     <div
-      className="login"
-      style={{ display: form === "login" ? "block" : "none" }}
+      className="login  rec"
+      style={{ display: form === "recovery" ? "block" : "none" }}
     >
       <div
         className={form === "login" ? "container active" : "container active"}
@@ -180,14 +187,16 @@ function Login({ active }) {
         <div className="box">
           <div
             className="errorMsg"
+            id="errorMsg"
             style={{ opacity: hideErr === 1 ? 0 : 1, transition: "0.3s" }}
           >
-            Parol noto'g'ri kiritilgan
+            Parolingiz mos tushmadi
           </div>
           <img
             src="images/Form/error.svg"
             alt="error"
             className="errorImg"
+            id="errorImg"
             onClick={() => {
               setErrClick(errClick + 1);
               errMsg();
@@ -197,7 +206,7 @@ function Login({ active }) {
             }}
           />
 
-          <h1>Tizimga kirish</h1>
+          <h1>Parolni yangilash</h1>
           <p>
             Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga
             kirishingiz kerak bo‘ladi
@@ -224,21 +233,17 @@ function Login({ active }) {
               setPass(e.target.value);
             }}
           />
-          <div className="password">
-            <p className="forget">Parolni unutdingizmi?</p>
-            <button
-              className="reset"
-              onClick={() => {
-                setForm("authNumber");
-                setRec(true)
-              }}
-            >
-              Parolni tiklash
-              <div className="underline"></div>
-            </button>
-          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={checkPass}
+            onChange={(e) => {
+              setCheckPass(e.target.value);
+            }}
+          />
           <button
             className="regLink"
+            id="reglink"
             onClick={kirish}
             style={{ opacity: load === 1 ? 0.5 : 1 }}
           >
@@ -247,7 +252,7 @@ function Login({ active }) {
             ) : (
               ""
             )}
-            Tizimga kirish
+            Parolni yangilash
             <img src="images/Form/arrow.svg" alt="arrow" />
           </button>
         </div>
@@ -256,4 +261,4 @@ function Login({ active }) {
   );
 }
 
-export default Login;
+export default PassRecovery;
