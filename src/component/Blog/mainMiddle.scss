@@ -1,14 +1,13 @@
 .mainMiddle {
   width: 100%;
-  background-color: rgba(244, 244, 244, 1);
-  background-image: url("../../backgroundImages/MainMiddle.svg");
-  background-repeat: no-repeat;
+  background-color: #fff;
   height: auto;
   padding: 60px 0;
 
   .container {
-    max-width: 1036px;
-    width: 80%;
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 50px;
     margin: auto;
 
     .box {
@@ -92,7 +91,7 @@
                 justify-content: center;
               }
               &:hover {
-                border: 2px solid #DAD9D9
+                border: 2px solid #dad9d9;
               }
 
               &:last-child {

@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "./Profil";
 import axios from "axios";
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; 
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 import MoonLoader from "react-spinners/MoonLoader";
 import { toast, ToastContainer } from "react-toastify";
 import "./modal.scss";
 const override = `   
   position: absolute;
   border-radius: 50%;
-  ${window.innerWidth > 767 ? "right : 100px" : "left : 100px"};                  
+  ${
+    window.innerWidth > 767 ? "right : 100px" : "left : 100px"
+  };                  
 `;
 function Modal() {
   const { count, setCount, bool, setBool } = useContext(Context);
@@ -18,95 +20,91 @@ function Modal() {
   const [image, setImage] = useState("");
   const [pass, setPass] = useState("");
   const [changePass, setChangePass] = useState("");
-  const [loading, setLoading] = useState(false)                            
-  const [color, setColor] = useState("white")  
-  const [window, setWindow] = useState(false)
-  
-  const Submit = () => {   
+  const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("white");
+  const [window, setWindow] = useState(false);
+
+  const Submit = () => {
     let dat = JSON.parse(localStorage.getItem("user"));
-    if (pass !== changePass || (pass.length < 6 || changePass.length < 6)) {
-      toast.error("Parol mos kelmadi!")
-    }
-     else {
+    if (pass !== changePass || pass.length < 6 || changePass.length < 6) {
+      toast.error("Parol mos kelmadi!");
+    } else {
       if (name === "" || name.length < 3) {
-        
-      } 
-      else{
-      if(lastName === "" || lastName.length < 3){
-      }
-      else{
-        // const form = new FormData();
-        // form.append("image", image);
-        // console.log(image);
-        // let config = {
-        //   method: "post",
-        //   url: `https://socially2.herokuapp.com/v2/upload/image`,
-        //   headers: {
-        //     "Content-Type": "multipart/form-data",
-        //     Authorization: `Bearer ${dat.tokens.accessToken}`,
-        //   },
-        //   data: form,
-        // };
-        // axios(config)
-        //   .then(function (response) {
-        //     alert("qo'shildi");
-        //     console.log(response);
-        //   })
-        //   .catch(function (error) {
-        //     alert("qo'shilmadi");
-        //     console.log(error);
-        //   });
-        let Item = {};
-        if (image === dat.user.avatar) {
-          Item = {
-            firstName: name,    
-            lastName: lastName,
-            password: pass,
-          };
+      } else {
+        if (lastName === "" || lastName.length < 3) {
         } else {
-          Item = {
-            firstName: name,
-            lastName: lastName,
-            password: pass,
-            avatar: image,
+          // const form = new FormData();
+          // form.append("image", image);
+          // console.log(image);
+          // let config = {
+          //   method: "post",
+          //   url: `https://socially2.herokuapp.com/v2/upload/image`,
+          //   headers: {
+          //     "Content-Type": "multipart/form-data",
+          //     Authorization: `Bearer ${dat.tokens.accessToken}`,
+          //   },
+          //   data: form,
+          // };
+          // axios(config)
+          //   .then(function (response) {
+          //     alert("qo'shildi");
+          //     console.log(response);
+          //   })
+          //   .catch(function (error) {
+          //     alert("qo'shilmadi");
+          //     console.log(error);
+          //   });
+          let Item = {};
+          if (image === dat.user.avatar) {
+            Item = {
+              firstName: name,
+              lastName: lastName,
+              password: pass,
+            };
+          } else {
+            Item = {
+              firstName: name,
+              lastName: lastName,
+              password: pass,
+              avatar: image,
+            };
+          }
+          setLoading((prev) => !prev);
+          document.querySelector(".submit").disabled = true;
+          let config = {
+            method: "put",
+            url: ` https://socially2.herokuapp.com/v2/user`,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${dat.tokens.accessToken}`,
+            },
+            data: JSON.stringify(Item),
           };
+          axios(config)
+            .then(function (res) {
+              dat.user.firstName = name;
+              dat.user.lastName = lastName;
+              dat.user.password = pass;
+              dat.user.avatar = image;
+              localStorage.setItem("user", JSON.stringify(dat));
+              toast.success("Ma'lumotlar muvaffaqiyatli o'zgartirlidi!");
+              setPass("");
+              setChangePass("");
+              setCount((prev) => prev + 1);
+              setLoading((prev) => !prev);
+              document.querySelector(".submit").disabled = false;
+              setBool(!bool);
+              setWindow(!window);
+            })
+            .catch(function (error) {
+              toast.error("Ma'lumotlar o'zgartirilmadi!");
+              setLoading((prev) => !prev);
+              document.querySelector(".submit").disabled = false;
+              console.log(error);
+            });
         }
-        setLoading(prev => !prev)
-        document.querySelector(".submit").disabled = true;
-        let config = {
-          method: "put",
-          url: ` https://socially2.herokuapp.com/v2/user`,
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${dat.tokens.accessToken}`,
-          },
-          data: JSON.stringify(Item),
-        };
-        axios(config)
-          .then(function (res) {
-            dat.user.firstName = name;
-            dat.user.lastName = lastName;
-            dat.user.password = pass;
-            dat.user.avatar = image;
-            localStorage.setItem("user", JSON.stringify(dat));
-            toast.success("Ma'lumotlar muvaffaqiyatli o'zgartirlidi!");
-            setPass("");
-            setChangePass("");
-            setCount(prev => prev + 1);
-            setLoading(prev => !prev)
-            document.querySelector(".submit").disabled=false;
-            setBool(!bool);
-            setWindow(!window)
-          })
-          .catch(function (error) {
-            toast.error("Ma'lumotlar o'zgartirilmadi!");
-            setLoading(prev => !prev)
-            document.querySelector(".submit").disabled=false;
-            console.log(error);
-          });
       }
     }
-  }
   };
 
   useEffect(() => {
@@ -157,13 +155,13 @@ function Modal() {
   const deleteFunc = () => {
     setBool(!bool);
     setCount(count + 1);
-    setPass("")
-    setChangePass("")
+    setPass("");
+    setChangePass("");
   };
   return (
     <div className={bool ? "modal" : "modal close"}>
       <div className="contain">
-      <ToastContainer />
+        <ToastContainer />
         <img
           onClick={deleteFunc}
           src="images/Web Design01/footer/x.svg"
@@ -219,9 +217,14 @@ function Modal() {
                 onChange={(e) => setName(e.target.value)}
               />
               <Tippy content="Ismingizni kiriting!">
-              <img src="images/Form/error.svg" alt="img" className="errorImg" style={{
-                display: name === "" || name.length < 3 ? "block" : "none" 
-              }}/>
+                <img
+                  src="images/Form/error.svg"
+                  alt="img"
+                  className="errorImg"
+                  style={{
+                    display: name === "" || name.length < 3 ? "block" : "none",
+                  }}
+                />
               </Tippy>
               <input
                 name="lastName"
@@ -233,9 +236,15 @@ function Modal() {
                 onChange={(e) => setLastName(e.target.value)}
               />
               <Tippy content="Familyangizni kiriting!">
-              <img src="images/Form/error.svg" alt="img" className="errorImg2" style={{
-                display: lastName === "" || lastName.length < 3 ? "block" : "none" 
-              }}/>
+                <img
+                  src="images/Form/error.svg"
+                  alt="img"
+                  className="errorImg2"
+                  style={{
+                    display:
+                      lastName === "" || lastName.length < 3 ? "block" : "none",
+                  }}
+                />
               </Tippy>
             </div>
             <div className="parol">
@@ -248,14 +257,30 @@ function Modal() {
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
               />
-              <Tippy content={pass==="" ? "Parolni to'ldiring!" : pass.length < 6 ? "Parol 6 belgidan iborat bo'lsin!" : ""}>
-              <img src="images/Form/error.svg" alt="img" className="errorImg"
-            style={{
-              display: pass.length===0 ? "none" : pass.length < 6 ? "block" : "none" 
-            }}
-              />
+              <Tippy
+                content={
+                  pass === ""
+                    ? "Parolni to'ldiring!"
+                    : pass.length < 6
+                    ? "Parol 6 belgidan iborat bo'lsin!"
+                    : ""
+                }
+              >
+                <img
+                  src="images/Form/error.svg"
+                  alt="img"
+                  className="errorImg"
+                  style={{
+                    display:
+                      pass.length === 0
+                        ? "none"
+                        : pass.length < 6
+                        ? "block"
+                        : "none",
+                  }}
+                />
               </Tippy>
-              <input 
+              <input
                 name="pass2"
                 type="password"
                 className="pass2"
@@ -264,29 +289,46 @@ function Modal() {
                 value={changePass}
                 onChange={(e) => setChangePass(e.target.value)}
               />
-              <Tippy content={changePass.length > 0 && changePass.length <6 ? "Tasdiqlovchi parol kiritilmagan!" : changePass!==pass ? "Tadiqlovchi parol xato!": ""}>
-              <img src="images/Form/error.svg" alt="img" className="errorImg2" 
-              style={{
-                display: changePass==="" ? "none" : changePass.length > 0 && changePass.length <6 ? "block" : changePass!==pass ?  "block" : "none" 
-              }}
-              />
+              <Tippy
+                content={
+                  changePass.length > 0 && changePass.length < 6
+                    ? "Tasdiqlovchi parol kiritilmagan!"
+                    : changePass !== pass
+                    ? "Tadiqlovchi parol xato!"
+                    : ""
+                }
+              >
+                <img
+                  src="images/Form/error.svg"
+                  alt="img"
+                  className="errorImg2"
+                  style={{
+                    display:
+                      changePass === ""
+                        ? "none"
+                        : changePass.length > 0 && changePass.length < 6
+                        ? "block"
+                        : changePass !== pass
+                        ? "block"
+                        : "none",
+                  }}
+                />
               </Tippy>
             </div>
           </div>
         </form>
         <div className="change-info">
-          <button className="submit" onClick={Submit}>         
-            O'zgarishlarni saqlash                   
+          <button className="submit" onClick={Submit}>
+            O'zgarishlarni saqlash
           </button>
-          <MoonLoader  loading={loading} color={color} css={override} size={25} />               
-          <img
-          style={{opacity: loading ? "0.4" : "1"}}
-            src="images/Web Design01/footer/Vector.png"
-            alt="img"
-            className="vector"        
+          <MoonLoader
+            loading={loading}
+            color={color}
+            css={override}
+            size={25}
           />
         </div>
-      </div>  
+      </div>
     </div>
   );
 }

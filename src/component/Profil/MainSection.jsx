@@ -98,27 +98,15 @@ function MainSection() {
           <div className="tizim">
             <button className="settings" onClick={openModal}>
               Profil sozlamalari
-              <img src="images/Web Design01/footer/pen.svg" alt="img" />
             </button>
             <button className="out" onClick={Logout}>
               Tizimdan chiqish
-              <img src="images/Web Design01/footer/log-out.svg" alt="img" />
             </button>
           </div>
         </div>
         <div className="col-2">
           <div className="caption">
             <h3>A‘loqa uchun</h3>
-            <img
-              src="images/Asosiy Qism/available courses/Group 130.svg"
-              alt="link"
-              className="svg"
-            />
-            <img
-              src="images/Asosiy Qism/available courses/Group 130.png"
-              alt="link"
-              className="png"
-            />
           </div>
           <div className="connect">
             <div className="link">

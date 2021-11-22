@@ -92,11 +92,11 @@ function Sistema(props) {
       sBrowser = "unknown";
     }
     setSoft(os + ", " + sBrowser);
-  }, []);   
-  return ( 
+  }, []);
+  return (
     <div className="sistema">
       <div className="title">
-        <h3> {soft} </h3>                              
+        <h3> {soft} </h3>
         <span>{vaqt}</span>
       </div>
       <div className="systemDelete">
@@ -121,7 +121,6 @@ function Sistema(props) {
               <span className="span1">Qurilamani </span>
               <span className="span2"> o'chirish</span>
             </p>
-            <img src="images/Web Design01/footer/x.svg" alt="img" />
           </div>
         </div>
       </div>

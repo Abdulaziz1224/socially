@@ -1,7 +1,8 @@
 .sistema {
-
-  border: 2px solid rgba(234, 234, 234, 1);
-  padding: 30px 30px 37px 30px;
+  padding: 20px;
+  background: #f3f3f3;
+  position: relative;
+  height: 164px;
 
   .title {
     h3 {
@@ -10,7 +11,6 @@
       font-style: normal;
       font-weight: 700;
       line-height: 24px;
-
     }
 
     span {
@@ -19,17 +19,19 @@
       font-style: normal;
       font-weight: 400;
       line-height: 16px;
-      margin: 0 5px 5px 0;
-      color: rgba(0, 0, 0, 0.6);
-
+      margin: 0 5px 0 0;
+      color: #595959;
     }
   }
   .systemDelete {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 20px;
+
     .activeBox {
       .row {
-        margin-top: 40px;
+        margin-top: 30px;
         display: flex;
         align-items: center;
 
@@ -58,9 +60,9 @@
     .qurilma {
       width: max-content;
       margin-top: 30px;
-      border: 1px solid red;
       text-align: center;
-      border: 2px solid rgba(234, 234, 234, 1);
+      background-color: #fff;
+
       .row {
         display: flex;
         padding: 15px 30px;
@@ -85,11 +87,10 @@
   }
 }
 @media (max-width: 575px) {
-  .sisteem{
-    max-width: 250px;    
-    min-width: 250px;    
-    width: 80%; 
+  .sisteem {
+    max-width: 250px;
+    min-width: 250px;
+    width: 80%;
     border: none;
-    border: 10px solid red;   
   }
 }

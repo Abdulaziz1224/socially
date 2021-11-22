@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./mainMiddle.scss";
 function MainMiddle() {
+  const { id } = useParams()
+  
+  console.log(`https://socially.uz/api//v2/blog/${id}`);
   return (
     <div className="mainMiddle">
       <div className="container">
@@ -64,23 +67,10 @@ function MainMiddle() {
               </div>
             </div>
           </div>
+
         </div>
-        <div className="box2">
-          <img src="/images/Blog/MainBox/image 2.png" alt="" />
-          <p>
-            Yaxshi dizayner uslubga ega bo’lishi kerak. Turli xil muammolar
-            turli xil yechimlarni talab qiladi. Har bir uslub nimaligini
-            tushunib oling va uni tegishli paytda tavsiya qilishingiz mumkin.
-          </p>
-        </div>
-        <div className="box">
-          <img src="/images/Blog/MainBox/image 3.png" alt="" />
-        </div>
-        <div className="box">
-          <img src="/images/Blog/MainBox/image 4.png" alt="" />
-        </div>
-        <div className="box">
-          <img src="/images/Blog/MainBox/image 5.png" alt="" />
+        <div className="infoPost">
+
         </div>
       </div>
     </div>

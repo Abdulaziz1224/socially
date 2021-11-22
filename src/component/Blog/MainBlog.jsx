@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Web design01/Footer/Footer";
 import "./mainBlog.scss";
-import MainBottom from "./MainBottom";
 import MainMiddle from "./MainMiddle";
 function MainBlog() {
   useEffect(() => {
@@ -14,7 +13,6 @@ function MainBlog() {
         <Navbar />
       </div>
       <MainMiddle />
-      <MainBottom />
       <Footer />
     </div>
   );

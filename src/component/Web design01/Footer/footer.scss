@@ -1,17 +1,17 @@
 .footer {
   width: 100%;
   background-color: #f4f4f4;
-  background-image: url("../../../backgroundImages/veryDots.svg");
-  height: 80px;
+  background: rgba(0, 0, 0, 1);
+  height: 62px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 10px;
 
   .container {
-    max-width: 1258px;
+    max-width: 1180px;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 50px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -23,18 +23,16 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
+        line-height: 19.49px;
         text-decoration: none;
-        color: #000000;
+        color: #ffffff;
         margin-right: 30px;
         position: relative;
 
         &::after {
           content: "";
           width: 0%;
-          background: #000000;
+          background: #ffffff;
           height: 1px;
           position: absolute;
           bottom: -3px;
@@ -53,7 +51,7 @@
         cursor: pointer;
         color: transparent;
 
-        &:active{
+        &:active {
           color: transparent;
         }
 
@@ -68,21 +66,24 @@
     }
   }
 
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: 768px) and (max-width: 992px) {
     .container {
       max-width: 685px;
       min-width: 685px;
+      padding: 0;
     }
   }
   @media (min-width: 576px) and (max-width: 767px) {
     .container {
       max-width: 540px;
       min-width: 540px;
+      padding: 0;
     }
   }
   @media (max-width: 575px) {
     .container {
       width: 90%;
+      padding: 0;
       display: flex;
       justify-content: center;
 

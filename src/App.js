@@ -4,7 +4,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import Design01 from "./component/Web design01/Design01/Design01";
+// import Design01 from "./component/Web design01/Design01/Design01";
 import Basis from "./component/Asosiy qism/Basis/Basis";
 import Kurs from "./component/Kurs/Kurs";
 import BlogPart from "./component/Blog/BlogPart";
@@ -22,11 +22,11 @@ function App() {
                     <Route path="/" exact strict component={Basis} />
                     <Route path="/kurslar" exact strict component={Kurs} />
                     <Route path="/bloglar" exact strict component={BlogPart} />
-                    <Route path="/design" exact strict component={Design01} />
+                    {/* <Route path="/design" exact strict component={Design01} /> */}
                     <Route path="/mobileForm" exact strict component={MobileForm} />
                     <Route path="/profil" exact component={Profil} />
                     <Route path="/video" exact strict component={Video} />
-                    <Route path="/ablog" exact strict component={MainBlog} />
+                    <Route path="/post?id=" exact strict component={MainBlog} />
                 </Switch>
             </Router>
         </div>

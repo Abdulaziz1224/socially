@@ -14,12 +14,12 @@ function Navbar() {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
-  
-  const [sendCode, setSendCode] = useState(0)
+
+  const [sendCode, setSendCode] = useState(0);
   let history = useHistory();
 
   const navbarFunc = () => {
-    setStatus(prev => !prev);
+    setStatus((prev) => !prev);
   };
 
   function kirish() {
@@ -27,18 +27,17 @@ function Navbar() {
       setForm("number");
     } else {
       history.push("/mobileForm");
-      localStorage.setItem("redirect", "toNumber")
+      localStorage.setItem("redirect", "toNumber");
     }
   }
   let data = localStorage.getItem("user");
   useEffect(() => {
     setUserData(JSON.parse(localStorage.getItem("user")));
-
   }, [data]);
-  
+
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
-    <FormContext.Provider
+      <FormContext.Provider
         value={{ form, setForm, userData, setUserData, sendCode, setSendCode }}
       >
         {form === "number" ? <Number /> : ""}
@@ -48,7 +47,7 @@ function Navbar() {
       </FormContext.Provider>
       <div className="col-1">
         <Link to="/" className="Logo">
-          <img src="images/Web Design01/navbar/Logo.svg" alt="Logo" />
+          <img src="/images/Web Design01/navbar/Logo.svg" alt="Logo" />
         </Link>
       </div>
       <div className="col-9">
@@ -92,55 +91,9 @@ function Navbar() {
           className="NavProfil"
           style={{ display: userData === null ? "none" : "flex" }}
         >
-          <Link to={userData === null ? "" : "/profil"} className="profilLink">           
-            <img
-              src={
-                userData === null
-                  ? "images/Web Design01/navbar/Person-icon.svg"
-                  : userData.user.avatar === ""
-                  ? "images/Web Design01/navbar/Person-icon.svg"
-                  : userData.user.avatar
-              }
-              alt="img"
-              className="person"
-              style={{
-                display:
-                  userData === null
-                    ? "block"
-                    : userData.user.avatar === ""
-                    ? "block"
-                    : "none",
-              }}
-            />
-            <img
-              src={userData === null ? "" : userData.user.avatar}
-              style={{
-                display:
-                  userData === null
-                    ? "none"
-                    : userData.user.avatar === ""
-                    ? "none"
-                    : "block",
-              }}
-              alt="profilImg"
-              className="profilImg"
-            />
+          <Link to="profil" className="profilText">
+            Mening profilim
           </Link>
-
-          <h2 className="profilName">
-            <Link to="profil" className="profilText">
-              {userData !== null
-                ? window.innerWidth > 1140 || window.innerWidth < 767
-                  ? userData.user.firstName + " " + userData.user.lastName
-                  : (userData.user.firstName + " " + userData.user.lastName)
-                      .length <= 13
-                  ? userData.user.firstName + " " + userData.user.lastName
-                  : (userData.user.firstName + " " + userData.user.lastName)
-                      .slice(0, 13)
-                      .padEnd(16, ".")
-                : ""}
-            </Link>
-          </h2>
         </div>
         <div
           className={status ? "btn-burger open" : "btn-burger"}

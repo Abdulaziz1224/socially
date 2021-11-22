@@ -1,7 +1,7 @@
 .navbar {
-  max-width: 1258px;
+  max-width: 1180px;
   width: 100%;
-  padding: 0 30px;
+  padding: 48px 50px 0 50px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -118,23 +118,20 @@
 
   .col-2 {
     display: flex;
+    width: 180px;
     align-items: center;
-
+    justify-content: flex-end;
     button {
-      padding: 15px 30px;
+      width: 147px;
+      padding: 15px 0;
+      border: 1px solid red;
       border: none;
       outline: none;
       display: flex;
       align-items: center;
-      background: rgba(255, 255, 255, 1);
-      border: 2px solid rgba(234, 234, 234, 1);
+      justify-content: center;
+      background: rgba(255, 171, 0, 1);
       cursor: pointer;
-
-      &:hover {
-        background: rgba(255, 171, 0, 1);
-        transition: all 0.1s;
-        border: 2px solid transparent;
-      }
 
       span {
         font-family: "Proxima Nova Lt";
@@ -142,52 +139,30 @@
         font-style: normal;
         font-weight: 600;
         line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
-        margin-right: 5px;
       }
     }
 
     .NavProfil {
-      width: max-content;
+      width: 100%;
       display: flex;
-      align-items: center;
-      cursor: pointer;
+      justify-content: flex-end;
 
-      .profilLink {
-        border-radius: 50%;
-        color: transparent;
-        text-decoration: none;
-        display: flex;
-        width: 50px;
-        height: 50px;
-        background: #f4f4f4;
-        border: 2px solid rgb(234, 234, 234);
-
-        .person {
-          width: 25px;
-          height: 25px;
-          margin: auto;
-          object-fit: cover;
-        }
-
-        .profilImg{
-          display: none;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-      }
       .profilText {
-        font-family: "Proxima Nova Rg";
-        font-size: 20px;
-        margin-left: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        padding: 15px 24px;
+        display: flex;
+        align-items: center;
+        background: rgba(243, 243, 243, 1);
+        font-family: "Proxima Nova Lt";
+        font-size: 16px;
         font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
+        font-weight: 600;
+        line-height: 19px;
         text-decoration: none;
-        color: #000;
+        color: black;
       }
     }
     .btn-burger {
@@ -201,7 +176,7 @@
     max-width: 685px;
     min-width: 685px;
     padding: 0;
-    padding-top: 20px;
+    padding-top: 48px;
 
     .navbarMobile {
       display: none;
@@ -250,9 +225,13 @@
     }
 
     .col-2 {
+      width: max-content;
       display: flex;
       align-items: center;
 
+      button {
+        padding: 15px 24px;
+      }
       .NavProfil {
         h2 {
           display: none;
@@ -402,15 +381,8 @@
         border: none;
         outline: none;
         align-items: center;
-        background: rgba(255, 255, 255, 1);
-        border: 2px solid rgba(234, 234, 234, 1);
+        background: rgba(255, 171, 0, 1);
         cursor: pointer;
-
-        &:hover {
-          background: rgba(255, 171, 0, 1);
-          transition: all 0.1s;
-          border: 2px solid transparent;
-        }
 
         span {
           font-family: "Proxima Nova Lt";
@@ -429,37 +401,19 @@
         align-items: center;
         cursor: pointer;
 
-        .profilLink {
-          border-radius: 50%;
-          color: transparent;
-          text-decoration: none;
-          display: flex;
-          width: 50px;
-          height: 50px;
-          border: 2px solid rgb(234, 234, 234);
-          background: #f4f4f4;
-          .person {
-            width: 20px;
-            height: 20px;
-            margin: auto;
-            border-radius: 50%;
-          }
-          .profilImg{
-            display: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-          }
-        }
         .profilText {
-          text-decoration: none;
-          font-family: "Proxima Nova Rg";
-          font-size: 20px;
-          margin-left: 15px;
+          padding: 15px 24px;
+          display: flex;
+          align-items: center;
+          background: rgba(243, 243, 243, 1);
+          font-family: "Proxima Nova Lt";
+          font-size: 16px;
           font-style: normal;
-          font-weight: 400;
-          line-height: 20px;
-          color: #000;
+          font-weight: 600;
+          line-height: 19px;
+          margin-right: 5px;
+          text-decoration: none;
+          color: black;
         }
       }
       .btn-burger {
@@ -614,14 +568,11 @@
         padding: 15px 30px;
         border: none;
         outline: none;
-        // display: flex;
         align-items: center;
-        background: rgba(255, 255, 255, 1);
-        border: 2px solid rgba(234, 234, 234, 1);
+        background: rgba(255, 171, 0, 1);
         cursor: pointer;
 
         &:hover {
-          background: rgba(255, 171, 0, 1);
           transition: all 0.1s;
           border: 2px solid transparent;
         }
@@ -644,33 +595,19 @@
         align-items: center;
         cursor: pointer;
 
-        .profilLink {
-          border-radius: 50%;
-          color: transparent;
-          text-decoration: none;
-          display: flex;
-          width: 50px;
-          height: 50px;
-          background: #f4f4f4;
-          border: 2px solid rgb(234, 234, 234);
-
-          .person {
-            width: 20px;
-            height: 20px;
-            margin: auto;
-            border-radius: 50%;
-          }
-          .profilImg{
-            display: none;
-          }
-        }
         .profilText {
-          font-family: "Proxima Nova Rg";
-          font-size: 20px;
-          margin-left: 15px;
+          padding: 15px 24px;
+          display: flex;
+          align-items: center;
+          background: rgba(243, 243, 243, 1);
+          font-family: "Proxima Nova Lt";
+          font-size: 16px;
           font-style: normal;
-          font-weight: 400;
-          line-height: 20px;
+          font-weight: 600;
+          line-height: 19px;
+          margin-right: 5px;
+          text-decoration: none;
+          color: black;
         }
       }
       .btn-burger {

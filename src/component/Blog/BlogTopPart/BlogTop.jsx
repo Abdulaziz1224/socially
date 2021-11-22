@@ -9,31 +9,23 @@ function BlogTop() {
         <div className="header-bottom-text">
           <h4>Foyda bering va oling!</h4>
           <span>
-            Hozir vaqtimizni nima qilish bilan o‘tkazsak, ertaga ham, butun
-            hayotimiz ham shu ishlar ustida o‘tadi.
+            Dizaynga ilk qadamlar, ijodkor qo‘llar, ey aniq
+            {window.innerWidth < 576 && window.innerWidth > 344 ? <br /> : ""} {""}
+            maqsadli
+            {window.innerWidth < 576 ? "" : <br />} inson siz biz bilan birga
+            o‘rganing!
           </span>
-          <a href="#section1">
-            <img
-              src="images/Web Design01/header/arrowDown.svg"
-              alt="arrowDown"
-            />
-            Pastga suring
-          </a>
         </div>
-      </div>
-      <div className="gradient1"></div>
-      <div className="gradient2"></div>
-      <div className="images">
-        <img
-          src="images/Blog/Frame blogPart.svg"
-          className="union"
-          alt="Frame"
-        />
-
         <div className="infiniteText">
-          <img src="images/Blog/1.svg" alt="text" className="circleText" />
+          <img src="images/Blog/yozuv1.svg" alt="text" className="circleText" />
           <img src="images/Kurs/101.svg" alt="text" className="circleImg" />
         </div>
+      </div>
+      <div className="graphic-design">
+        <img src="images/Kurs/LENTA.svg" alt="lenta" />
+      </div>
+      <div className="lenta2">
+        <img src="images/Kurs/LENTA2.svg" alt="title" />
       </div>
     </div>
   );
