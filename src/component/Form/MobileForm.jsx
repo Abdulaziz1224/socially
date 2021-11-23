@@ -9,6 +9,7 @@ import {useHistory} from "react-router-dom"
 import "./mobileForm.scss";
 
 import { useState } from "react";
+import MobilePassRecovery from "./MobilePassRecovery";
 
 export const MFormContext = React.createContext();
 
@@ -37,7 +38,7 @@ function MobileForm() {
     }
     if (mForm === "register") {
       setFoot("mobileForm reg");
-    } else if (mForm === "login") {
+    } else if (mForm === "login" || mForm === "recovery") {
       setFoot("mobileForm log");
     } else {
       setFoot("mobileForm");
@@ -70,6 +71,7 @@ function MobileForm() {
         {mForm === "authNumber" ? <MobileAuthNumber /> : ""}
         {mForm === "login" ? <MobileLogin /> : ""}
         {mForm === "register" ? <MobileRegister /> : ""}
+        {mForm === "recovery" ? <MobilePassRecovery /> : ""}
         <Footer />
       </MFormContext.Provider>
     </div>

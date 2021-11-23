@@ -15,22 +15,22 @@ function Login({ active }) {
   const [codeErr, setCodeErr] = useState(0);
   const [load, setLoad] = useState(0);
 
-  const { form, setForm, setUserData } = useContext(FormContext);
+  const { form, setForm, setUserData, rec, setRec } = useContext(FormContext);
 
   const override = `
     position: absolute;
   `;
   useEffect(() => {
-    if(number==="+998 "){
+    if (number === "+998 ") {
       setnumber("     " + localStorage.getItem("number"));
       setPhone(localStorage.getItem("number"));
     }
-  },[Date.now()]);
+  }, [Date.now()]);
 
   function kirish() {
     setLoad(1);
     setCodeErr(0);
-    setHideErr(1)
+    setHideErr(1);
     function cb(data) {
       setUserData(data);
       setLoad(0);
@@ -226,10 +226,16 @@ function Login({ active }) {
           />
           <div className="password">
             <p className="forget">Parolni unutdingizmi?</p>
-            <Link className="reset" to="number">
+            <button
+              className="reset"
+              onClick={() => {
+                setForm("recovery");
+                setRec(true)
+              }}
+            >
               Parolni tiklash
               <div className="underline"></div>
-            </Link>
+            </button>
           </div>
           <button
             className="regLink"

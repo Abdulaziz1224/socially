@@ -1,32 +1,72 @@
 .availableBox {
   display: flex;
-  max-width: 1258px;
-  padding: 0 30px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 1036px;
+  width: max-content;
+  height: 386px;
+  overflow: hidden;
 
   .card {
-    width: calc(100%/3);
+    width: 100%;
     height: max-content;
     margin-right: 20px;
     user-select: none;
-    background: #ffffff;    
-    border: 2px solid rgba(234, 234, 234, 1);
+    background: #ffffff;
+    max-width: 273px;
+    transition: 0.4s;
+    // border: 2px solid rgba(234, 234, 234, 1);
 
     &:hover {
-      border: 2px solid rgba(218, 217, 217, 1);
+      transform: translate(0, -115px);
     }
+
+    .profile {
+      display: flex;
+      margin-left: 20px;
+
+      .name {
+        font-family: "Proxima Nova Rg";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      p {
+        margin: auto 0;
+        margin-left: 10px;
+
+        font-family: "Proxima Nova Rg";
+        font-size: 16px;
+        font-style: normal;
+        line-height: 24px;
+      }
+    }
+
+    .text {
+      margin: 20px;
+      width: 80%;
+
+      font-family: Proxima Nova;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 21px;
+      color: #595959;
+    }
+
+    // &:hover {
+    //   border: 2px solid rgba(218, 217, 217, 1);
+    // }
     &-img {
       width: 100%;
-      margin-bottom: 30px;
       border-bottom: 2px solid #eaeaea;
     }
 
     &-title {
       width: 100%;
       text-align: left;
-      margin-left: 30px;
-      margin-bottom: 39px;
+      margin: 20px 20px 10px 20px;
       font-family: "Proxima Nova Rg";
       font-size: 20px;
       font-style: normal;
@@ -37,17 +77,13 @@
     .full-info {
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding-left: 20px;
       height: 50px;
-      width: 193px;
+      width: 100%;
       background: rgba(255, 171, 0, 1);
       text-decoration: none;
-      text-align: center;
       color: black;
-      margin-left: 30px;
-      margin-bottom: 30px;
-      background: #ffffff;
-      border: 2px solid #eaeaea;
+
       transition: 200ms;
       font-family: "Proxima Nova Lt";
       font-size: 16px;
@@ -55,14 +91,9 @@
       font-weight: 600;
       line-height: 19px;
 
-      &:hover {
-        background: rgba(255, 171, 0, 1);
-        border: 2px solid transparent;
-      }
-
       img {
         margin-left: 5px;
-        margin-top: 3px;
+        margin-top: 1px;
       }
     }
   }
@@ -77,21 +108,22 @@
       &-title {
         margin-left: 10px;
       }
-      .full-info {
-        margin-left: 10px;
-      }
     }
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .availableBox {
     max-width: 685px;
     min-width: 685px;
 
     .card {
       width: 215px;
-      height: 341px;
+      height: max-content;
+
+      &:hover {
+        transform: translate(0, -57px);
+      }
 
       &-img {
         margin: 0;
@@ -107,11 +139,11 @@
         text-align: left;
       }
 
-      .full-info {
-        width: 160px;
-        height: 40px;
-        margin: 24px 40px 15px 15px;
-      }
+      // .full-info {
+      //   width: 160px;
+      //   height: 40px;
+      //   margin: 24px 40px 15px 15px;
+      // }
     }
   }
 }
@@ -160,7 +192,7 @@
         color: black;
         margin-left: 15px;
         background: #ffffff;
-        border: 2px solid #eaeaea;
+
         transition: 200ms;
 
         font-size: 16px;
@@ -194,11 +226,17 @@
     display: flex;
     flex-direction: column;
     height: auto;
+    margin: 0 auto;
 
     .card {
       margin: 0 auto 15px auto;
       height: auto;
       width: 100%;
+      max-width: 100%;
+
+      &:hover {
+        transform: translate(0, 0);
+      }
 
       &-title {
         font-size: 20px;

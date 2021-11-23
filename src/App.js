@@ -19,14 +19,14 @@ function App() {
         <div className="app">
             <Router>
                 <Switch>
-                    <Route path="/" exact strict component={Basis} />
-                    <Route path="/kurslar" exact strict component={Kurs} />
-                    <Route path="/bloglar" exact strict component={BlogPart} />
-                    {/* <Route path="/design" exact strict component={Design01} /> */}
-                    <Route path="/mobileForm" exact strict component={MobileForm} />
-                    <Route path="/profil" exact component={Profil} />
-                    <Route path="/video" exact strict component={Video} />
-                    <Route path="/post?id=" exact strict component={MainBlog} />
+                    <Route path="/" exact component={Basis} />
+                    <Route path="/kurslar" component={Kurs} />
+                    <Route path="/bloglar" exact component={BlogPart} />
+                    {/* <Route path="/design"  component={Design01} /> */}
+                    <Route path="/mobileForm" component={MobileForm} />
+                    <Route path="/profil" component={Profil} />
+                    <Route path="/video" component={Video} />
+                    <Route path="/bloglar/:id" component={MainBlog} />
                 </Switch>
             </Router>
         </div>

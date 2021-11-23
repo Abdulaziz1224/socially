@@ -6,6 +6,7 @@ import AuthNumber from "../Form/AuthNumber";
 import Login from "../Form/Login";
 import Register from "../Form/Register";
 import { useHistory } from "react-router";
+import PassRecovery from "../Form/PassRecovery";
 
 export const FormContext = React.createContext();
 function Navbar() {
@@ -14,6 +15,7 @@ function Navbar() {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
+  const [rec, setRec] = useState(false);
 
   const [sendCode, setSendCode] = useState(0);
   let history = useHistory();
@@ -38,7 +40,16 @@ function Navbar() {
   return (
     <div className={status ? "phoneNavbar" : "navbar "}>
       <FormContext.Provider
-        value={{ form, setForm, userData, setUserData, sendCode, setSendCode }}
+        value={{
+          form,
+          setForm,
+          userData,
+          setUserData,
+          sendCode,
+          setSendCode,
+          rec,
+          setRec,
+        }}
       >
         {form === "number" ? <Number /> : ""}
         {form === "authNumber" ? <AuthNumber /> : ""}
@@ -53,12 +64,12 @@ function Navbar() {
       <div className="col-9">
         <ul>
           <li>
-            <NavLink to="kurslar" activeClassName="navLink">
+            <NavLink to="/kurslar" activeClassName="navLink">
               Kurslar
             </NavLink>
           </li>
           <li>
-            <NavLink to="bloglar" activeClassName="navLink">
+            <NavLink to="/bloglar" activeClassName="navLink">
               Bloglar
             </NavLink>
           </li>
@@ -74,7 +85,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="design" activeClassName="navLink">
+            <NavLink to="/design" activeClassName="navLink">
               Web Design 01
             </NavLink>
           </li>

@@ -4,7 +4,7 @@ import "./cardBlog.scss";
 
 function CardBlog(props) {
   let card = props.card;
-console.log(card);
+  console.log(card);
   return (
     <>
       {card === undefined ? (
@@ -20,7 +20,7 @@ console.log(card);
             {card.map((card, index) => {
               return (
                 <Link
-                  to={`/post?id=${card.id}`}
+                  to={`/bloglar/${card.id}`}
                   style={{ textDecoration: "none", color: "black" }}
                   key={index}
                 >
