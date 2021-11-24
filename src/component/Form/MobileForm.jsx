@@ -5,14 +5,13 @@ import MobileLogin from "./MobileLogin";
 import MobileNumber from "./MobileNumber";
 import MobileRegister from "./MobileRegister";
 import MobileAuthNumber from "./MobileAuthNumber";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import "./mobileForm.scss";
 
 import { useState } from "react";
 import MobilePassRecovery from "./MobilePassRecovery";
 
 export const MFormContext = React.createContext();
-
 
 function MobileForm() {
   const [sendCode, setSendCode] = useState(0);
@@ -22,13 +21,13 @@ function MobileForm() {
   const [foot, setFoot] = useState("mobileForm");
   const [xClick, setXClick] = useState(0);
 
-  const history = useHistory()
+  const history = useHistory();
 
-  window.addEventListener("resize",()=>{
-    if(window.innerWidth>576){
-      history.push("/")
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 576) {
+      history.push("/");
     }
-  })
+  });
 
   useEffect(() => {
     let user;
@@ -45,13 +44,13 @@ function MobileForm() {
     }
   }, [mForm]);
 
-  useEffect(()=>{
-    if(localStorage.getItem("redirect")){
-      setMForm("number")
-      setXClick(1)
+  useEffect(() => {
+    if (localStorage.getItem("redirect")) {
+      setMForm("number");
+      setXClick(1);
     }
-    localStorage.removeItem("redirect")
-  }, [])
+    localStorage.removeItem("redirect");
+  }, []);
 
   return (
     <div className={foot}>

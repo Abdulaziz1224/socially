@@ -174,7 +174,7 @@ function Login({ active }) {
             setnumber("");
           }}
         >
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </button>
 
         <div className="box">
@@ -185,7 +185,7 @@ function Login({ active }) {
             Parol noto'g'ri kiritilgan
           </div>
           <img
-            src="images/Form/error.svg"
+            src="/images/Form/error.svg"
             alt="error"
             className="errorImg"
             onClick={() => {
@@ -248,7 +248,7 @@ function Login({ active }) {
               ""
             )}
             Tizimga kirish
-            <img src="images/Form/arrow.svg" alt="arrow" />
+            <img src="/images/Form/arrow.svg" alt="arrow" />
           </button>
         </div>
       </div>

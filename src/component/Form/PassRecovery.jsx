@@ -181,7 +181,7 @@ function PassRecovery({ active }) {
             setnumber("");
           }}
         >
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </button>
 
         <div className="box">
@@ -193,7 +193,7 @@ function PassRecovery({ active }) {
             Parolingiz mos tushmadi
           </div>
           <img
-            src="images/Form/error.svg"
+            src="/images/Form/error.svg"
             alt="error"
             className="errorImg"
             id="errorImg"
@@ -253,7 +253,7 @@ function PassRecovery({ active }) {
               ""
             )}
             Parolni yangilash
-            <img src="images/Form/arrow.svg" alt="arrow" />
+            <img src="/images/Form/arrow.svg" alt="arrow" />
           </button>
         </div>
       </div>

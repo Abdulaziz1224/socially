@@ -1,79 +1,110 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./mainMiddle.scss";
 function MainMiddle() {
-  const { id } = useParams()
-  
-  console.log(`https://socially.uz/api//v2/blog/${id}`);
+  const { id } = useParams();
+  const [post, setPost] = useState("");
+  useEffect(() => {
+    axios
+      .get(`https://socially.uz/api//v2/blog/${id}`)
+      .then((res) => {
+        setPost(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+  console.log(post.text);
   return (
-    <div className="mainMiddle">
-      <div className="container">
-        <div className="box1">
-          <div className="box-left">
-            <img src="/images/Blog/MainBox/image 1.png" alt="img" />
-          </div>
-          <div className="box-right">
-            <div className="caption-text">
-              <div className="caption-text-top">
-                <img src="/images/Blog/MainBox/Ismoil Safarov.svg" alt="img" />
-                <span>Ismoil Safarov · 27.08.2021</span>
+    <>
+      {post === "" ? (
+        <h1
+          style={{
+            width: "100%",
+            height: "100vh",
+            margin: "auto",
+            color: "black",
+            textAlign: "center",
+            position: "relative",
+            top: "0",
+          }}
+        >
+          Loading...
+        </h1>
+      ) : (
+        <div className="mainMiddle">
+          <div className="container">
+            <div className="box">
+              <div className="box-left">
+                <img
+                  src={`https://socially.uz/${post.imageUrl}`}
+                  alt="img"
+                  className="imageUrl"
+                />
               </div>
-              <div className="caption-text-bottom">
-                <p>
-                  Bilishingiz kerak bo'lgan Web Design'ning 7 xil turdagi
-                  stillari
-                </p>
+              <div className="box-right">
+                <div className="caption-text">
+                  <div className="caption-text-top">
+                    <span>Ismoil Safarov · 27.08.2021</span>
+                  </div>
+                  <div className="caption-text-bottom">
+                    <p>{post.title}</p>
+                  </div>
+                </div>
+                <div className="connecting">
+                  <div className="link">
+                    <Link
+                      to={{
+                        pathname: " https://t.me/sociallyuz",
+                      }}
+                      target="_blank"
+                    >
+                      <img
+                        src="/images/Web Design01/footer/telegramblack.svg"
+                        alt="instagram"
+                      />
+                    </Link>
+                  </div>
+                  <div className="link">
+                    <Link
+                      to={{
+                        pathname: " https://t.me/sociallyuz",
+                      }}
+                      target="_blank"
+                    >
+                      <img
+                        src="/images/Web Design01/footer/facebookblack.svg"
+                        alt="instagram"
+                      />
+                    </Link>
+                  </div>
+                  <div className="link">
+                    <Link
+                      to={{
+                        pathname: " https://t.me/sociallyuz",
+                      }}
+                      target="_blank"
+                    >
+                      <img
+                        src="/images/Web Design01/footer/Frame.svg"
+                        alt="instagram"
+                      />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="connecting">
-              <div className="link">
-                <Link
-                  to={{
-                    pathname: " https://t.me/sociallyuz",
-                  }}
-                  target="_blank"
-                >
-                  <img
-                    src="/images/Web Design01/footer/telegram.svg"
-                    alt="instagram"
-                  />
-                </Link>
+            <div className="post">
+              <div className="post-text">
+                 {/* { (eval(post.text))}       */}
               </div>
-              <div className="link">
-                <Link
-                  to={{
-                    pathname: " https://t.me/sociallyuz",
-                  }}
-                  target="_blank"
-                >
-                  <img
-                    src="/images/Web Design01/footer/facebook.svg"
-                    alt="instagram"
-                  />
-                </Link>
-              </div>
-              <div className="link">
-                <Link
-                  to={{
-                    pathname: " https://t.me/sociallyuz",
-                  }}
-                  target="_blank"
-                >
-                  <img
-                    src="/images/Web Design01/footer/Frame.svg"
-                    alt="instagram"
-                  />
-                </Link>
-              </div>
+              <div className="remember"></div>
             </div>
           </div>
-
         </div>
-        <div className="infoPost">
-
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

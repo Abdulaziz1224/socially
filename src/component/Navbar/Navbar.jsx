@@ -55,6 +55,8 @@ function Navbar() {
         {form === "authNumber" ? <AuthNumber /> : ""}
         {form === "login" ? <Login /> : ""}
         {form === "register" ? <Register /> : ""}
+        {form === "recovery" ? <PassRecovery /> : ""}
+
       </FormContext.Provider>
       <div className="col-1">
         <Link to="/" className="Logo">
@@ -102,7 +104,7 @@ function Navbar() {
           className="NavProfil"
           style={{ display: userData === null ? "none" : "flex" }}
         >
-          <Link to="profil" className="profilText">
+          <Link to="/profil" className="profilText">
             Mening profilim
           </Link>
         </div>

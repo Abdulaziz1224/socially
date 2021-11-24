@@ -206,7 +206,7 @@ function Number() {
             setRegistered(null);
           }}
         >
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </button>
 
         <div className="box">
@@ -243,7 +243,7 @@ function Number() {
               ""
             )}
             Tekshirish
-            <img src="images/Form/arrow.svg" alt="arrow" />
+            <img src="/images/Form/arrow.svg" alt="arrow" />
           </button>
         </div>
       </div>

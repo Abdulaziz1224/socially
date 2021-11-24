@@ -13,7 +13,6 @@
     background: #ffffff;
     max-width: 273px;
     transition: 0.4s;
-    // border: 2px solid rgba(234, 234, 234, 1);
 
     &:hover {
       transform: translate(0, -115px);
@@ -36,7 +35,6 @@
       p {
         margin: auto 0;
         margin-left: 10px;
-
         font-family: "Proxima Nova Rg";
         font-size: 16px;
         font-style: normal;
@@ -47,17 +45,14 @@
     .text {
       margin: 20px;
       width: 80%;
-
-      font-family: Proxima Nova;
+      font-family: "Proxima Nova Rg";
+      font-weight: 400;
       font-size: 14px;
       font-style: normal;
       line-height: 21px;
       color: #595959;
     }
 
-    // &:hover {
-    //   border: 2px solid rgba(218, 217, 217, 1);
-    // }
     &-img {
       width: 100%;
       border-bottom: 2px solid #eaeaea;
@@ -138,12 +133,6 @@
         letter-spacing: 0em;
         text-align: left;
       }
-
-      // .full-info {
-      //   width: 160px;
-      //   height: 40px;
-      //   margin: 24px 40px 15px 15px;
-      // }
     }
   }
 }

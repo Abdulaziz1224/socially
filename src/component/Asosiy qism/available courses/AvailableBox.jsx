@@ -35,7 +35,7 @@ function AvailableBox() {
                 : course.title}
             </h1>
             <div className="profile">
-              <img src="/images/videoCourse/avatar.png" alt="" />
+              <img src="/images/videoCourse/avatar.png" alt="" style={{width: "35px", height: "35px", objectFit: "cover"}} />
               <p className="name">Ismoil Safarov</p>
             </div>
             <p className="text">

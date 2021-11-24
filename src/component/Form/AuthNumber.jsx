@@ -143,7 +143,7 @@ function AuthNumber() {
             setXClick(1);
           }}
         >
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </button>
 
         <div className="box">
@@ -168,7 +168,7 @@ function AuthNumber() {
             Kod noto'g'ri kiritilgan
           </div>
           <img
-            src="images/Form/error.svg"
+            src="/images/Form/error.svg"
             alt="error"
             className="errorImg"
             onClick={() => {
@@ -232,7 +232,7 @@ function AuthNumber() {
               ""
             )}
             Kodni tasdiqlash
-            <img src="images/Form/ok.svg" alt="accept" />
+            <img src="/images/Form/ok.svg" alt="accept" />
           </button>
         </div>
       </div>
