@@ -4,37 +4,29 @@ import axios from "axios";
 import "./blogMiddle.scss";
 // import BlogBox from "../../Asosiy qism/blogs/BlogBox";
 import CardBlog from "./CardBlog";
+
+
 function BlogMiddle(props) {
   const [load, setLoad] = useState(false);
   const [card, setCard] = useState("");
-  const [newCard, setNewCard] = useState([]);
-  let offset = 0;
-  const loadButton = () => {
-    offset = offset + 9;
+  const [offset, setoffset] = useState(0);
+  const [loadB, setLoadB] = useState(0);
+
+  useEffect(() => {
     axios
       .get(
         `https://socially.uz/api//v2/blog/all?size=9&offset=${offset}&sort=-1`
       )
       .then((res) => {
-        setNewCard(res.data.data);
         setLoad((prev) => !prev);
-        setCard([...card, ...newCard]);
+        setCard([...card, ...res.data.data]);
       })
       .catch((err) => {
         console.log(err);
       });
     setLoad((prev) => !prev);
-  };
-  useEffect(() => {
-    axios
-      .get("https://socially.uz/api//v2/blog/all?size=9&offset=0&sort=-1")
-      .then((res) => {
-        setCard(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [offset]);
+  }, [loadB]);
+
   return (
     <div className="blogMiddle">
       {card === "" ? (
@@ -43,7 +35,13 @@ function BlogMiddle(props) {
         <>
           <CardBlog card={card} />
           <div className="refresh">
-            <button className="refresh-button" onClick={loadButton}>
+            <button
+              className="refresh-button"
+              onClick={() => {
+                setoffset(offset + 9);
+                setLoadB(loadB + 1);
+              }}
+            >
               Yana yuklash
               <HiOutlineRefresh className={!load ? "icon" : "icon update"} />
             </button>

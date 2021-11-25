@@ -1,14 +1,14 @@
 import React from "react";
 import MainSection from "../mainSection/MainSection";
 import Footer from "../../Web design01/Footer/Footer";
-import AvailableCourses from "../available courses/AvailableCourses";
-import CardBlog from "../../Blog/BlogMiddlePart/CardBlog";
+import BlogMiddle from "../../Blog/BlogMiddlePart/BlogMiddle";
+import KursMiddle from "../../Kurs/kursMiddlePart/KursMiddle";
 function Basis() {
   return (
     <div className="basis">
       <MainSection />
-      <AvailableCourses/>
-      <CardBlog/>
+      <KursMiddle />
+      <BlogMiddle/>
       <Footer />
     </div>
   );

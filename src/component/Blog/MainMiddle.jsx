@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import parse from "html-react-parser";
 import "./mainMiddle.scss";
 function MainMiddle() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function MainMiddle() {
         console.log(err);
       });
   }, [id]);
-  console.log(post.text);
+  console.log(post);
   return (
     <>
       {post === "" ? (
@@ -47,6 +48,7 @@ function MainMiddle() {
                 <div className="caption-text">
                   <div className="caption-text-top">
                     <span>Ismoil Safarov · 27.08.2021</span>
+                    <br />
                   </div>
                   <div className="caption-text-bottom">
                     <p>{post.title}</p>
@@ -97,9 +99,41 @@ function MainMiddle() {
             </div>
             <div className="post">
               <div className="post-text">
-                 {/* { (eval(post.text))}       */}
+                {parse(
+                  post.text.replaceAll(
+                    `..`,
+                    "https://socially.uz"
+                  )
+                )}
               </div>
-              <div className="remember"></div>
+              <div className="remember">
+                <p>
+                  <span>18.10.2020</span> <br />
+                  Tajribada sinalgan juda oddiy uslub. Kuniga 10+ soat ishlab
+                  h...
+                </p>
+                <p>
+                  <span>18.10.2020</span>
+                  <br />
+                  Har qanday tanqidni qabul qiling!
+                </p>
+                <p>
+                  <span>18.10.2020</span>
+                  <br />
+                  Adobe Illustrator’dan Logo & Branding tayyorlashda foydala...
+                </p>
+                <p>
+                  <span>06.09.2020</span>
+                  <br />
+                  Kontrast qanday va nima uchun?
+                </p>
+                <p>
+                  <span>05.08.2020</span>
+                  <br />
+                  Ranglarning ijtimoiy hayotdagi ta‘sir kuchi va
+                  manipulyatsiyasi...
+                </p>
+              </div>
             </div>
           </div>
         </div>
