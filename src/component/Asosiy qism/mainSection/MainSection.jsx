@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../Navbar/Navbar";
 import "./mainSection.scss";
 function MainSection() {
-  return (
+  return (        
     <div className="mainSection">
       <Navbar />
       <div className="header-bottom">

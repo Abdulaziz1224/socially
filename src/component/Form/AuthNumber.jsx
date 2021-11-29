@@ -218,6 +218,12 @@ function AuthNumber() {
           <div id={"cap14"}></div>
           <div id={"cap15"}></div>
           <div id={"cap16"}></div>
+          <div id={"cap17"}></div>
+          <div id={"cap18"}></div>
+          <div id={"cap19"}></div>
+          <div id={"cap20"}></div>
+          <div id={"cap21"}></div>
+          <div id={"cap22"}></div>
           <button
             className="check"
             onClick={() => {

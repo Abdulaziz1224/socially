@@ -3,21 +3,24 @@ import Modul1 from "./Modules/Modul1";
 import Modul2 from "./Modules/Modul2";
 import Modul3 from "./Modules/Modul3";
 import axios from "axios";
-export const ModulContext = React.createContext();
+import { VideoContext } from "../Video";
+import { useContext } from "react/cjs/react.development";
 
 function Modul() {
-  const [modul, setModul] = useState(1);
+  const { modul, setModul } = useContext(VideoContext);
   const [modules, setModules] = useState([]);
   useEffect(() => {
     axios
-      .get("https://socially.uz/api/v2/course/public/1003")
+      .get(`https://socially.uz/api/v2/course/public/${window.location.href.slice(-4)}`)  
       .then((res) => {
         setModules(res.data.data.course.modules);
+        console.log(res.data.data.course.modules);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+  
   return (
     <div className="modul">
       <div className="container">
@@ -57,17 +60,17 @@ function Modul() {
           </button>
         </nav>
 
-        <ModulContext.Provider value=
+        {/* <ModulContext.Provider value=
         {{ 
           modul,
           setModul,
           modules 
-        }}
-        >
-          <Modul1 />
-          <Modul2 />
-          <Modul3 />
-        </ModulContext.Provider>
+        }} */}
+        {/* > */}
+        <Modul1 modules={modules} />
+        <Modul2 modules={modules} />
+        <Modul3 modules={modules} />
+        {/* </ModulContext.Provider> */}
       </div>
     </div>
   );

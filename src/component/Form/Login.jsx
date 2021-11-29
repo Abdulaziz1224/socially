@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import "./login.scss";
 import { FormContext } from "../Navbar/Navbar";
 import { login } from "../user";
@@ -229,8 +228,8 @@ function Login({ active }) {
             <button
               className="reset"
               onClick={() => {
-                setForm("recovery");
-                setRec(true)
+                setForm("authNumber");     
+                setRec(true);
               }}
             >
               Parolni tiklash

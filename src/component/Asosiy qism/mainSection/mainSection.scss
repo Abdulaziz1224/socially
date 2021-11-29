@@ -2,10 +2,11 @@
   width: 100%;
   margin: 0 auto;
   height: 768px;
-  // background-image: url("../../../backgroundImages/Chiziqchalar kurs.svg");
-  background-size: cover;
+  background-image: url("../../../backgroundImages/Chiziqchalar kurs.png");     
+  // background-size: cover;
   background-position: center center;
-  position: relative;
+  background-repeat: repeat-x;
+  position: relative;  
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -194,6 +195,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     height: 812px;
+    
 
     .header-bottom {
       max-width: 90%;

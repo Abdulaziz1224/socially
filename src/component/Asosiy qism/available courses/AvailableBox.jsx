@@ -12,7 +12,8 @@ function AvailableBox() {
       )
       .then((res) => {
         setCourses(res.data.data);
-        console.log(res.data.data[0].title.length);
+        window.courses = res.data.data;
+        // console.log(res.data.data[0].title.length);
       })
       .catch((err) => {
         console.log(err);
@@ -35,7 +36,11 @@ function AvailableBox() {
                 : course.title}
             </h1>
             <div className="profile">
-              <img src="/images/videoCourse/avatar.png" alt="" style={{width: "35px", height: "35px", objectFit: "cover"}} />
+              <img
+                src="/images/videoCourse/avatar.png"
+                alt=""
+                style={{ width: "35px", height: "35px", objectFit: "cover" }}
+              />
               <p className="name">Ismoil Safarov</p>
             </div>
             <p className="text">
@@ -43,12 +48,14 @@ function AvailableBox() {
                 ? course.description.slice(0, 60) + "..."
                 : course.description}
             </p>
-            <Link to="video" className="full-info">
-              Batafsil maʼlumot
-              <img
-                src="/images/Asosiy Qism/available courses/arrow.svg"
-                alt=""
-              />
+            <Link to={`video/${course.id}`} className="full-info">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                Batafsil maʼlumot
+                <img
+                  src="/images/Asosiy Qism/available courses/arrow.svg"
+                  alt=""
+                />
+              </div>
             </Link>
           </div>
         );

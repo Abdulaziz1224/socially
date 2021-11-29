@@ -9,6 +9,22 @@
     display: none;
   }
 
+  .rec{
+
+    .container{
+      height: 450px;
+    }
+    .box{
+      height: 450px;
+    }
+    #errorImg{
+      top: 305px; 
+    }
+    #errorMsg{
+      top: 250px;
+    }
+  }
+
   .navbar {
     height: 90px;
     width: 100%;
@@ -129,6 +145,7 @@
         // }
       }
     }
+
   }
 
   @media (min-height: 570px) {

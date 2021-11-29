@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import "./login.scss";
 import "./passRecovery.scss";
 import { FormContext } from "../Navbar/Navbar";
 import { recovery } from "../user";
 import { MoonLoader } from "react-spinners";
+import { ToastContainer, toast } from "react-toastify";
 
 function PassRecovery({ active }) {
   const [number, setnumber] = useState("+998");
@@ -31,25 +31,29 @@ function PassRecovery({ active }) {
 
   function kirish() {
     if (pass === checkPass) {
-      setLoad(1);
-      setCodeErr(0);
-      setHideErr(1);
-      function cb(data) {
-        setUserData(data);
-        setLoad(0);
-        if (data) {
-          setRec(false);
-          setCodeErr(0);
-          setForm("login");
+      if(pass.length < 6){
+        toast.error("Parol kamida 6ta belgidan iborat bolishi kerak");
+      }else{
+        setLoad(1);
+        setCodeErr(0);
+        setHideErr(1);
+        function cb(data) {
+          setUserData(data);
+          setLoad(0);
+          if (data) {
+            setRec(false);
+            setCodeErr(0);
+            setForm("login");
+          }
         }
-      }
 
-      function errCb() {
-        setLoad(0);
-        setCodeErr(1);
-      }
+        function errCb() {
+          setLoad(0);
+          setCodeErr(1);
+        }
 
-      if (load === 0) recovery({ phone: phone, password: pass }, cb, errCb);
+        if (load === 0) recovery({ phone: phone, password: pass }, cb, errCb);
+      }
     } else {
       setCodeErr(1);
     }
@@ -171,6 +175,19 @@ function PassRecovery({ active }) {
       className="login  rec"
       style={{ display: form === "recovery" ? "block" : "none" }}
     >
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <ToastContainer />
+
       <div
         className={form === "login" ? "container active" : "container active"}
       >
@@ -208,8 +225,8 @@ function PassRecovery({ active }) {
 
           <h1>Parolni yangilash</h1>
           <p>
-            Saytning to‘liq imkoniyatlaridan foydalanish uchun tizimga
-            kirishingiz kerak bo‘ladi
+            Parolingizni tiklash uchun yangi parol kiritishingiz va
+            tasdiqlashingiz kerak boladi.
           </p>
           <input
             type="tel"
@@ -227,7 +244,7 @@ function PassRecovery({ active }) {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Parolingizni kiriting"
             value={pass}
             onChange={(e) => {
               setPass(e.target.value);
@@ -235,7 +252,7 @@ function PassRecovery({ active }) {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Parolingizni qayta kiriting"
             value={checkPass}
             onChange={(e) => {
               setCheckPass(e.target.value);

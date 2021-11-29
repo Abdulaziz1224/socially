@@ -18,7 +18,7 @@ function MobileAuthNumber() {
   const [load, setLoad] = useState(0);
 
   const { sendCode } = useContext(MFormContext);
-  const { mForm, setMForm, xClick, setXClick } = useContext(MFormContext);
+  const { mForm, setMForm, xClick, setXClick, rec } = useContext(MFormContext);
 
   const override = `
     position: absolute;
@@ -62,7 +62,11 @@ function MobileAuthNumber() {
       confCode
         .confirm(number)
         .then((result) => {
-          setMForm("register");
+          if (rec) {
+            setMForm("recovery");
+          } else {
+            setMForm("register");
+          }
           setCodeErr(0);
           setLoad(0);
         })
@@ -143,7 +147,7 @@ function MobileAuthNumber() {
             Kod noto'g'ri kiritilgan
           </div>
           <img
-            src="images/Form/error.svg"
+            src="/images/Form/error.svg"
             alt="error"
             className="errorImg"
             onClick={() => {
@@ -207,7 +211,7 @@ function MobileAuthNumber() {
               ""
             )}
             Kodni tasdiqlash
-            <img src="images/Form/ok.svg" alt="accept" />
+            <img src="/images/Form/ok.svg" alt="accept" />
           </Link>
         </div>
       </div>

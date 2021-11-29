@@ -134,7 +134,7 @@ function MobileRegister({ active }) {
               ""
             )}
             Ro’yxatdan o’tish
-            <img src="images/Form/arrow.svg" alt="accept" />
+            <img src="/images/Form/arrow.svg" alt="accept" />
           </button>
         </div>
       </div>

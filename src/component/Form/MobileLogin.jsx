@@ -184,7 +184,7 @@ function MobileLogin({ active }) {
         className={mForm === "login" ? "container active" : "container active"}
       >
         <Link to="/" className="xBtn" onClick={() => setMForm("")}>
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </Link>
 
         <div className="box">
@@ -195,7 +195,7 @@ function MobileLogin({ active }) {
             Parol noto'g'ri kiritilgan
           </div>
           <img
-            src="images/Form/error.svg"
+            src="/images/Form/error.svg"
             alt="error"
             className="errorImg"
             onClick={() => {
@@ -254,7 +254,7 @@ function MobileLogin({ active }) {
               ""
             )}
             Tizimga kirish
-            <img src="images/Form/arrow.svg" alt="arrow" />
+            <img src="/images/Form/arrow.svg" alt="arrow" />
           </Link>
         </div>
       </div>

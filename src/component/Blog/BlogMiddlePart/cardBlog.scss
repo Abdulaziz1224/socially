@@ -5,7 +5,7 @@
   display: flex;
 
   .blogText {
-    width: 18%;
+    width: 17%;
     padding-right: 20px;
 
     .captionText {
@@ -39,8 +39,9 @@
       flex-direction: column;
       transform: scale(1);
       transition: all 0.4s;
+      width: 273px;
       .imgInCard {
-        width: 100%;
+        width: 273px;
         height: 175px;
       }
       .titleText {

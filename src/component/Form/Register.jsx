@@ -62,7 +62,7 @@ function Register({ active }) {
         }
       >
         <button className="xBtn" onClick={() => setForm("")}>
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </button>
 
         <div className="box">
@@ -114,7 +114,7 @@ function Register({ active }) {
               ""
             )}
             Ro’yxatdan o’tish
-            <img src="images/Form/arrow.svg" alt="accept" />
+            <img src="/images/Form/arrow.svg" alt="accept" />
           </button>
         </div>
       </div>

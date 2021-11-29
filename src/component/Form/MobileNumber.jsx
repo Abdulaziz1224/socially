@@ -180,7 +180,7 @@ function MobileNumber() {
         className={mForm === "number" ? "container active" : "container active"}
       >
         <Link to="/" className="xBtn" onClick={() => setMForm("")}>
-          <img src="images/Form/x.svg" alt="x" />
+          <img src="/images/Form/x.svg" alt="x" />
         </Link>
 
         <div className="box">
@@ -218,7 +218,7 @@ function MobileNumber() {
               ""
             )}
             Tekshirish
-            <img src="images/Form/arrow.svg" alt="arrow" />
+            <img src="/images/Form/arrow.svg" alt="arrow" />
           </Link>
         </div>
       </div>

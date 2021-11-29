@@ -1,12 +1,13 @@
 import React from 'react'
 import { useState, useContext, useEffect } from 'react'
-import { ModulContext } from '../Modul'
+// import { ModulContext } from '../Modul'
 import Topic from '../../Topic/Topic'
+import { VideoContext } from '../../Video'
 
-function Modul3() {
+function Modul3({modules}) {
   const [topics, setTopics] = useState([])
 
-  const {modul, setModul, modules} = useContext(ModulContext)
+  const { modul, setModul } = useContext(VideoContext);
 
   useEffect(()=>{
     if(modules.length !==0 && modules[2]){

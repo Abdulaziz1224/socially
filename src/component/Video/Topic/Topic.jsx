@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useRef, useEffect, useContext } from "react";
-import { ModulContext } from "../Modul/Modul";
+// import { ModulContext } from "../Modul/Modul";
+import { VideoContext } from "../Video";
 
 function Topic({ number, topic, theme }) {
-  const { modul } = useContext(ModulContext);
+  const {videoLink, modul, setCurrentVideo, currentVideo} = useContext(VideoContext)    
 
   const [activeClass, setActiveClass] = useState("");
   const [height, setHeight] = useState("0");
@@ -29,7 +30,7 @@ function Topic({ number, topic, theme }) {
           <h3>{topic}</h3>
         </div>
         <img
-          src="images/videoCourse/topicArrow.svg"
+          src="/images/videoCourse/topicArrow.svg"
           alt=""
           style={{
             transform: `rotate(${activeClass === "" ? "0deg" : "90deg"})`,
@@ -45,12 +46,12 @@ function Topic({ number, topic, theme }) {
         <div className="lesson-list" ref={size}>
           {theme.map((obj) => {
             return (
-              <div className="theme" key={theme.indexOf(obj)}>
+              <div className="theme" key={theme.indexOf(obj)} onClick={()=>{setCurrentVideo(theme[theme.indexOf(obj)].link); console.log(currentVideo)}}>  
                 <img
                   src={
                     theme[theme.indexOf(obj)].lock
-                      ? "images/videoCourse/lock.svg"
-                      : "images/videoCourse/unlock.svg"
+                      ? "/images/videoCourse/lock.svg"
+                      : "/images/videoCourse/unlock.svg"
                   }
                   alt=""
                   className="lock"

@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useState, useContext } from "react";
-import { ModulContext } from "../Modul";
+// import { ModulContext } from "../Modul";
 import Topic from "../../Topic/Topic";
+import { VideoContext } from "../../Video";
 
-function Modul1() {
+function Modul1({modules}) {
   const [topics, setTopics] = useState([]);
 
-  const { modul, modules } = useContext(ModulContext);
+  const { modul } = useContext(VideoContext);
 
   useEffect(() => {
     if (modules.length !== 0) {
@@ -27,6 +28,7 @@ function Modul1() {
                 "." +
                 (obj.parts.indexOf(mavzu) + 1),
               label: mavzu.title,
+              link: mavzu.link
             };
           }),
         };
@@ -49,6 +51,7 @@ function Modul1() {
                     lock: mavzu.lock,
                     themeNumber: mavzu.themeNumber,
                     label: mavzu.label,
+                    link: mavzu.link,
                   };
                 })}
               />
